@@ -15,6 +15,12 @@ h2 {
 	font-size: 40px;
 }
 
+p {
+	color: white;
+	font-size: 12px;
+	font-family: "Times New Roman", Times, serif;
+}
+
 .container-fluid {
 	height: 200px;
 	width: 100%;
