@@ -1,0 +1,50 @@
+/* 
+`background-color` - Takes in a colour or a hex code!
+`color` - Takes in a colour or hex code
+`text-align` - Center | Right | Left | Justified
+`font-size` - Just like a Google / Word doc
+`font-family` - Font name / type
+
+ --- Some important reminders --- 
+ * Think of this as a JSON file
+ * Semi-colons are REQUIRED
+*/
+
+body {
+	background-color: black;
+}
+
+h2 {
+	margin-top: 10px;
+	color: cyan;
+	text-align: center;
+	font-size: 32px;
+	font-family: cursive;
+}
+p {
+	color: darkred;
+	font-size: 12px;
+	font-family: "Times New Roman", Times, serif;
+	margin-left: 55px;
+}
+ol {
+	color: gold;
+	font-family: fantasy;
+}
+ul {
+	color: limegreen;
+	font-family: "Courier New", Courier, monospace;
+}
+img {
+	float: right;
+}
+
+.neonLights {
+	text-align: center;
+	font-size: 40px;
+	color: white;
+	background: cyan;
+	text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white,
+		0 0 10px white;
+	background: cyan;
+}
