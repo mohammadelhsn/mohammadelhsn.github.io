@@ -1,4 +1,5 @@
 .topnav {
+	position: fixed;
 	background-color: black;
 	overflow: hidden;
 }
