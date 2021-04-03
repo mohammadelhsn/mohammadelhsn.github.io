@@ -8,6 +8,11 @@ body {
 	color: white;
 	font-family: "Avenir", sans-serif;
 }
+
+img {
+	float: right;
+}
+
 h1 {
 	font-size: 75px;
 }
