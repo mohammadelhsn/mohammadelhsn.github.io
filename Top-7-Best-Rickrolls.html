@@ -38,51 +38,21 @@
     </div>
     <div class="container-fluid">
       <script>
-        const button = document.getElementById("Panic");
+        document.onkeypress = function (e) {
+          e = e || window.event;
 
-        button.onclick = function () {
-          window.location.href = "https://classroom.google.com";
+          if (e.keyCode == 80) {
+            window.location.href = "https://classroom.google.com";
+          }
         };
       </script>
       <div class="header">
         <h1>Quick links</h1>
         <a href="https://docs.google.com"><h1>Google Docs</h1></a>
         <a href="https://krunker.io"><h1>😏</h1></a>
-        <button id="Panic"></button>
       </div>
     </div>
     <footer class="footer">
-      <div class="container">
-        <div class="icons">
-          <a href="https://dsc.bio/mohammad">
-            <i class="fa fa-discord" title="Discord"></i>
-          </a>
-          <a href="mailto:ProcessVersion@gmail.com">
-            <i class="fa fa-envelope" title="Email"></i>
-          </a>
-          <a href="https://github.com/ProcessVersion/">
-            <i class="fa fa-github-square" title="Github"></i>
-          </a>
-          <a href="https://steamcommunity.com/id/processversion/">
-            <i class="fa fa-steam-square" title="Steam"></i>
-          </a>
-          <a href="https://www.reddit.com/u/Techmxster">
-            <i class="fa fa-reddit-square" title="Reddit"></i>
-          </a>
-          <a href="https://twitter.com/processversion">
-            <i class="fa fa-twitter-square" title="Twitter"></i>
-          </a>
-          <a href="https://open.spotify.com/user/y7rn8zk0xccxc97n8crywpkwd">
-            <i class="fa fa-spotify" title="Spotify"></i>
-          </a>
-          <a href="https://www.twitch.tv/processversion">
-            <i class="fa fa-twitch" title="Twitch"></i>
-          </a>
-          <a href="https://youtu.be/dQw4w9WgXcQ">
-            <i class="fa fa-youtube"></i>
-          </a>
-        </div>
-      </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script
         src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
