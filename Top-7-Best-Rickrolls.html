@@ -24,6 +24,17 @@
       src="https://kit.fontawesome.com/0ef910118e.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      document.onkeypress = function (e) {
+        e = e || window.event;
+
+        console.log(e);
+
+        if (e.keyCode == 80) {
+          window.location.href = "https://classroom.google.com";
+        }
+      };
+    </script>
     <link rel="stylesheet" type="text/css" href="./src/css/navbar.css" />
     <script src="./src/Javascript/navbar.js"></script>
   </head>
@@ -37,15 +48,6 @@
       </a>
     </div>
     <div class="container-fluid">
-      <script>
-        document.onkeypress = function (e) {
-          e = e || window.event;
-
-          if (e.keyCode == 80) {
-            window.location.href = "https://classroom.google.com";
-          }
-        };
-      </script>
       <div class="header">
         <h1>Quick links</h1>
         <a href="https://docs.google.com"><h1>Google Docs</h1></a>
