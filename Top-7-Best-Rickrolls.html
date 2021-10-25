@@ -28,8 +28,11 @@
       document.onkeypress = function (e) {
         e = e || window.event;
 
-        if (e.keyCode == 112) {
+        if (e.key == "p") {
           window.location.href = "https://classroom.google.com";
+        }
+        if (e.key == "d") {
+          window.location.href = "http://dsbn.elearningontario.ca/";
         }
       };
     </script>
@@ -47,9 +50,11 @@
     </div>
     <div class="container-fluid">
       <div class="header">
-        <h1>Quick links</h1>
-        <a href="https://docs.google.com"><h1>Google Docs</h1></a>
-        <a href="https://krunker.io"><h1>😏</h1></a>
+        <h1>School utilities</h1>
+        <a href="https://docs.google.com"><h2>Google Docs</h2></a>
+        <a href="https://classroom.google.com"><h2>Google Classroom</h2></a>
+        <a href="https://slides.google.com"><h2>Google slides</h2></a>
+        <a href="https://krunker.io"><h2>#1 Best learning tool</h2></a>
       </div>
     </div>
     <footer class="footer">
