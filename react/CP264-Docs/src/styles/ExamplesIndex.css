@@ -1,0 +1,30 @@
+.exampleHeader {
+	color: #2a6ddf;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+.examplePara {
+	font-size: 1.1em;
+	margin-bottom: 30px;
+}
+.example-list {
+	list-style: none;
+	padding: 0;
+}
+.example-item {
+	background: white;
+	padding: 15px 20px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease;
+}
+.example-item:hover {
+	transform: scale(1.02);
+}
+.example-item a {
+	text-decoration: none;
+	color: #2a6ddf;
+	font-weight: bold;
+	font-size: 1.05em;
+}

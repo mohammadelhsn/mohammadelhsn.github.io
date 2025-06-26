@@ -1,0 +1,26 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"classes.html":[0,1],
+"files.html":[1,0],
+"globals.html":[1,1,0],
+"globals_func.html":[1,1,1],
+"index.html":[],
+"mystring_8c.html":[1,0,0],
+"mystring_8c.html#a34523e30170f538fb6421bf9d16e15bd":[1,0,0,0],
+"mystring_8c.html#a843d7145c64ef77611c690b1e03fcbd3":[1,0,0,2],
+"mystring_8c.html#ac93f58eb3dc0fa5fdedcaf806370a560":[1,0,0,1],
+"mystring_8h.html":[1,0,1],
+"mystring_8h.html#a34523e30170f538fb6421bf9d16e15bd":[1,0,1,0],
+"mystring_8h.html#a843d7145c64ef77611c690b1e03fcbd3":[1,0,1,2],
+"mystring_8h.html#ac93f58eb3dc0fa5fdedcaf806370a560":[1,0,1,1],
+"mystring_8h_source.html":[1,0,1],
+"myword_8c.html":[1,0,2],
+"myword_8c.html#a51d410635dc5631e1d1545f662956b5d":[1,0,2,2],
+"myword_8c.html#abe2412f949666f13951cabbf0a651f6c":[1,0,2,1],
+"myword_8c.html#ad16a8fc150ab9240644c9fda10d74d73":[1,0,2,0],
+"myword_8h_source.html":[1,0,3],
+"pages.html":[],
+"structword.html":[0,0,0],
+"structwordstats.html":[0,0,1]
+};
