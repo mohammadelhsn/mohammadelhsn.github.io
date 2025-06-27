@@ -89,7 +89,7 @@ h3 {
 }
 
 .card {
-	background-color: white !important;
+	background-color: #fff8f5 !important;
 	padding: 25px;
 	border-radius: 10px;
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
@@ -146,7 +146,6 @@ body.dark-mode .section pre {
 	color: #ccc;
 }
 
-
 body.dark-mode .card a {
 	color: #ffc9b9;
 }
@@ -188,7 +187,16 @@ body.dark-mode .card a {
 		brightness(101%) contrast(101%);
 }
 
-
 .accordion-button:not(.collapsed) {
 	background-color: transparent !important;
 }
+
+body.darkMode .homeHeader {
+	color: #dcd0ff;
+}
+.homeHeader {
+	color: #6b6999;
+}
+
+
+

@@ -1,4 +1,3 @@
-import * as DATA from '../data/Data';
 import { ListGroup, Accordion, Card, Col, Row } from 'react-bootstrap';
 import '../styles/Home.css';
 
@@ -10,7 +9,7 @@ const CP264DocsMain = () => {
 				<h2>Wilfrid Laurier University — Winter 2025</h2>
 			</div>
 			<div className="section">
-				<h3>📌 Overview</h3>
+				<h3 className="homeHeader">📌 Overview</h3>
 				<hr className="my-3 section-divider-left" />
 				{/* prettier-ignore */}
 				<p>
@@ -22,10 +21,10 @@ const CP264DocsMain = () => {
 			</div>
 
 			<div className="section">
-				<h3>📄 Docs Structure</h3>
+				<h3 className="homeHeader">📄 Docs Structure</h3>
 				<hr className="my-3 section-divider-left" />
 				{/* prettier-ignore */}
-				<pre><code>{`mohammadelhsn.github.io/cp264/
+				<pre><code>{`mohammadelhsn.github.io/CP264/
 ├── assignments/  # Documentation for assignments
 ├── labs/         # Documentation for labs
 ├── examples/     # Documentation for examples
@@ -34,7 +33,7 @@ const CP264DocsMain = () => {
 				</pre>
 			</div>
 			<div className="section">
-				<h3>🚀 Topics</h3>
+				<h3 className="homeHeader">🚀 Topics</h3>
 				<hr className="my-3 section-divider-left" />
 				<Accordion>
 					<Accordion.Item eventKey="0">
@@ -70,7 +69,7 @@ const CP264DocsMain = () => {
 				</Accordion>
 			</div>
 			<div className="section">
-				<h3>🛠️ Technologies</h3>
+				<h3 className="homeHeader">🛠️ Technologies</h3>
 				<hr className="my-3 section-divider-left"></hr>
 				<ListGroup variant="flush" className="rounded-list">
 					<ListGroup.Item>
@@ -87,7 +86,7 @@ const CP264DocsMain = () => {
 			</div>
 
 			<div className="section">
-				<h3>📚 Explore the Docs</h3>
+				<h3 className="homeHeader">📚 Explore the Docs</h3>
 				<hr className="my-3 section-divider-left" />
 				<div className="section-list">
 					<div className="card">

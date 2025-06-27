@@ -18,12 +18,12 @@
 
 .assignment-item {
 	background-color: #FFF8F5;
+	border-left: 4px solid #6b6999;
 	padding: 15px 20px;
 	margin-bottom: 10px;
 	border-radius: 6px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 	transition: transform 0.2s ease, background-color 0.3s, box-shadow 0.3s;
-	outline: 1px solid black; /* or any color you like */
 	outline-offset: 1px; /* optional: adds space between border and outline */
 
 }
