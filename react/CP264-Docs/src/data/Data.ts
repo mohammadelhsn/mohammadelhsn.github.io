@@ -66,11 +66,103 @@ export interface ExampleData {
 
 export const EXAMPLEDATA: ExampleData[] = [
 	{
-		title: "01-C-Program-Structure-and-Organization",
-		url: `01-C-Program-Structure-and-Organization/index.html`
+		title: '01-C Program Structure and Organization',
+		url: `01-C-Program-Structure-and-Organization/`,
 	},
 	{
-		title: "02-Data type-variables-and-controls",
-		url: "02-Data type-variables-and-controls/index.html"
-	}
-]
+		title: '02-Data type-variables-and-controls',
+		url: '/02-Data type-variables-and-controls/',
+	},
+	{
+		title: '03 Basic Operations',
+		url: '/03-Basic-Operations/',
+	},
+	{
+		title: '04-Bitwise Operations',
+		url: '/04-Bitwise-Operations/',
+	},
+	{
+		title: '05 - Flow Control',
+		url: '/05-Flow-Control/',
+	},
+	{
+		title: '06-Functions',
+		url: '/06-Functions/',
+	},
+	{
+		title: '07-Specifiers and Scope',
+		url: '/07-Specifiers-and-Scope/',
+	},
+	{
+		title: '08-Pointers',
+		url: '/08-Pointers/',
+	},
+	{
+		title: '09 - Arrays',
+		url: '/09-Arrays/',
+	},
+	{
+		title: '10-Array-sort',
+		url: '/10-Array-sort/',
+	},
+	{
+		title: '11-2D-arrays',
+		url: '/11-2D-arrays/',
+	},
+	{
+		title: '12-String',
+		url: '/12-String/',
+	},
+	{
+		title: '13-Structure',
+		url: '/13-Structure/',
+	},
+	{
+		title: '14-Union',
+		url: '/14-Union/',
+	},
+	{
+		title: '15-Enumeration',
+		url: '/15-Enumeration/',
+	},
+	{
+		title: '16-File-Read',
+		url: '/16-File-Read/',
+	},
+	{
+		title: '17-File-Write',
+		url: '/17-File-Write/',
+	},
+	{
+		title: '18-CSV-File-Read-and-Write',
+		url: '/18-CSV-File-Read-and-Write/',
+	},
+	{
+		title: '19-LinkedLists',
+		url: '/19-LinkedLists/',
+	},
+	{
+		title: '20-LinkedList-Seperate',
+		url: '/20-LinkedList-Seperate/',
+	},
+	{
+		title: '21-Queues',
+		url: '/21-Queues/',
+	},
+	{
+		title: '22-Stacks',
+		url: '22-Stacks',
+	},
+	{
+		title: '23-Stack-Applications',
+		url: '/23-Stack-Applications/',
+	},
+	{
+		title: '24-Trees',
+		url: '/24-Trees/',
+	},
+	{
+		title: '25-Tree-Applications',
+		url: '/25-Tree-Applications/',
+	},
+];
