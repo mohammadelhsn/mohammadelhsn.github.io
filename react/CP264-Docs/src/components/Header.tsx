@@ -26,7 +26,7 @@ const Header: React.FC = () => {
 						Home
 					</NavLink>
 					<NavLink
-						to="https://mohammadelhsn.github.io/projects"
+						to="/projects/"
 						className={({ isActive }) => (isActive ? 'active' : '')}
 					>
 						Projects

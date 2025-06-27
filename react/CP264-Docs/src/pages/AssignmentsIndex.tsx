@@ -1,5 +1,6 @@
-import { PAGEDATA } from '../../data/Data';
-import '../../styles/AssignmentIndex.css';
+import { PAGEDATA } from '../data/Data';
+
+const baseUrl = import.meta.env.MODE === 'production' ? '/CP264/' : '/';
 
 const AssignmentIndex = () => {
 	return (
@@ -14,10 +15,12 @@ const AssignmentIndex = () => {
 				{Array.from({ length: PAGEDATA[0].numberOfEntries }, (_, i) => {
 					const num = i + 1;
 					const padded = String(num).padStart(2, '0');
-					const link = `elha7950_a${padded}/index.html`;
+					const link = `${baseUrl}assignments/elha7950_a${padded}/index.html`;
 					return (
 						<li key={num} className="assignment-item">
-							<a href={link} target='_blank'>Assignment {num}</a>
+							<a href={link} target="_blank">
+								Assignment {num}
+							</a>
 						</li>
 					);
 				})}

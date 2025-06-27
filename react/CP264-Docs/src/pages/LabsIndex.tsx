@@ -1,5 +1,4 @@
-import { PAGEDATA } from '../../data/Data';
-import '../../styles/LabIndex.css';
+import { PAGEDATA } from '../data/Data';
 
 const LabsIndex = () => {
 	return (

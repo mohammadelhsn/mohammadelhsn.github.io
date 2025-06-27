@@ -107,11 +107,6 @@ body.darkMode .section pre {
 	color: #ccc;
 }
 
-.footer-icons a {
-	text-decoration: none;
-	font-size: 1.5rem;
-}
-
 body.darkMode .cardHeader {
 	color: white;
 }
@@ -154,4 +149,224 @@ body.darkMode .lab-item {
 
 body.darkMode .lab-item a {
 	color: #ffc9b9;
+}
+
+.assignHeader {
+	color: black;
+	font-size: 2em;
+	margin-bottom: 10px;
+	transition: color 0.3s;
+}
+
+.assignPara {
+	font-size: 1.1em;
+	margin-bottom: 30px;
+	transition: color 0.3s;
+}
+
+.assignment-list {
+	list-style: none;
+	padding: 0;
+}
+
+.assignment-item {
+	background-color: #fff8f5;
+	border-left: 4px solid #6b6999;
+	padding: 15px 20px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease, background-color 0.3s, box-shadow 0.3s;
+	outline-offset: 1px; /* optional: adds space between border and outline */
+}
+
+.assignment-item:hover {
+	transform: scale(1.02);
+}
+
+.assignment-item a {
+	text-decoration: none;
+	color: #cc8f7f;
+	font-weight: bold;
+	font-size: 1.1em;
+	transition: color 0.3s;
+}
+
+body.darkMode h1,
+body.darkMode p {
+	color: white;
+}
+
+body.darkMode .assignment-item {
+	background-color: #1f1f1f;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+body.darkMode .assignment-item a {
+	color: #ffc9b9;
+}
+
+body.darkMode footer {
+	color: white;
+}
+
+.assginMain {
+	flex-grow: 1;
+	padding: 3rem 2rem;
+}
+
+.exampleHeader {
+	color: #2a6ddf;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+.examplePara {
+	font-size: 1.1em;
+	margin-bottom: 30px;
+}
+.example-list {
+	list-style: none;
+	padding: 0;
+}
+.example-item {
+	background: white;
+	padding: 15px 20px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease;
+}
+.example-item:hover {
+	transform: scale(1.02);
+}
+.example-item a {
+	text-decoration: none;
+	color: #2a6ddf;
+	font-weight: bold;
+	font-size: 1.05em;
+}
+
+main {
+	flex-grow: 1;
+	padding: 3rem 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.section {
+	margin-bottom: 40px;
+}
+
+.section pre {
+	background: #f0f0f0;
+	padding: 15px;
+	border-radius: 8px;
+	overflow-x: auto;
+}
+
+.section-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 20px;
+}
+
+.card {
+	background-color: #fff8f5 !important;
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-3px);
+}
+
+.card a {
+	text-decoration: none;
+	color: #cc8f7f;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+footer {
+	text-align: center;
+	font-size: 0.9em;
+	color: #999;
+	margin-top: 60px;
+}
+
+.rounded-list {
+	border: 1px solid #ddd; /* Add a subtle border */
+	border-radius: 10px !important; /* Rounded corners */
+	overflow: hidden; /* To clip child items rounding */
+	background-color: white; /* Optional background */
+}
+
+.rounded-list .list-group-item {
+	padding: 1rem 1.5rem; /* Optional padding */
+}
+
+.section-divider {
+	border-top: 4px solid #cc8f7f !important; /* Secondary color */
+	width: 80% !important;
+	margin: 2rem auto !important;
+}
+
+.section-divider-left {
+	border: 0;
+	border-top: 4px solid #cc8f7f; /* Your secondary color */
+	margin: 2rem 0; /* Top and bottom spacing only */
+	margin-left: 0; /* Aligns it to the left */
+}
+
+body.darkMode .homeHeader {
+	color: #dcd0ff;
+}
+.homeHeader {
+	color: #6b6999;
+}
+
+.labHeader {
+	color: black;
+	font-size: 2em;
+	margin-bottom: 10px;
+	transition: color 0.3s;
+}
+.labPara {
+	font-size: 1.1em;
+	margin-bottom: 30px;
+	transition: color 0.3s;
+}
+.lab-list {
+	list-style: none;
+	padding: 0;
+}
+
+.lab-item {
+	background: white;
+	padding: 15px 20px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease, background-color 0.3s, box-shadow 0.3s;
+	outline: 1px solid black; /* or any color you like */
+	outline-offset: 1px; /* optional: adds space between border and outline */
+}
+
+li.lab-item:hover {
+	transform: scale(1.02);
+}
+
+.lab-item a {
+	text-decoration: none;
+	color: #cc8f7f;
+	font-weight: bold;
+	font-size: 1.1em;
+	transition: color 0.3s;
+}
+
+.labMain {
+	flex-grow: 1;
+	padding: 3rem 2rem;
 }

@@ -6,16 +6,21 @@ export const NAME = 'Mohammad El-Hassan';
 /**
  *
  */
-export const GITHUB_HANDLE = '@mohammadelhsn';
+export const USERNAME = 'mohammadelhsn';
 
 /**
  *
  */
-export const GITHUB = 'https://github.com/mohammadelhsn';
+export const GITHUB_HANDLE = `@${USERNAME}`;
+
 /**
  *
  */
-export const EMAIL = 'mohammadelhsn@gmail.com';
+export const GITHUB = `https://github.com/${GITHUB_HANDLE}`;
+/**
+ *
+ */
+export const EMAIL = `${USERNAME}@gmail.com`;
 
 /**
  *
@@ -32,6 +37,10 @@ export const baseLab = 'elha7950_l';
  */
 export const baseAssignment = 'elha7950_a';
 
+/**
+ *
+ */
+export const baseURL = 'https://mohammadelhsn.github.io/';
 /**
  *
  */
