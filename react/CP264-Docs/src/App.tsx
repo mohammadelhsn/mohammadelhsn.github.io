@@ -1,24 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CP264DocsMain from './pages/Index';
-import AssignmentIndex from './pages/assignments/Index';
-import LabsIndex from './pages/labs/Index';
+import Home from './pages/Home';
+import AssignmentIndex from './pages/AssignmentsIndex';
+import LabsIndex from './pages/LabsIndex';
 
 import './App.css';
 
 const App = () => {
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Header />
 			<Routes>
-				<Route path="/CP264/" element={<CP264DocsMain />} />
-				<Route path="/CP264/assignments" element={<AssignmentIndex />} />
-				<Route path="/CP264/labs" element={<LabsIndex />} />
+				<Route path="/" element={<Home />} />
+				<Route path="/assignments" element={<AssignmentIndex />} />
+				<Route path="/labs" element={<LabsIndex />} />
 			</Routes>
 			<Footer />
-		</BrowserRouter>
+		</HashRouter>
 	);
 };
 

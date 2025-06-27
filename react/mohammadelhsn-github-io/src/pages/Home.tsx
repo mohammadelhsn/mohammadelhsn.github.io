@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { NAME, EMAIL } from '../data/Data';
-import '../styles/Home.css';
 
 const Home = () => {
 	return (

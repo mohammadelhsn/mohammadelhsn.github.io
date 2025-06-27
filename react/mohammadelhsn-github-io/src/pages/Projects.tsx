@@ -1,5 +1,4 @@
 import { PROJECTS } from '../data/Data';
-import '../styles/Projects.css'; // 👈 Import your page-specific styles
 
 const Projects = () => {
 	return (

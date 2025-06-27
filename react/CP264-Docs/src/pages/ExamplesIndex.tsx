@@ -1,5 +1,3 @@
-import '../../styles/ExamplesIndex.css';
-
 const ExamplesIndex = () => {
 	return <></>;
 };

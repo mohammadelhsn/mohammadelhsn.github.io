@@ -1,30 +1,42 @@
 /**
- *
+ * @description My name
  */
 export const NAME = 'Mohammad El-Hassan';
 
 /**
- *
+ * @description My username
  */
-export const GITHUB = 'https://github.com/mohammadelhsn';
+export const USERNAME = 'mohammadelhsn';
 
 /**
- *
+ * @description My GitHub handle
  */
-export const YOUTUBE = 'https://youtube.com/@mohammadelhsn';
+export const GITHUB_HANDLE = `@${USERNAME}`;
 
 /**
- *
+ * @description My GitHub URL
  */
-export const EMAIL = 'mohammadelhsn@gmail.com';
+export const GITHUB = `https://github.com/${USERNAME}`;
 
 /**
- *
+ * @description My YouTube URL
  */
-export const baseURL = 'https://mohammadelhsn.github.io';
+export const YOUTUBE = `https://youtube.com/@${USERNAME}`;
 
 /**
+ * @description My Email
+ */
+export const EMAIL = `${USERNAME}@gmail.com`;
+
+/**
+ * @description My Base URL for my website
+ */
+export const baseURL = `https://${USERNAME}.github.io`;
+
+/**
+ * @description Type definition for each project and its fields
  *
+ * @field {string} name - The projects name
  */
 export interface Projects {
 	name: string;
@@ -65,5 +77,10 @@ export const PROJECTS: Projects[] = [
 		name: 'CP264 - Data Structures II with C',
 		desc: 'Advanced data structures and algorithms in C, including trees, hashing, recursion, graphs, and algorithm analysis.',
 		url: `${baseURL}/CP264`,
+	},
+	{
+		name: 'API-TS',
+		desc: 'A very simple API using Express and Typescript',
+		url: `${GITHUB}/API-TS`,
 	},
 ];

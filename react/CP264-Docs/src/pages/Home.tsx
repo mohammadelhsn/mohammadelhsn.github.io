@@ -1,6 +1,6 @@
 import { ListGroup, Accordion, Card, Col, Row } from 'react-bootstrap';
-import '../styles/Home.css';
-
+import * as DATA from '../data/Data';
+import { Link } from 'react-router-dom';
 const CP264DocsMain = () => {
 	return (
 		<main>
@@ -37,7 +37,9 @@ const CP264DocsMain = () => {
 				<hr className="my-3 section-divider-left" />
 				<Accordion>
 					<Accordion.Item eventKey="0">
-						<Accordion.Header><strong>📚 Core Data Structures</strong></Accordion.Header>
+						<Accordion.Header>
+							<strong>📚 Core Data Structures</strong>
+						</Accordion.Header>
 						<Accordion.Body>
 							<ul>
 								<li>Arrays and Linked Lists</li>
@@ -48,7 +50,9 @@ const CP264DocsMain = () => {
 					</Accordion.Item>
 
 					<Accordion.Item eventKey="1">
-						<Accordion.Header><strong>🌲 Trees & Graphs</strong></Accordion.Header>
+						<Accordion.Header>
+							<strong>🌲 Trees & Graphs</strong>
+						</Accordion.Header>
 						<Accordion.Body>
 							<ul>
 								<li>Trees and Binary Search Trees (BST)</li>
@@ -58,7 +62,9 @@ const CP264DocsMain = () => {
 					</Accordion.Item>
 
 					<Accordion.Item eventKey="2">
-						<Accordion.Header><strong>⚙️ Algorithms & Hashing</strong></Accordion.Header>
+						<Accordion.Header>
+							<strong>⚙️ Algorithms & Hashing</strong>
+						</Accordion.Header>
 						<Accordion.Body>
 							<ul>
 								<li>Hash Tables</li>
@@ -92,17 +98,17 @@ const CP264DocsMain = () => {
 					<div className="card">
 						<h3 className="cardHeader">📝 Assignments</h3>
 						<p>All assignments with Doxygen-generated documentation.</p>
-						<a href="assignments/">View Assignments →</a>
+						<Link to="/assignments">View Assignments →</Link>
 					</div>
 					<div className="card">
 						<h3 className="cardHeader">🔬 Labs</h3>
 						<p>Hands-on labs that apply key data structure concepts.</p>
-						<a href="labs/">View Labs →</a>
+						<a href="/labs">View Labs →</a>
 					</div>
 					<div className="card">
 						<h3 className="cardHeader">💡 Examples</h3>
 						<p>Mini examples, snippets, and helper code from class.</p>
-						<a href="examples/">View Examples →</a>
+						<a href="/examples">View Examples →</a>
 					</div>
 				</div>
 			</div>
@@ -129,17 +135,17 @@ const CP264DocsMain = () => {
 								{/* prettier-ignore */}
 								<p> 
 									📧 Email: 
-									<a href="mailto:mohammadelhsn@gmail.com">
-										mohammadelhsn@gmail.com
+									<a href={`mailto:${DATA.EMAIL}`}>
+										{DATA.EMAIL}
 									</a>
 									<br />
 									📂 GitHub: 
 									<a
-										href="https://github.com/mohammadelhsn"
+										href={`${DATA.GITHUB_HANDLE}`}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										@mohammadelhsn
+										{DATA.GITHUB_HANDLE}
 									</a>
 								</p>
 							</Card.Text>
