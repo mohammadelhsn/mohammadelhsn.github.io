@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  *
  */
@@ -50,6 +52,27 @@ export interface pageData {
 	numberOfEntries: number;
 }
 
+export interface AssignmentItemOpts {
+	key: number;
+	link: string;
+	num: number;
+}
+
+export type ItemType = 'lab' | 'example' | 'assignment';
+export interface ItemListOpts {
+	itemType: ItemType;
+}
+
+export interface SectionOpts {
+	title: string;
+	children: React.ReactNode;
+}
+
+export interface TopicOpts {
+	eventKey: string;
+	title: string;
+	items: string[];
+}
 /**
  *
  */
@@ -173,5 +196,50 @@ export const EXAMPLEDATA: ExampleData[] = [
 	{
 		title: '25-Tree-Applications',
 		url: '/25-Tree-Applications/',
+	},
+];
+
+export const TopicsData: TopicOpts[] = [
+	{
+		items: ['Arrays and Linked Lists', 'Stacks and Queues', 'Recursion'],
+		title: '📚 Core Data Structures',
+		eventKey: '0',
+	},
+	{
+		items: [
+			'Trees and Binary Search Trees (BST)',
+			'Graphs and Graph Algorithms',
+		],
+		title: '🌲 Trees & Graphs',
+		eventKey: '1',
+	},
+	{
+		items: ['Hash Tables', 'Sorting and Searching Algorithms'],
+		title: '⚙️ Algorithms & Hashing',
+		eventKey: '2',
+	},
+];
+
+export interface TechItemOpts {
+	emoji: string;
+	bolded: string;
+	nonBolded: string;
+}
+
+export const TechData: TechItemOpts[] = [
+	{
+		emoji: '💻',
+		bolded: 'Programming Language:',
+		nonBolded: 'C',
+	},
+	{
+		emoji: '🧰',
+		bolded: 'Development Environment:',
+		nonBolded: 'VS Code (preferred), Eclipse',
+	},
+	{
+		emoji: '🔗',
+		bolded: 'Version Control:',
+		nonBolded: 'Git & GitHub',
 	},
 ];

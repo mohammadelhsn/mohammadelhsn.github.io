@@ -164,12 +164,12 @@ body.darkMode .lab-item a {
 	transition: color 0.3s;
 }
 
-.assignment-list {
+.item-list {
 	list-style: none;
 	padding: 0;
 }
 
-.assignment-item {
+.list-item {
 	background-color: #fff8f5;
 	border-left: 4px solid #6b6999;
 	padding: 15px 20px;
@@ -180,11 +180,11 @@ body.darkMode .lab-item a {
 	outline-offset: 1px; /* optional: adds space between border and outline */
 }
 
-.assignment-item:hover {
+.list-item:hover {
 	transform: scale(1.02);
 }
 
-.assignment-item a {
+.list-item a {
 	text-decoration: none;
 	color: #cc8f7f;
 	font-weight: bold;
@@ -197,12 +197,12 @@ body.darkMode p {
 	color: white;
 }
 
-body.darkMode .assignment-item {
+body.darkMode .list-item {
 	background-color: #1f1f1f;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-body.darkMode .assignment-item a {
+body.darkMode .list-item a {
 	color: #ffc9b9;
 }
 

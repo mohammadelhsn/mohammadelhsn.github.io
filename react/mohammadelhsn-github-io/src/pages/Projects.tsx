@@ -1,4 +1,5 @@
 import { PROJECTS } from '../data/Data';
+import Project from '../components/Project';
 
 const Projects = () => {
 	return (
@@ -7,13 +8,7 @@ const Projects = () => {
 			<hr className="my-5 section-divider"></hr>
 			<div className="projectGrid">
 				{PROJECTS.map(({ name, desc, url }) => (
-					<div key={name} className="projectCard">
-						<h3>{name}</h3>
-						<p>{desc}</p>
-						<a href={url} target="_blank" rel="noopener noreferrer">
-							View Project →
-						</a>
-					</div>
+					<Project name={name} desc={desc} url={url}></Project>
 				))}
 			</div>
 		</main>

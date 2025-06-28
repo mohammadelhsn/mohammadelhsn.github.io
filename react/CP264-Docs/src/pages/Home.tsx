@@ -1,6 +1,10 @@
-import { ListGroup, Accordion, Card, Col, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
+import SectionWrapper from '../components/Section';
+import TopicsAccordion from '../components/Topics';
+import TechList from '../components/TechList';
 import * as DATA from '../data/Data';
 import { Link } from 'react-router-dom';
+
 const CP264DocsMain = () => {
 	return (
 		<main>
@@ -8,9 +12,7 @@ const CP264DocsMain = () => {
 				<h1>📘 CP264 - Data Structures</h1>
 				<h2>Wilfrid Laurier University — Winter 2025</h2>
 			</div>
-			<div className="section">
-				<h3 className="homeHeader">📌 Overview</h3>
-				<hr className="my-3 section-divider-left" />
+			<SectionWrapper title="📌 Overview">
 				{/* prettier-ignore */}
 				<p>
 					This site documents my coursework, assignments, and projects for <strong>CP264 - Data Structures</strong> at 
@@ -18,82 +20,26 @@ const CP264DocsMain = () => {
 					data structures and algorithms, including linked lists, stacks, trees,
 					graphs, and more.
 				</p>
-			</div>
-
-			<div className="section">
-				<h3 className="homeHeader">📄 Docs Structure</h3>
-				<hr className="my-3 section-divider-left" />
-				{/* prettier-ignore */}
-				<pre><code>{`mohammadelhsn.github.io/CP264/
+			</SectionWrapper>
+			<SectionWrapper title="📄 Docs Structure">
+				<pre>
+					<code>
+						{`mohammadelhsn.github.io/CP264/
 ├── assignments/  # Documentation for assignments
 ├── labs/         # Documentation for labs
 ├── examples/     # Documentation for examples
 └── index.html    # This page`}
-</code>
+					</code>
 				</pre>
-			</div>
-			<div className="section">
-				<h3 className="homeHeader">🚀 Topics</h3>
-				<hr className="my-3 section-divider-left" />
-				<Accordion>
-					<Accordion.Item eventKey="0">
-						<Accordion.Header>
-							<strong>📚 Core Data Structures</strong>
-						</Accordion.Header>
-						<Accordion.Body>
-							<ul>
-								<li>Arrays and Linked Lists</li>
-								<li>Stacks and Queues</li>
-								<li>Recursion</li>
-							</ul>
-						</Accordion.Body>
-					</Accordion.Item>
+			</SectionWrapper>
+			<SectionWrapper title="🚀 Topics">
+				<TopicsAccordion></TopicsAccordion>
+			</SectionWrapper>
 
-					<Accordion.Item eventKey="1">
-						<Accordion.Header>
-							<strong>🌲 Trees & Graphs</strong>
-						</Accordion.Header>
-						<Accordion.Body>
-							<ul>
-								<li>Trees and Binary Search Trees (BST)</li>
-								<li>Graphs and Graph Algorithms</li>
-							</ul>
-						</Accordion.Body>
-					</Accordion.Item>
-
-					<Accordion.Item eventKey="2">
-						<Accordion.Header>
-							<strong>⚙️ Algorithms & Hashing</strong>
-						</Accordion.Header>
-						<Accordion.Body>
-							<ul>
-								<li>Hash Tables</li>
-								<li>Sorting and Searching Algorithms</li>
-							</ul>
-						</Accordion.Body>
-					</Accordion.Item>
-				</Accordion>
-			</div>
-			<div className="section">
-				<h3 className="homeHeader">🛠️ Technologies</h3>
-				<hr className="my-3 section-divider-left"></hr>
-				<ListGroup variant="flush" className="rounded-list">
-					<ListGroup.Item>
-						💻 <strong>Programming Language:</strong> C
-					</ListGroup.Item>
-					<ListGroup.Item>
-						🧰 <strong>Development Environment:</strong> VS Code (preferred),
-						Eclipse
-					</ListGroup.Item>
-					<ListGroup.Item>
-						🔗 <strong>Version Control:</strong> Git & GitHub
-					</ListGroup.Item>
-				</ListGroup>
-			</div>
-
-			<div className="section">
-				<h3 className="homeHeader">📚 Explore the Docs</h3>
-				<hr className="my-3 section-divider-left" />
+			<SectionWrapper title="🛠️ Technologies">
+				<TechList></TechList>
+			</SectionWrapper>
+			<SectionWrapper title="📚 Explore the Docs">
 				<div className="section-list">
 					<div className="card">
 						<h3 className="cardHeader">📝 Assignments</h3>
@@ -111,7 +57,7 @@ const CP264DocsMain = () => {
 						<a href="/examples">View Examples →</a>
 					</div>
 				</div>
-			</div>
+			</SectionWrapper>
 			<hr className="my-5 section-divider" />
 			<Row className="g-4">
 				<Col md={6}>

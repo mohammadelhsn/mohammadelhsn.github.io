@@ -1,6 +1,4 @@
-import { PAGEDATA } from '../data/Data';
-
-const baseUrl = import.meta.env.MODE === 'production' ? '/CP264/' : '/';
+import ItemList from '../components/ItemList';
 
 const AssignmentIndex = () => {
 	return (
@@ -11,20 +9,7 @@ const AssignmentIndex = () => {
 				Here are the documented assignments with source code and auto-generated
 				Doxygen documentation:
 			</p>
-			<ul className="assignment-list">
-				{Array.from({ length: PAGEDATA[0].numberOfEntries }, (_, i) => {
-					const num = i + 1;
-					const padded = String(num).padStart(2, '0');
-					const link = `${baseUrl}assignments/elha7950_a${padded}/index.html`;
-					return (
-						<li key={num} className="assignment-item">
-							<a href={link} target="_blank">
-								Assignment {num}
-							</a>
-						</li>
-					);
-				})}
-			</ul>
+			<ItemList itemType="assignment" />
 		</main>
 	);
 };
