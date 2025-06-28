@@ -37,6 +37,8 @@ export const baseURL = `https://${USERNAME}.github.io`;
  * @description Type definition for each project and its fields
  *
  * @field {string} name - The projects name
+ * @field {string} desc - The description of the project
+ * @field {string} url - Link to the project
  */
 export interface Projects {
 	name: string;
