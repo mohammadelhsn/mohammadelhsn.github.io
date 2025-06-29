@@ -3,12 +3,14 @@ import {
 	AccordionSummary,
 	Typography,
 	AccordionDetails,
+	useTheme,
 } from '@mui/material';
 import type { TopicOpts } from '../data/Data';
 
 const Topic = (opts: TopicOpts) => {
+	const theme = useTheme();
 	return (
-		<Accordion>
+		<Accordion sx={{ bgColor: theme.palette.background.paper }}>
 			<AccordionSummary key={opts.eventKey}>
 				<Typography variant="h6">
 					<strong>{opts.title}</strong>

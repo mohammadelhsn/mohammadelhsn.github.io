@@ -14,6 +14,11 @@ export const USERNAME = 'mohammadelhsn';
 export const GITHUB_HANDLE = `@${USERNAME}`;
 
 /**
+ *
+ */
+export const LINKEDIN = 'https://www.linkedin.com/in/mohammadelhsn';
+
+/**
  * @description My GitHub URL
  */
 export const GITHUB = `https://github.com/${USERNAME}`;

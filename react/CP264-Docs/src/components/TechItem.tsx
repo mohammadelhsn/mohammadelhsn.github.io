@@ -3,7 +3,7 @@ import type { TechItemOpts } from '../data/Data';
 
 const TechItem = (opts: TechItemOpts) => {
 	return (
-		<ListItem>
+		<ListItem sx={{ bgColor: 'background.paper' }}>
 			<ListItemText
 				primary={
 					<>

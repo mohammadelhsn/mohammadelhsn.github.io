@@ -1,7 +1,7 @@
-import { NAME, EMAIL, GITHUB, YOUTUBE } from '../data/Data';
+import { NAME, EMAIL, GITHUB, LINKEDIN } from '../data/Data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Box, Typography, Link } from '@mui/material';
 
 const Footer = () => (
@@ -49,11 +49,11 @@ const Footer = () => (
 				<FontAwesomeIcon icon={faGithub} />
 			</Link>
 			<Link
-				href={YOUTUBE}
+				href={LINKEDIN}
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label="YouTube"
-				title="YouTube"
+				aria-label="LinkedIn"
+				title="LinkedIn"
 				color="inherit"
 				sx={{
 					'svg:hover': {
@@ -61,7 +61,7 @@ const Footer = () => (
 					},
 				}}
 			>
-				<FontAwesomeIcon icon={faYoutube} />
+				<FontAwesomeIcon icon={faLinkedin} />
 			</Link>
 		</Box>
 		<Typography variant="body2" mt={3} color="text.secondary">

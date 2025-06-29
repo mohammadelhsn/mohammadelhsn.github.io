@@ -24,6 +24,12 @@ export const GITHUB = `https://github.com/${USERNAME}`;
  */
 export const EMAIL = `${USERNAME}@gmail.com`;
 
+export const LINKEDIN = 'https://www.linkedin.com/in/mohammadelhsn';
+
+export const COURSENAME = '📘 CP264 - Data Structures';
+export const TERM = 'Winter 2025';
+export const COURSECODE = 'CP264';
+
 /**
  *
  */
