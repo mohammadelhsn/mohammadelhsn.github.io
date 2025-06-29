@@ -1,16 +1,17 @@
+import { Typography, Divider, Box } from '@mui/material';
 import ItemList from '../components/ItemList';
 
 const AssignmentIndex = () => {
 	return (
-		<main className="assginMain">
-			<h1 className="assignHeader">📝 Assignments</h1>
-			<hr className="my-3 section-divider-left" />
-			<p className="assignPara">
+		<Box sx={{ flexGrow: 1, padding: '3rem 2rem' }}>
+			<Typography variant="h3">📝 Assignments</Typography>
+			<Divider />
+			<Typography variant="body1">
 				Here are the documented assignments with source code and auto-generated
 				Doxygen documentation:
-			</p>
+			</Typography>
 			<ItemList itemType="assignment" />
-		</main>
+		</Box>
 	);
 };
 

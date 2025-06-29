@@ -1,20 +1,27 @@
-import { Accordion } from 'react-bootstrap';
+import {
+	Accordion,
+	AccordionSummary,
+	Typography,
+	AccordionDetails,
+} from '@mui/material';
 import type { TopicOpts } from '../data/Data';
 
 const Topic = (opts: TopicOpts) => {
 	return (
-		<Accordion.Item eventKey={opts.eventKey}>
-			<Accordion.Header>
-				<strong>{opts.title}</strong>
-			</Accordion.Header>
-			<Accordion.Body>
+		<Accordion>
+			<AccordionSummary key={opts.eventKey}>
+				<Typography variant="h6">
+					<strong>{opts.title}</strong>
+				</Typography>
+			</AccordionSummary>
+			<AccordionDetails>
 				<ul>
 					{opts.items.map((item, idx) => (
-						<li key={idx}>{item}</li>
+						<li key={`${idx}-${item[0]}`}>{item}</li>
 					))}
 				</ul>
-			</Accordion.Body>
-		</Accordion.Item>
+			</AccordionDetails>
+		</Accordion>
 	);
 };
 

@@ -1,26 +1,39 @@
-import { PAGEDATA } from '../data/Data';
+import { PAGEDATA, EXAMPLEDATA } from '../data/Data';
 import ListItem from './ListItem';
 import type { ItemListOpts } from '../data/Data.ts';
+import { List } from '@mui/material';
 
 const baseUrl = import.meta.env.MODE === 'production' ? '/CP264/' : '/';
 
 const ItemList = (opts: ItemListOpts) => {
+	let length;
+	if (opts.itemType == 'assignment') {
+		length = PAGEDATA[0].numberOfEntries;
+	} else if (opts.itemType == 'example') {
+		length = PAGEDATA[2].numberOfEntries;
+	} else {
+		length = PAGEDATA[1].numberOfEntries;
+	}
 	return (
-		<ul className="item-list">
-			{Array.from({ length: PAGEDATA[0].numberOfEntries }, (_, i) => {
+		<List>
+			{Array.from({ length: length }, (_, i) => {
 				const num = i + 1;
 				const padded = String(num).padStart(2, '0');
 				let link;
+				let adds = `${num}`;
 				if (opts.itemType == 'assignment') {
 					link = `${baseUrl}assignments/elha7950_a${padded}/index.html`;
 				} else if (opts.itemType == 'lab') {
 					link = `${baseUrl}labs/elha7950_l${padded}/index.html`;
 				} else {
-					link = '';
+					link = `${baseUrl}examples/${EXAMPLEDATA[i].url}/index.html`;
+					adds = EXAMPLEDATA[i].title;
 				}
-				return <ListItem key={num} num={num} link={link} />;
+				return (
+					<ListItem key={num} adds={adds} link={link} type={opts.itemType} />
+				);
 			})}
-		</ul>
+		</List>
 	);
 };
 

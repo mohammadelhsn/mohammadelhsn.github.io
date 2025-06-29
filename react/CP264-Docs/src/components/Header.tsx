@@ -1,42 +1,88 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const Header: React.FC = () => {
-	const [darkMode, setDarkMode] = React.useState(
-		() => localStorage.getItem('darkMode') === 'enabled'
-	);
-	React.useEffect(() => {
-		if (darkMode) {
-			document.body.classList.add('darkMode');
-			localStorage.setItem('darkMode', 'enabled');
-		} else {
-			document.body.classList.remove('darkMode');
-			localStorage.setItem('darkMode', 'disabled');
-		}
-	}, [darkMode]);
+interface HeaderProps {
+	mode: 'light' | 'dark';
+	toggleColorMode: () => void;
+}
+
+const StyledNavLink = styled(NavLink)(({ theme }) => ({
+	color: 'inherit',
+	textDecoration: 'none',
+	marginRight: theme.spacing(2),
+	fontWeight: 'normal',
+	'&.active': {
+		fontWeight: 'bold',
+	},
+}));
+
+const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 	return (
-		<header>
-			<nav className="navbar">
-				<div className="nav-links">
-					<NavLink
-						to="/"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-						end
-					>
-						Home
-					</NavLink>
-					<NavLink
-						to="/projects/"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-					>
-						Projects
-					</NavLink>
-				</div>
-				<button id="darkModeToggle" onClick={() => setDarkMode(!darkMode)}>
-					{darkMode ? 'Light Mode' : 'Dark Mode'}
-				</button>
-			</nav>
-		</header>
+		<AppBar
+			position="static"
+			sx={{
+				bgcolor: (theme) =>
+					theme.palette.mode === 'light'
+						? theme.palette.background.paper
+						: theme.palette.background.paper,
+				color: (theme) =>
+					theme.palette.mode === 'light' ? '#000' : theme.palette.text.primary,
+				padding: '1rem 2rem',
+			}}
+		>
+			<Toolbar>
+				<Button
+					color="inherit"
+					component={StyledNavLink}
+					to="/"
+					sx={{
+						'&:hover': {
+							bgcolor: 'primary.main', // change background color on hover
+						},
+						'&:active': {
+							bgcolor: 'primary.main', // change background color on hover
+						},
+					}}
+					end
+				>
+					Home
+				</Button>
+				<Button
+					color="inherit"
+					component={StyledNavLink}
+					to="/projects"
+					sx={{
+						'&:hover': {
+							bgcolor: 'primary.main', // change background color on hover
+						},
+						'&:active': {
+							bgcolor: 'primary.main', // change background color on hover
+						},
+					}}
+				>
+					Projects
+				</Button>
+
+				<Typography sx={{ flexGrow: 1 }} />
+
+				<Button
+					variant="outlined"
+					color="primary"
+					onClick={toggleColorMode}
+					sx={{
+						'&:hover': {
+							bgcolor: 'primary.main', // change background color on hover
+							color: '#fff',
+						},
+					}}
+				>
+					{mode === 'light' ? 'Dark' : 'Light'} Mode
+				</Button>
+			</Toolbar>
+		</AppBar>
 	);
 };
 

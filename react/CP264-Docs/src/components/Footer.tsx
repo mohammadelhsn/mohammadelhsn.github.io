@@ -2,24 +2,72 @@ import { NAME, EMAIL, GITHUB, YOUTUBE } from '../data/Data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
-
-const footerText = `© 2025 ${NAME}. All rights reserved.`;
+import { Box, Typography, Link } from '@mui/material';
 
 const Footer = () => (
-	<footer className="text-center py-4">
-		<div className="footer-icons">
-			<a href={`mailto:${EMAIL}`} title="Email">
-				<FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
-			</a>
-			<a href={`${GITHUB}`} title="GitHub">
-				<FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
-			</a>
-			<a href={`${YOUTUBE}`} title="YouTube">
-				<FontAwesomeIcon icon={faYoutube}></FontAwesomeIcon>
-			</a>
-		</div>
-		<p className="mt-3 small">{footerText}</p>
-	</footer>
+	<Box
+		component="footer"
+		textAlign="center"
+		py={4}
+		sx={{
+			boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)', // subtle top shadow
+			color: (theme) =>
+				theme.palette.mode === 'light' ? '#000' : theme.palette.text.primary,
+			bgcolor: (theme) =>
+				theme.palette.mode === 'light'
+					? theme.palette.background.paper
+					: theme.palette.background.paper,
+		}}
+	>
+		<Box display="flex" justifyContent="center" gap={3}>
+			<Link
+				href={`mailto:${EMAIL}`}
+				aria-label="Send Email"
+				title="Email"
+				color="inherit"
+				sx={{
+					'svg:hover': {
+						color: 'primary.main', // change background color on hover
+					},
+				}}
+			>
+				<FontAwesomeIcon icon={faEnvelope} />
+			</Link>
+			<Link
+				href={GITHUB}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="GitHub"
+				title="GitHub"
+				color="inherit"
+				sx={{
+					'svg:hover': {
+						color: 'primary.main', // change background color on hover
+					},
+				}}
+			>
+				<FontAwesomeIcon icon={faGithub} />
+			</Link>
+			<Link
+				href={YOUTUBE}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="YouTube"
+				title="YouTube"
+				color="inherit"
+				sx={{
+					'svg:hover': {
+						color: 'primary.main', // change background color on hover
+					},
+				}}
+			>
+				<FontAwesomeIcon icon={faYoutube} />
+			</Link>
+		</Box>
+		<Typography variant="body2" mt={3} color="text.secondary">
+			© 2025 {NAME}. All rights reserved.
+		</Typography>
+	</Box>
 );
 
 export default Footer;

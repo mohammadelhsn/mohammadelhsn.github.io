@@ -1,0 +1,24 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"classes.html":[0,1],
+"file__read__csv_8c.html":[1,0,0],
+"file__read__csv_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,0,1],
+"file__read__csv__string_8c.html":[1,0,1],
+"file__read__csv__string_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,1,1],
+"file__write__csv_8c.html":[1,0,2],
+"file__write__csv_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,2,1],
+"file__write__csv__string_8c.html":[1,0,3],
+"file__write__csv__string_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,3,1],
+"files.html":[1,0],
+"functions.html":[0,2,0],
+"functions_vars.html":[0,2,1],
+"globals.html":[1,1,0],
+"globals_func.html":[1,1,1],
+"index.html":[],
+"pages.html":[],
+"structrecord.html":[0,0,0],
+"structrecord.html#a8b790071aebfd2948982fddc18441b06":[0,0,0,1],
+"structrecord.html#a98e4d6392eb5e02afd97c6e884ac07d5":[0,0,0,2],
+"structrecord.html#af82613382955f020df83eb8e754713bf":[0,0,0,0]
+};
