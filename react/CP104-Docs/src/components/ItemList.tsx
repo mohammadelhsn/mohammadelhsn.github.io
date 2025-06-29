@@ -1,0 +1,40 @@
+import { PAGEDATA, EXAMPLEDATA } from '../data/Data';
+import ListItem from './ListItem';
+import type { ItemListOpts } from '../data/Data.ts';
+import { List } from '@mui/material';
+
+const baseUrl = import.meta.env.MODE === 'production' ? '/CP104/' : '/';
+
+const ItemList = (opts: ItemListOpts) => {
+	let length;
+	if (opts.itemType == 'assignment') {
+		length = PAGEDATA[0].numberOfEntries;
+	} else if (opts.itemType == 'example') {
+		length = PAGEDATA[2].numberOfEntries;
+	} else {
+		length = PAGEDATA[1].numberOfEntries;
+	}
+	return (
+		<List>
+			{Array.from({ length: length }, (_, i) => {
+				const num = i + 1;
+				const padded = String(num).padStart(2, '0');
+				let link;
+				let adds = `${num}`;
+				if (opts.itemType == 'assignment') {
+					link = `${baseUrl}assignments/elha7950_a${padded}/`;
+				} else if (opts.itemType == 'lab') {
+					link = `${baseUrl}labs/elha7950_l${padded}/index.html`;
+				} else {
+					link = `${baseUrl}examples/${EXAMPLEDATA[i].url}/index.html`;
+					adds = EXAMPLEDATA[i].title;
+				}
+				return (
+					<ListItem key={num} adds={adds} link={link} type={opts.itemType} />
+				);
+			})}
+		</List>
+	);
+};
+
+export default ItemList;

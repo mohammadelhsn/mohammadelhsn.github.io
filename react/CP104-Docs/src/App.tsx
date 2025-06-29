@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// React
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
+import React from 'react';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+// Components
 
-export default App
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+// Pages
+import Home from './pages/Home';
+
+// Theme
+
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { lightTheme, darkTheme } from './data/Theme';
+
+// Styles
+
+import './App.css';
+import AssignmentsPage from './pages/AssignmentPage';
+import AssignmentPage from './pages/AssignmentPage';
+
+// App
+
+const App = () => {
+	const [mode, setMode] = React.useState<'light' | 'dark'>(() => {
+		const stored = localStorage.getItem('colorMode');
+		return stored === 'dark' ? 'dark' : 'light';
+	});
+	const toggleColorMode = () => {
+		setMode((prevMode) => {
+			const nextMode = prevMode === 'light' ? 'dark' : 'light';
+			localStorage.setItem('colorMode', nextMode); // Save preference
+			return nextMode;
+		});
+	};
+	const theme = React.useMemo(
+		() => (mode === 'light' ? lightTheme : darkTheme),
+		[mode]
+	);
+	return (
+		<HashRouter>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<Header toggleColorMode={toggleColorMode} mode={`${mode}`} />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/assignments" element={<AssignmentsPage />} />
+					<Route
+						path="/assignments/elha7950_a:assignmentNum"
+						element={<AssignmentPage />}
+					/>
+					<Route path="*" element={<Navigate to="/" replace />} />
+				</Routes>
+				<Footer />
+			</ThemeProvider>
+		</HashRouter>
+	);
+};
+
+export default App;
