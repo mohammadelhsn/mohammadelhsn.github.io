@@ -10,6 +10,9 @@ import Footer from './components/Footer';
 
 // Pages
 import Home from './pages/Home';
+import AssignmentsPage from './pages/AssignmentsPage';
+import AssignmentPage from './pages/AssignmentPage';
+import TaskDisplay from './pages/TaskPage';
 
 // Theme
 
@@ -19,8 +22,10 @@ import { lightTheme, darkTheme } from './data/Theme';
 // Styles
 
 import './App.css';
-import AssignmentsPage from './pages/AssignmentPage';
-import AssignmentPage from './pages/AssignmentPage';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 // App
 
@@ -47,11 +52,21 @@ const App = () => {
 				<Header toggleColorMode={toggleColorMode} mode={`${mode}`} />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/assignments" element={<AssignmentsPage />} />
 					<Route
-						path="/assignments/elha7950_a:assignmentNum"
-						element={<AssignmentPage />}
+						path="/assignments/"
+						element={<AssignmentsPage type="assignment" />}
 					/>
+					<Route
+						path="/assignments/:num"
+						element={<AssignmentPage type="assignment" />}
+					/>
+					<Route
+						path="/assignments/:num/:task"
+						element={<TaskDisplay type="assignment" />}
+					/>
+					<Route path="/labs/" element={<AssignmentsPage type="lab" />} />
+					<Route path="/labs/:num" element={<AssignmentPage type="lab" />} />
+					<Route path="/labs/:num/:task" element={<TaskDisplay type="lab" />} />
 					<Route path="*" element={<Navigate to="/" replace />} />
 				</Routes>
 				<Footer />

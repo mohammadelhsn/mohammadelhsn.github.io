@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 // Pages
+
 import AssignmentIndex from './pages/AssignmentsIndex';
 import ExamplesIndex from './pages/ExamplesIndex';
 import LabsIndex from './pages/LabsIndex';

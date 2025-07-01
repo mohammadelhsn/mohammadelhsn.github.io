@@ -1,12 +1,19 @@
+// MUI Components
+
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Link from '@mui/material/Link';
+
+// Data
+
 import { type AssignmentItemOpts } from '../data/Data';
-import { ListItem, ListItemText, Link } from '@mui/material';
 
 const ListItemComp = (opts: AssignmentItemOpts) => {
 	return (
 		<ListItem
 			disablePadding
 			className="list-item"
-			color="theme.palette.background.paper"
+			color="background.paper"
 			sx={{
 				backgroundColor: (theme) => theme.palette.background.paper,
 				borderLeft: (theme) => `4px solid ${theme.palette.secondary.main}`,
@@ -17,6 +24,9 @@ const ListItemComp = (opts: AssignmentItemOpts) => {
 				transition:
 					'transform 0.2s ease, background-color 0.3s, box-shadow 0.3s',
 				outlineOffset: '1px',
+				'&:hover': {
+					transform: 'scale(1.02)',
+				}
 			}}
 		>
 			<Link
@@ -27,16 +37,17 @@ const ListItemComp = (opts: AssignmentItemOpts) => {
 				sx={{ width: '100%', padding: '0.5rem 1rem', display: 'block' }}
 			>
 				<ListItemText
-					primary={`${
-						opts.type == 'assignment'
-							? `Assignment ${opts.adds}`
-							: opts.type == 'example'
+					primary={`${opts.type}` == 'assignment'
+						? `Assignment ${opts.adds}`
+						: opts.type == 'example'
 							? `${opts.adds}`
-							: `Lab ${opts.adds}`
-					}`}
+							: opts.type == 'task'
+								? `${opts.adds}`
+								: `Lab ${opts.adds}`
+					}
 				/>
 			</Link>
-		</ListItem>
+		</ListItem >
 	);
 };
 

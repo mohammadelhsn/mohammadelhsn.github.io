@@ -1,5 +1,14 @@
-import { Typography, Divider, Box } from '@mui/material';
+// MUI Components
+
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+
+// Data
+
 import type { SectionOpts } from '../data/Data';
+
+// Section Wrapper
 
 const SectionWrapper = (opts: SectionOpts) => {
 	return (
