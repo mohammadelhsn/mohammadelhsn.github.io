@@ -1,10 +1,15 @@
-import {
-	Accordion,
-	AccordionSummary,
-	Typography,
-	AccordionDetails,
-} from '@mui/material';
+// MUI Components
+
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import Accordion from '@mui/material/Accordion';
+
+// Data
+
 import type { TopicOpts } from '../data/Data';
+
+// Topics
 
 const Topic = (opts: TopicOpts) => {
 	return (

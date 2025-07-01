@@ -1,6 +1,16 @@
-import { TechData } from '../data/Data';
-import { List, Divider } from '@mui/material';
+// MUI Components
+
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+
+// Custom Components
 import TechItem from './TechItem';
+
+// Data
+
+import { TechData } from '../data/Data';
+
+// To be moved 
 
 const style = {
 	py: 0,
@@ -10,6 +20,8 @@ const style = {
 	borderColor: 'divider',
 	backgroundColor: 'background.paper',
 };
+
+// Tech List
 
 const TechList = () => {
 	return (

@@ -1,11 +1,11 @@
 // MUI Components
 
-import { List } from '@mui/material';
+import { List, Container, Typography } from '@mui/material';
 
 // Custom Components
 
 import ListItem from './ListItem';
-
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 // Data
 
 import {
@@ -21,7 +21,7 @@ const baseUrl = import.meta.env.MODE === 'production' ? '/CP104/#/' : '/#/';
 
 const ItemList = (opts: ItemListOpts) => {
 	let length;
-	let tasksArr: TaskData[];
+	let tasksArr: TaskData[] = [];
 	if (opts.itemType == 'assignment') {
 		length = PAGEDATA[0].numberOfEntries;
 	} else if (opts.itemType == 'example') {
@@ -30,10 +30,40 @@ const ItemList = (opts: ItemListOpts) => {
 		const arr = opts.taskStr?.includes('elha7950_l') ? LabData : AssignmentData;
 		const data = arr.find((el) => el.id == opts.taskStr);
 		if (data) {
+			if (data.tasks.length == 0) {
+				return (<Container maxWidth="md" sx={{ mt: 8, textAlign: 'center', flexGrow: '1' }}>
+					<SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, color: 'error.main', mb: 2 }} />
+
+					<Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
+						Oops!
+					</Typography>
+
+					<Typography variant="h6" gutterBottom color="text.secondary">
+						Documentation hasn't been developed for this assignment yet!
+					</Typography>
+
+				</Container>);
+			}
+
 			tasksArr = data.tasks;
+			const exists = tasksArr.find((el) => el.id == 'functions');
+			if (data.functions && data.functions.length > 0 && !exists) {
+				tasksArr.push({
+					id: 'functions',
+					name: 'Functions & Constants',
+					description: '',
+					objectives: [],
+					sampleOutput: '',
+					skills: [],
+				});
+			}
 		}
 		if (opts.count) {
-			length = opts.count;
+			if (tasksArr.length > 0) {
+				length = tasksArr.length;
+			} else {
+				length = opts.count;
+			}
 		} else {
 			length = 5;
 		}

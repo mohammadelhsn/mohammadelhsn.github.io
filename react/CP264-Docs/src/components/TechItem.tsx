@@ -1,9 +1,17 @@
-import { ListItem, ListItemText } from '@mui/material';
+// MUI Components 
+
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+
+// Data
+
 import type { TechItemOpts } from '../data/Data';
+
+// Tech Item
 
 const TechItem = (opts: TechItemOpts) => {
 	return (
-		<ListItem sx={{ bgColor: 'background.paper' }}>
+		<ListItem>
 			<ListItemText
 				primary={
 					<>

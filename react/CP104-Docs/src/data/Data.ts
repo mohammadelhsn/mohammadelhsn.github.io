@@ -326,6 +326,7 @@ export interface FunctionsData {
 export interface FunctionPageProps {
 	constants: ConstantsData[];
 	functions: FunctionsData[];
+	parent: string;
 }
 export interface AssessmentDataType {
 	name: string;

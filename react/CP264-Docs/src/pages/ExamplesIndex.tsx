@@ -1,5 +1,14 @@
-import { Box, Divider, Typography } from '@mui/material';
+// MUI Components
+
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+
+// Custom Components
+
 import ItemList from '../components/ItemList';
+
+// Example Page
 
 const ExamplesIndex = () => {
 	return (

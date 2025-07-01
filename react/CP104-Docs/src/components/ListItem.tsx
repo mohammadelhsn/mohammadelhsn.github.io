@@ -12,7 +12,6 @@ const ListItemComp = (opts: AssignmentItemOpts) => {
 	return (
 		<ListItem
 			disablePadding
-			className="list-item"
 			sx={{
 				bgcolor: (theme) => theme.palette.background.default,
 				borderLeft: (theme) => `4px solid ${theme.palette.secondary.main}`,

@@ -1,16 +1,19 @@
-import {
-	Accordion,
-	AccordionSummary,
-	Typography,
-	AccordionDetails,
-	useTheme,
-} from '@mui/material';
+// MUI Components
+
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import Accordion from '@mui/material/Accordion';
+
+// Data
+
 import type { TopicOpts } from '../data/Data';
 
+// Topics
+
 const Topic = (opts: TopicOpts) => {
-	const theme = useTheme();
 	return (
-		<Accordion sx={{ bgColor: theme.palette.background.paper }}>
+		<Accordion>
 			<AccordionSummary key={opts.eventKey}>
 				<Typography variant="h6">
 					<strong>{opts.title}</strong>

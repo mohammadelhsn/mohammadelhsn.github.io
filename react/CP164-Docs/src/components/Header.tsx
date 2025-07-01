@@ -1,8 +1,17 @@
+// React
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+// Material UI 
+
 import Button from '@mui/material/Button';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+
+// Interfaces
 
 interface HeaderProps {
 	mode: 'light' | 'dark';
@@ -30,7 +39,6 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 						: theme.palette.background.paper,
 				color: (theme) =>
 					theme.palette.mode === 'light' ? '#000' : theme.palette.text.primary,
-				padding: '1rem 2rem',
 			}}
 		>
 			<Toolbar>
@@ -65,9 +73,7 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 				>
 					Projects
 				</Button>
-
 				<Typography sx={{ flexGrow: 1 }} />
-
 				<Button
 					variant="outlined"
 					color="primary"

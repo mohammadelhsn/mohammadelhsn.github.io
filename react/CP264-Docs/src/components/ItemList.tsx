@@ -1,7 +1,18 @@
-import { PAGEDATA, EXAMPLEDATA } from '../data/Data';
-import ListItem from './ListItem';
-import type { ItemListOpts } from '../data/Data.ts';
+// MUI Components
+
 import { List } from '@mui/material';
+
+// Custom Components
+
+import ListItem from './ListItem';
+
+// Data
+
+import {
+	PAGEDATA,
+	EXAMPLEDATA,
+	type ItemListOpts
+} from '../data/Data';
 
 const baseUrl = import.meta.env.MODE === 'production' ? '/CP264/' : '/';
 
@@ -15,7 +26,7 @@ const ItemList = (opts: ItemListOpts) => {
 		length = PAGEDATA[1].numberOfEntries;
 	}
 	return (
-		<List>
+		<List sx={{ listStyle: 'none', padding: '0', bgcolor: 'background.paper' }}>
 			{Array.from({ length: length }, (_, i) => {
 				const num = i + 1;
 				const padded = String(num).padStart(2, '0');
@@ -30,7 +41,7 @@ const ItemList = (opts: ItemListOpts) => {
 					adds = EXAMPLEDATA[i].title;
 				}
 				return (
-					<ListItem key={num} adds={adds} link={link} type={opts.itemType} />
+					<ListItem key={num} adds={`${adds}`} link={link} type={opts.itemType} />
 				);
 			})}
 		</List>
@@ -38,3 +49,4 @@ const ItemList = (opts: ItemListOpts) => {
 };
 
 export default ItemList;
+

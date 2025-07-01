@@ -1,24 +1,27 @@
+// MUI Components
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
+
+// Data
+
 import { NAME, EMAIL, GITHUB, LINKEDIN } from '../data/Data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { Box, Typography, Link } from '@mui/material';
+
+// Icons 
+
+import LinkedIn from '@mui/icons-material/LinkedIn';
+import GitHub from '@mui/icons-material/GitHub';
+import Email from '@mui/icons-material/Email';
+
+// Styles
+
+import { outerFooterBox } from '../data/Styles';
+
+// Footer component
 
 const Footer = () => (
-	<Box
-		component="footer"
-		textAlign="center"
-		py={4}
-		sx={{
-			boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)', // subtle top shadow
-			color: (theme) =>
-				theme.palette.mode === 'light' ? '#000' : theme.palette.text.primary,
-			bgcolor: (theme) =>
-				theme.palette.mode === 'light'
-					? theme.palette.background.paper
-					: theme.palette.background.paper,
-		}}
-	>
+	<Box component="footer" textAlign="center" py={4} sx={outerFooterBox}>
 		<Box display="flex" justifyContent="center" gap={3}>
 			<Link
 				href={`mailto:${EMAIL}`}
@@ -31,7 +34,7 @@ const Footer = () => (
 					},
 				}}
 			>
-				<FontAwesomeIcon icon={faEnvelope} />
+				<Email />
 			</Link>
 			<Link
 				href={GITHUB}
@@ -46,14 +49,14 @@ const Footer = () => (
 					},
 				}}
 			>
-				<FontAwesomeIcon icon={faGithub} />
+				<GitHub />
 			</Link>
 			<Link
 				href={LINKEDIN}
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label="LinkedIn"
-				title="LinkedIn"
+				aria-label="YouTube"
+				title="YouTube"
 				color="inherit"
 				sx={{
 					'svg:hover': {
@@ -61,7 +64,7 @@ const Footer = () => (
 					},
 				}}
 			>
-				<FontAwesomeIcon icon={faLinkedin} />
+				<LinkedIn />
 			</Link>
 		</Box>
 		<Typography variant="body2" mt={3} color="text.secondary">
