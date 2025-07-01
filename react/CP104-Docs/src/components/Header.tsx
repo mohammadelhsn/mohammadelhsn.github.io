@@ -39,7 +39,6 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 						: theme.palette.background.paper,
 				color: (theme) =>
 					theme.palette.mode === 'light' ? '#000' : theme.palette.text.primary,
-				padding: '1rem 2rem',
 			}}
 		>
 			<Toolbar>

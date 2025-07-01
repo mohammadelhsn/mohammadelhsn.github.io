@@ -57,16 +57,23 @@ const TaskDisplay = ({ type }: LabsAssignmentsOpts) => {
 	}
 	return (
 		<Box maxWidth="md" mx="auto" mt={4} px={2}>
-			<Typography variant="h4" gutterBottom>
-				{taskData.name}
-			</Typography>
+			<Box sx={{ mb: 3 }}>
+				<Typography variant="h4" sx={{ fontWeight: 600 }}>
+					{taskData.name}
+				</Typography>
 
-			<Typography variant="subtitle1" gutterBottom color="text.secondary">
-				{type === 'assignment'
-					? `Assignment: ${section.id}`
-					: `Lab: ${section.id}`}
-			</Typography>
+				<Typography
+					variant="subtitle1"
+					color="text.secondary"
+					sx={{ fontStyle: 'italic', mt: 0.5 }}
+				>
+					{type === 'assignment' ? `Assignment: ${section.id}` : `Lab: ${section.id}`}
+				</Typography>
+			</Box>
+
+
 			<Divider sx={dividerStyle} />
+
 			{/* Description */}
 			<Typography variant="h6" gutterBottom>
 				Description
@@ -75,18 +82,41 @@ const TaskDisplay = ({ type }: LabsAssignmentsOpts) => {
 			<Paper elevation={1} sx={{ p: 2, mb: 3 }}>
 				<Typography>{taskData.description}</Typography>
 			</Paper>
+
 			{/* Objectives */}
 			<Typography variant="h6" gutterBottom>
 				Objectives
 			</Typography>
 			<Divider sx={dividerStyle} />
-			<List>
+			<List sx={{ mb: 4 }}>
 				{taskData.objectives.map((obj, index) => (
-					<ListItem key={index} disablePadding>
-						<ListItemText primary={`• ${obj}`} />
+					<ListItem
+						key={index}
+						sx={{
+							mb: 1,
+							borderRadius: 2,
+							backgroundColor: 'background.paper',
+							px: 2,
+							py: 1,
+							boxShadow: 1,
+							gap: 1.5,
+							alignItems: 'flex-start',
+						}}
+					>
+						{/* Optional: add icon if desired
+					<CheckCircleOutlineIcon color="primary" sx={{ mt: 0.5 }} />
+					*/}
+						<ListItemText
+							primary={obj}
+							slotProps={{
+								primary: { variant: 'body1' },
+							}}
+
+						/>
 					</ListItem>
 				))}
 			</List>
+
 			{/* Sample Output */}
 			<Typography variant="h6" mt={4}>
 				Sample Output
@@ -95,12 +125,20 @@ const TaskDisplay = ({ type }: LabsAssignmentsOpts) => {
 			<Paper elevation={1} sx={sampleOutput}>
 				{taskData.sampleOutput}
 			</Paper>
+
 			{/* Skills */}
-			<Typography variant="h6">Skills Demonstrated</Typography>
+			<Typography variant="h6" mt={4}>
+				Skills Demonstrated
+			</Typography>
 			<Divider sx={dividerStyle} />
 			<Box maxWidth="md" mx="auto" mt={4} px={2} pb={8}>
 				{taskData.skills.map((skill, index) => (
-					<Chip label={skill} key={index} sx={chipStyle} variant="outlined" />
+					<Chip
+						label={skill}
+						key={index}
+						sx={chipStyle}
+						variant="outlined"
+					/>
 				))}
 			</Box>
 		</Box>

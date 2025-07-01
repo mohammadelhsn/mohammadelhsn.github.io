@@ -13,9 +13,8 @@ const ListItemComp = (opts: AssignmentItemOpts) => {
 		<ListItem
 			disablePadding
 			className="list-item"
-			color="background.paper"
 			sx={{
-				backgroundColor: (theme) => theme.palette.background.paper,
+				bgcolor: (theme) => theme.palette.background.default,
 				borderLeft: (theme) => `4px solid ${theme.palette.secondary.main}`,
 				padding: '15px 20px',
 				marginBottom: '10px',
@@ -33,10 +32,11 @@ const ListItemComp = (opts: AssignmentItemOpts) => {
 				href={opts.link}
 				target="_blank"
 				rel="noopener noreferrer"
-				underline="hover"
+				underline={'none'}
 				sx={{ width: '100%', padding: '0.5rem 1rem', display: 'block' }}
 			>
 				<ListItemText
+					sx={{ color: (theme) => theme.palette.text.primary }}
 					primary={`${opts.type}` == 'assignment'
 						? `Assignment ${opts.adds}`
 						: opts.type == 'example'

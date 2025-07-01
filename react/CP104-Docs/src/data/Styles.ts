@@ -31,9 +31,10 @@ export const outerFooterBox: SxProps = {
 };
 
 export const dividerStyle: SxProps = {
-	borderTop: `4px solid #cc8f7f`,
-	margin: '1rem 1rem',
-	marginLeft: 0,
+	my: 2,
+	borderBottomWidth: 2,
+	borderColor: '#d0d0d0',
+	borderRadius: 1,
 };
 
 export const sampleOutput: SxProps = {

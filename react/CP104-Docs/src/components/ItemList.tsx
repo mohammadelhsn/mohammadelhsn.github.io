@@ -55,10 +55,10 @@ const ItemList = (opts: ItemListOpts) => {
 					const type = opts.taskStr?.includes('elha7950_l')
 						? 'labs'
 						: 'assignments';
-					link = `${baseUrl}${type} /${opts.taskStr}/${tasksArr[i]?.id}`;
+					link = `${baseUrl}${type}/${opts.taskStr}/${tasksArr[i]?.id}`;
 					adds = tasksArr[i].name;
 				} else {
-					link = `${baseUrl} examples / ${EXAMPLEDATA[i].url}/`;
+					link = `${baseUrl}examples/${EXAMPLEDATA[i].url}/`;
 					adds = EXAMPLEDATA[i].title;
 				}
 				return (
