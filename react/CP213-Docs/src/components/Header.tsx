@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 				<Button
 					color="inherit"
 					component={StyledNavLink}
-					to="/"
+					to="https://mohammadelhsn.github.io/"
 					end
 				>
 					Home
@@ -79,8 +79,7 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 				<Button
 					color="inherit"
 					component={StyledNavLink}
-					to="/projects"
-
+					to="https://mohammadelhsn.github.io/#/projects"
 				>
 					Projects
 				</Button>
