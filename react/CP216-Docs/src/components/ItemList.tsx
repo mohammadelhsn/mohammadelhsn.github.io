@@ -1,10 +1,14 @@
 // MUI Components
 
-import { List, Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
 // Custom Components
 
 import ListItem from './ListItem';
+
+// Icon 
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 // Data
 
@@ -14,12 +18,13 @@ import {
 	AssignmentData,
 	type TaskData,
 	LabData,
-	type ItemListOpts
+	type ItemListOpts,
 } from '../data/Data';
 
-const baseUrl = import.meta.env.MODE === 'production' ? '/CP104/#/' : '/#/';
+import Settings from '../data/Settings';
 
 const ItemList = (opts: ItemListOpts) => {
+	const baseUrl = import.meta.env.MODE === 'production' ? `/${Settings.courseCode}/${opts.isFile ? '' : '#/'}` : `/${opts.isFile ? '' : '#/'}`;
 	let length;
 	let tasksArr: TaskData[] = [];
 	if (opts.itemType == 'assignment') {
@@ -71,31 +76,32 @@ const ItemList = (opts: ItemListOpts) => {
 		length = PAGEDATA[1].numberOfEntries;
 	}
 	return (
-		<List sx={{ listStyle: 'none', padding: '0' }}>
+		<Grid container spacing={3} sx={{ mt: 2 }}>
 			{Array.from({ length: length }, (_, i) => {
 				const num = i + 1;
 				const padded = String(num).padStart(2, '0');
 				let link;
 				let adds = `${num}`;
 				if (opts.itemType == 'assignment') {
-					link = `${baseUrl}assignments/elha7950_a${padded}/`;
+					link = `${baseUrl}assignments/elha7950_a${padded}/${opts.isFile ? 'index.html' : ''}`;
 				} else if (opts.itemType == 'lab') {
-					link = `${baseUrl}labs/elha7950_l${padded}/`;
+					link = `${baseUrl}labs/elha7950_l${padded}/${opts.isFile ? 'index.html' : ''}`;
 				} else if (opts.itemType == 'task') {
-					const type = opts.taskStr?.includes('elha7950_l')
-						? 'labs'
-						: 'assignments';
-					link = `${baseUrl}${type}/${opts.taskStr}/${tasksArr[i]?.id}`;
+					const type = opts.taskStr?.includes('elha7950_l') ? 'labs' : 'assignments';
+					link = `${baseUrl}${type}/${opts.taskStr}/${tasksArr[i]?.id}/${opts.isFile ? 'index.html' : ''}`;
 					adds = tasksArr[i].name;
 				} else {
-					link = `${baseUrl}examples/${EXAMPLEDATA[i].url}/`;
+					link = `${baseUrl}examples${EXAMPLEDATA[i].url}${opts.isFile ? 'index.html' : ''}`;
 					adds = EXAMPLEDATA[i].title;
 				}
+
 				return (
-					<ListItem key={num} adds={`${adds}`} link={link} type={opts.itemType} />
+					<Grid size={{ xs: 12, sm: 6, md: 4 }} key={num}>
+						<ListItem key={num} adds={`${adds}`} link={link} type={opts.itemType} />
+					</Grid>
 				);
 			})}
-		</List>
+		</Grid>
 	);
 };
 

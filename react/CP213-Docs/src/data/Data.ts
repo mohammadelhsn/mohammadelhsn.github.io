@@ -1,69 +1,32 @@
-import React from 'react';
+import type { Theme } from '@mui/material';
+import { type ElementType } from 'react';
 
-/**
- *
- */
-export const NAME = 'Mohammad El-Hassan';
-
-/**
- *
- */
-export const USERNAME = 'mohammadelhsn';
-
-/**
- *
- */
-export const GITHUB_HANDLE = `@${USERNAME}`;
-
-/**
- *
- */
-export const GITHUB = `https://github.com/${USERNAME}`;
-
-/**
- *
- */
-export const EMAIL = `${USERNAME}@gmail.com`;
-
-/**
- *
- */
-export const LINKEDIN = 'https://www.linkedin.com/in/mohammadelhsn';
-
-/**
- *
- */
-export const COURSENAME = '☕ CP213 - Object-Oriented Programming with Java';
-
-/**
- *
- */
-export const COURSECODE = 'CP213';
-
-/**
- *
- */
-export const TERM = 'Fall 2024';
-
-/**
- *
- */
-export const YOUTUBE = 'https://youtube.com/@mohammadelhsn';
-
-/**
- *
- */
-export const baseLab = 'elha7950_l';
-
-/**
- *
- */
-export const baseAssignment = 'elha7950_a';
+export type SettingOpts = {
+	exampleEnable?: boolean;
+	assignmentNumbersDisable?: boolean;
+	assignmentTasksDisable?: boolean;
+	labNumbersDisable?: boolean;
+	labTasksDisable?: boolean;
+	courseCode: string;
+	courseName: string;
+	term: string;
+	light?: Theme;
+	dark?: Theme;
+	name?: string;
+	username?: string;
+	github_handle?: string;
+	github?: string;
+	email?: string;
+	linkedIn?: string;
+	baseLab?: string;
+	baseAssignment?: string;
+};
 
 /**
  *
  */
 export const baseURL = 'https://mohammadelhsn.github.io/';
+
 /**
  *
  */
@@ -78,6 +41,7 @@ export interface ItemListOpts {
 	itemType: ItemType;
 	count?: number;
 	taskStr?: string;
+	isFile?: boolean;
 }
 export interface AssignmentItemOpts {
 	key: number;
@@ -89,12 +53,14 @@ export interface AssignmentItemOpts {
 export interface SectionOpts {
 	title: string;
 	children: React.ReactNode;
+	icon?: ElementType;
 }
 
 export interface TopicOpts {
 	eventKey: string;
 	title: string;
 	items: string[];
+	icon?: ElementType;
 }
 /**
  *
@@ -102,21 +68,19 @@ export interface TopicOpts {
 export const PAGEDATA: pageData[] = [
 	{
 		title: '📝 Assignments',
-		description:
-			'Here are the documented assignments with source code and auto-generated Doxygen documentation:',
-		numberOfEntries: 10,
+		description: 'Generated documentation for each assignment',
+		numberOfEntries: 5,
 	},
 	{
 		title: '🔬 Labs',
-		description:
-			'Here are the documented labs with source code and auto-generated Doxygen documentation:',
-		numberOfEntries: 9,
+		description: 'Generated documentation for each lab',
+		numberOfEntries: 8,
 	},
 	{
 		title: '💡 Examples',
 		description:
 			'Below are documented example programs that explore various C programming concepts and data structures:',
-		numberOfEntries: 31,
+		numberOfEntries: 0,
 	},
 ];
 
@@ -128,7 +92,7 @@ export interface ExampleData {
 export const EXAMPLEDATA: ExampleData[] = [
 	{
 		title: '01 - C Program Structure & Organization',
-		url: `01-C-Program-Structure-and-Organization/`,
+		url: `/01-C-Program-Structure-and-Organization/`,
 	},
 	{
 		title: '02 - Data Types, Variables & Controls',
@@ -254,21 +218,30 @@ export const EXAMPLEDATA: ExampleData[] = [
 
 export const TopicsData: TopicOpts[] = [
 	{
-		items: ['Arrays and Linked Lists', 'Stacks and Queues', 'Recursion'],
-		title: '📚 Core Data Structures',
+		items: [
+			'Classes and Objects',
+			'Encapsulation',
+			'Inheritance and Polymorphism',
+		],
+		title: 'Object-Oriented Programming',
 		eventKey: '0',
 	},
 	{
 		items: [
-			'Trees and Binary Search Trees (BST)',
-			'Graphs and Graph Algorithms',
+			'Abstract Classes and Interfaces',
+			'Method Overloading and Overriding',
+			'Exception Handling',
 		],
-		title: '🌲 Trees & Graphs',
+		title: 'Advanced OOP Concepts',
 		eventKey: '1',
 	},
 	{
-		items: ['Hash Tables', 'Sorting and Searching Algorithms'],
-		title: '⚙️ Algorithms & Hashing',
+		items: [
+			'Java Collections Framework (Lists, Sets, Maps)',
+			'File I/O',
+			'Introduction to GUI Programming in Java (Swing)',
+		],
+		title: 'Java Libraries and GUI',
 		eventKey: '2',
 	},
 ];
@@ -277,13 +250,14 @@ export interface TechItemOpts {
 	emoji: string;
 	bolded: string;
 	nonBolded: string;
+	icon?: ElementType;
 }
 
 export const TechData: TechItemOpts[] = [
 	{
 		emoji: '💻',
 		bolded: 'Programming Language:',
-		nonBolded: 'C',
+		nonBolded: 'Java',
 	},
 	{
 		emoji: '🧰',
@@ -301,6 +275,7 @@ export interface CardTypes {
 	title: string;
 	desc: string;
 	itemType: ItemType;
+	icon?: ElementType;
 }
 
 export interface TaskData {
@@ -628,8 +603,8 @@ Tip in (%): 15
 
 Cost of meal:
 Subtotal: $ 50.0
-     Tax: $ 6.5
-     Tip: $ 7.5
+	 Tax: $ 6.5
+	 Tip: $ 7.5
 ------------------
    Total: $ 64.0`,
 				skills: [
@@ -1244,7 +1219,7 @@ Balance: $ 1104.486328125`,
 	},
 ];
 
-export type LabsAssignmentOpt = 'assignment' | 'lab';
+export type LabsAssignmentOpt = 'assignment' | 'lab' | 'example';
 export interface LabsAssignmentsOpts {
 	type: LabsAssignmentOpt;
 }

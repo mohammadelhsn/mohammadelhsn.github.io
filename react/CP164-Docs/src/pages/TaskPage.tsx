@@ -1,6 +1,6 @@
 // React
 
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // MUI Components
 
@@ -12,6 +12,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 // Custom Components
 
@@ -27,12 +30,20 @@ import {
 
 // Styles
 
-import { chipStyle, dividerStyle, sampleOutput } from '../data/Styles';
+import { dividerStyle, sampleOutput, textStyle } from '../data/Styles';
+import SectionWrapper from '../components/Section';
+import DescriptionIcon from '@mui/icons-material/Description';
+import OutputIcon from '@mui/icons-material/Output';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+import BuildIcon from '@mui/icons-material/Build';
+
+
 
 // TaskPage
 
 const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 	const { num, task } = useParams<{ num: string; task: string; }>();
+	const navigate = useNavigate();
 	// Choose the right data source
 	const dataSource = opts.type === 'assignment' ? AssignmentData : LabData;
 
@@ -57,92 +68,82 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 		);
 	}
 	return (
-		<Box maxWidth="md" mx="auto" mt={4} px={2}>
+		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
+			<Box sx={{ mb: 2 }}>
+				<IconButton onClick={() => navigate(-1)} aria-label="Go back">
+					<ArrowBackIcon />
+				</IconButton>
+			</Box>
 			<Box sx={{ mb: 3 }}>
-				<Typography variant="h4" sx={{ fontWeight: 600 }}>
+				<Typography variant="h2" sx={textStyle}>
 					{taskData.name}
 				</Typography>
-
 				<Typography
-					variant="subtitle1"
+					variant="h5"
 					color="text.secondary"
-					sx={{ fontStyle: 'italic', mt: 0.5 }}
+					sx={{ fontStyle: 'italic' }}
 				>
 					{opts.type === 'assignment' ? `Assignment: ${section.id}` : `Lab: ${section.id}`}
 				</Typography>
 			</Box>
-
-
 			<Divider sx={dividerStyle} />
-
 			{/* Description */}
-			<Typography variant="h6" gutterBottom>
-				Description
-			</Typography>
-			<Divider sx={dividerStyle} />
-			<Paper elevation={1} sx={{ p: 2, mb: 3 }}>
-				<Typography>{taskData.description}</Typography>
-			</Paper>
+			<SectionWrapper title="Description" icon={DescriptionIcon}>
+				<Paper elevation={3} sx={{ p: 2, mb: 3 }}>
+					<Typography>{taskData.description}</Typography>
+				</Paper>
+			</SectionWrapper>
 
 			{/* Objectives */}
-			<Typography variant="h6" gutterBottom>
-				Objectives
-			</Typography>
-			<Divider sx={dividerStyle} />
-			<List sx={{ mb: 4 }}>
-				{taskData.objectives.map((obj, index) => (
-					<ListItem
-						key={index}
-						sx={{
-							mb: 1,
-							borderRadius: 2,
-							backgroundColor: 'background.paper',
-							px: 2,
-							py: 1,
-							boxShadow: 1,
-							gap: 1.5,
-							alignItems: 'flex-start',
-						}}
-					>
-						{/* Optional: add icon if desired
-					<CheckCircleOutlineIcon color="primary" sx={{ mt: 0.5 }} />
-					*/}
-						<ListItemText
-							primary={obj}
-							slotProps={{
-								primary: { variant: 'body1' },
+			<SectionWrapper title='Objectives' icon={ChecklistIcon}>
+				<List>
+					{taskData.objectives.map((obj, index) => (
+						<ListItem
+							key={index}
+							component={Paper}
+							elevation={3}
+							sx={{
+								mb: 1,
+								borderRadius: 2,
+								px: 2,
+								py: 1,
+								boxShadow: 1,
+								gap: 1.5,
+								alignItems: 'flex-start',
 							}}
+						>
+							<ListItemText
+								primary={obj}
+								slotProps={{
+									primary: { variant: 'body1' },
+								}}
 
-						/>
-					</ListItem>
-				))}
-			</List>
+							/>
+						</ListItem>
+					))}
+				</List>
+			</SectionWrapper>
+
 
 			{/* Sample Output */}
-			<Typography variant="h6" mt={4}>
-				Sample Output
-			</Typography>
-			<Divider sx={dividerStyle} />
-			<Paper elevation={1} sx={sampleOutput}>
-				{taskData.sampleOutput}
-			</Paper>
-
+			<SectionWrapper title="Sample Output" icon={OutputIcon}>
+				<Paper elevation={3} sx={sampleOutput}>
+					{taskData.sampleOutput}
+				</Paper>
+			</SectionWrapper>
 			{/* Skills */}
-			<Typography variant="h6" mt={4}>
-				Skills Demonstrated
-			</Typography>
-			<Divider sx={dividerStyle} />
-			<Box maxWidth="md" mx="auto" mt={4} px={2} pb={8}>
-				{taskData.skills.map((skill, index) => (
-					<Chip
-						label={skill}
-						key={index}
-						sx={chipStyle}
-						variant="outlined"
-					/>
-				))}
-			</Box>
-		</Box>
+			<SectionWrapper title="Skills Demonstrated" icon={BuildIcon}>
+				<Box>
+					{taskData.skills.map((skill, index) => (
+						<Chip
+							label={skill}
+							key={index}
+							variant="outlined"
+						/>
+					))}
+				</Box>
+			</SectionWrapper>
+		</Container>
 	);
 };
 

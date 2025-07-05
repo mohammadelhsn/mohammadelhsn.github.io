@@ -13,28 +13,21 @@ export const cardBodyStyles: SxProps = {
 
 export const cardActionStyles: SxProps = {
 	justifyContent: 'flex-start',
-	paddingLeft: '0',
+	paddingLeft: '1.5',
 	paddingBottom: '0',
 	paddingTop: '25px',
 };
 
 export const buttonStyles: SxProps = {
-	color: '#cc8f7f',
+	color: 'primary',
 	textDecoration: 'none',
 	fontWeight: 'bold',
 	fontSize: '0.9em',
 };
 
-export const outerFooterBox: SxProps = {
-	boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)', // subtle top shadow
-	bgcolor: 'background.paper',
-};
-
 export const dividerStyle: SxProps = {
-	my: 2,
-	borderBottomWidth: 2,
-	borderColor: '#d0d0d0',
-	borderRadius: 1,
+	margin: '2rem 0',
+	marginLeft: 0,
 };
 
 export const sampleOutput: SxProps = {
@@ -60,4 +53,17 @@ export const projectsGrid = {
 	gap: '2rem',
 	height: '100%',
 	gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+};
+
+export const textStyle = {
+	display: 'flex',
+	alignItems: 'center', // use "center" instead of "top" for visual balance
+	mb: 1, // space between heading and subheading
+	flexWrap: 'wrap', // allow wrapping inside flex container
+	wordBreak: 'break-word', // break long words if needed
+};
+
+export const iconStyles = {
+	color: 'primary.main',
+	mr: 1.5,
 };

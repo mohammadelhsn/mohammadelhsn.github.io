@@ -1,17 +1,13 @@
-// React
-
-import { Link } from 'react-router-dom';
-
 // MUI Components
 
 import Box from '@mui/material/Box';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
-import Card from '@mui/material/Card';
+import Paper from '@mui/material/Paper';
 import { useTheme } from '@mui/material/styles';
-
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
 // Custom Components
 
 import SectionWrapper from '../components/Section';
@@ -19,35 +15,77 @@ import TopicsAccordion from '../components/Topic';
 import TechList from '../components/TechList';
 import CardLinks from '../components/CardLinks';
 
+// Icons 
+
+import ArticleIcon from '@mui/icons-material/Article';
+import TopicIcon from '@mui/icons-material/Topic';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import ComputerIcon from '@mui/icons-material/Computer';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import BiotechIcon from '@mui/icons-material/Biotech';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import MemoryIcon from '@mui/icons-material/Memory';
+import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
+
 // Data 
 
-import { COURSENAME, TERM, COURSECODE, TopicsData, GITHUB, GITHUB_HANDLE, EMAIL } from '../data/Data';
-
-// Styles
-
-import { dividerStyle } from '../data/Styles';
+import { TopicsData } from '../data/Data';
+import Settings from '../data/Settings';
+import { textStyle } from '../data/Styles';
 
 const CP264DocsMain = () => {
 	const theme = useTheme();
+	TopicsData[0].icon = SettingsInputComponentIcon;
+	TopicsData[1].icon = DeveloperBoardIcon;
+	TopicsData[2].icon = BugReportIcon;
 	return (
-		<Box sx={{ flexGrow: '1', padding: '3rem 2rem', margin: '0 auto', maxWidth: '1200px' }}>
-			<div className="section">
-				<Typography variant="h2">{COURSENAME}</Typography>
-				<Typography variant="h3">
-					Wilfrid Laurier University — {TERM}
+		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
+			<Box>
+				<Typography
+					variant="h2"
+					sx={textStyle}
+				>
+					<MemoryIcon
+						fontSize="inherit"
+						sx={{
+							color: 'primary.main',
+							mr: 1.5,
+						}}
+					/>
+					{Settings.courseName}
 				</Typography>
-			</div>
-			<SectionWrapper title="📌 Overview">
-				{/* prettier-ignore */}
-				<p>
-					This repository contains my coursework, assignments, and projects for<strong>{COURSENAME}</strong> at <strong>Wilfrid Laurier University</strong>. The course explores core object-oriented programming concepts in Java, such as classes, inheritance, polymorphism, encapsulation, and abstraction, as well as the use of data structures and algorithms in an object-oriented context.
-				</p>
-			</SectionWrapper>
-			<SectionWrapper title="📄 Docs Structure">
-				<Box
-					component="pre"
+
+				<Typography
+					variant="h5" // smaller than h3 to improve visual hierarchy under h2
+					color="text.secondary"
 					sx={{
-						bgcolor: theme.palette.background.paper,
+						fontStyle: 'italic',
+					}}
+				>
+					Wilfrid Laurier University — {Settings.term}
+				</Typography>
+				<Divider sx={{ my: 4 }} />
+			</Box>
+			<SectionWrapper title="Overview" icon={SummarizeIcon}>
+				{/* prettier-ignore */}
+				<Paper elevation={3} sx={{ padding: '20px' }}>
+					<p>
+						This repository contains my coursework, assignments, and projects for <strong>{Settings.courseName}</strong> at <strong>Wilfrid Laurier University</strong>. My coursework and projects on ARMv7 microprocessors and embedded systems, focusing on assembly programming, CPU architecture, memory, and I/O interfacing.
+					</p>
+				</Paper>
+			</SectionWrapper>
+			<SectionWrapper title={`Docs Structure`} icon={MenuBookIcon}>
+				<Paper
+					component="pre"
+					elevation={3}
+					sx={{
 						color: theme.palette.text.primary,
 						p: 2,
 						borderRadius: 1,
@@ -57,115 +95,157 @@ const CP264DocsMain = () => {
 						overflowX: 'auto',
 					}}
 				>
-					{`mohammadelhsn.github.io/${COURSECODE}/
+					{`mohammadelhsn.github.io/${Settings.courseCode}/
 ├── #/assignments/                    → All assignments list
-├── #/assignments/elha7950_a01        → Assignment A01 summary page
-├── #/assignments/elha7950_a01/t01    → Task 1 inside assignment A01
+├── #/assignments/${Settings.baseAssignment}01        → Assignment A01 summary page
+├── #/assignments/${Settings.baseAssignment}01/t01    → Task 1 inside assignment A01
 ├── #/labs/                           → All labs list
-├── #/labs/elha7950_l02               → Lab 2 summary page
-└── #/labs/elha7950_l02/t03           → Task 3 inside lab 2`}
-				</Box>
+├── #/labs/${Settings.baseLab}02               → Lab 2 summary page
+└── #/labs/${Settings.baseLab}02/t03           → Task 3 inside lab 2`}
+				</Paper>
 			</SectionWrapper>
-			<SectionWrapper title="🚀 Topics">
-				{TopicsData.map(({ title, eventKey, items }) => {
-					return (
-						<TopicsAccordion
-							eventKey={eventKey}
-							items={items}
-							title={title}
-						></TopicsAccordion>
-					);
-				})}
+			<SectionWrapper title="Topics" icon={TopicIcon}>
+				<Paper elevation={3}>
+					{TopicsData.map(({ title, eventKey, items, icon }) => {
+						return (
+							<TopicsAccordion
+								eventKey={eventKey}
+								items={items}
+								title={title}
+								icon={icon}
+							></TopicsAccordion>
+						);
+					})}
+				</Paper>
 			</SectionWrapper>
-			<SectionWrapper title="🛠️ Technologies">
+			<SectionWrapper title="Technologies" icon={ComputerIcon}>
 				<TechList />
 			</SectionWrapper>
-			<SectionWrapper title="📚 Explore the Docs">
+			<SectionWrapper title="Explore the Docs" icon={ArticleIcon}>
 				<Grid container spacing={3}>
 					<CardLinks
-						title="📝 Assignments"
-						desc="All assignments with Doxygen-generated documentation."
+						title="Assignments"
+						desc="All assignments with generated documentation."
 						itemType="assignment"
+						icon={AssignmentIcon}
 					/>
 					<CardLinks
-						title="🔬 Labs"
+						title="Labs"
 						desc="Hands-on labs that apply key data structure concepts."
 						itemType="lab"
+						icon={BiotechIcon}
 					/>
+					{Settings.exampleEnable == true && <CardLinks
+						title="Examples"
+						desc="Mini examples, snippets, and helper code from class."
+						itemType="example"
+						icon={LightbulbIcon}
+					/>}
 				</Grid>
 			</SectionWrapper>
-			<Divider sx={dividerStyle} />
+			<Divider sx={{ my: 4 }} />
 			<Grid container spacing={4}>
-				{/* Left column */}
 				<Grid size={{ md: 6, xs: 12 }}>
-					<Card
-						raised
+					<Paper
+						elevation={1}
 						sx={{
 							height: '100%',
-							p: 2,
-							bgColor: theme.palette.background.paper,
+							p: 3,
+							borderRadius: 2,
 						}}
 					>
-						<CardContent>
-							<Typography
-								variant="h6"
-								component="div"
-								sx={{ fontWeight: 'bold', mb: 1 }}
-							>
-								📌 Notes
-							</Typography>
-							<Typography variant="body1" color="text.secondary">
-								This repository is for educational use and follows academic
-								policies set by <strong>Wilfrid Laurier University</strong>. If
-								you're a {COURSECODE} student, please ensure your
-								submissions maintain academic integrity.
-							</Typography>
-						</CardContent>
-					</Card>
+						<Typography
+							variant="h6"
+							sx={textStyle}
+						>
+							<NoteAltIcon fontSize="inherit"
+								sx={{
+									color: 'primary.main',
+									mr: 1.5,
+								}} /> Notes
+						</Typography>
+						<Divider sx={{ my: 2 }} />
+						<Typography variant="body1" color="text.secondary">
+							This repository is for educational use and follows academic
+							policies set by <strong>Wilfrid Laurier University</strong>. If
+							you're a {Settings.courseCode} student, please ensure your
+							submissions maintain academic integrity.
+						</Typography>
+					</Paper>
 				</Grid>
+
+				{/* Right column */}
 				<Grid size={{ md: 6, xs: 12 }}>
-					<Card
-						raised={true}
+					<Paper
+						elevation={1}
 						sx={{
 							height: '100%',
-							p: 2,
-							backgroundColor: theme.palette.background.paper,
+							p: 3,
+							borderRadius: 2,
 						}}
 					>
-						<CardContent>
-							<Typography
-								variant="h6"
-								component="div"
-								sx={{ fontWeight: 'bold', mb: 1 }}
+						<Typography
+							variant="h6"
+							sx={textStyle}
+						>
+							<ContactSupportIcon fontSize="inherit"
+								sx={{
+									color: 'primary.main',
+									mr: 1.5,
+								}} /> Contact
+						</Typography>
+						<Divider sx={{ my: 2 }} />
+						<Typography variant="body1" color="text.secondary" sx={textStyle} component={'pre'}>
+							<GitHubIcon fontSize="inherit"
+								sx={{
+									color: 'primary.main',
+									mr: 1.5,
+								}} /> GitHub:{' '}
+							<Link
+								href={Settings.github}
+								target="_blank"
+								rel="noopener noreferrer"
+								sx={{
+									color: 'primary.main',
+									'&:visited': {
+										color: 'primary.main',  // same as main color
+									},
+									'&:hover': {
+										textDecoration: 'underline',
+									},
+								}}
 							>
-								📬 Contact
-							</Typography>
-							<Typography variant="body1" color="text.secondary">
-								📂 GitHub:{' '}
-								<Link
-									to={GITHUB}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{GITHUB_HANDLE}
-								</Link>
-							</Typography>
-							<Typography variant="body1" color="text.secondary">
-								📧 Email:{' '}
-								<Link
-									to={`mailto:${EMAIL}`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{EMAIL}
-								</Link>
-							</Typography>
-						</CardContent>
-					</Card>
+								{Settings.github_handle}
+							</Link>
+						</Typography>
+						<Typography variant="body1" color="text.secondary" sx={textStyle} component='pre'>
+							<ContactMailIcon fontSize="inherit"
+								sx={{
+									color: 'primary.main',
+									mr: 1.5,
+								}} /> Email:{' '}
+							<Link
+								href={`mailto:${Settings.email}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								sx={{
+									color: 'primary.main',
+									'&:visited': {
+										color: 'primary.main',  // same as main color
+									},
+									'&:hover': {
+										textDecoration: 'underline',
+									},
+								}}
+							>
+								{Settings.email}
+							</Link>
+						</Typography>
+					</Paper>
 				</Grid>
 			</Grid>
-			<Divider sx={dividerStyle} />
-		</Box>
+			<Divider sx={{ my: 4 }} />
+		</Container>
 	);
 };
 

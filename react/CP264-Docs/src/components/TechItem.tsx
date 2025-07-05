@@ -6,6 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 // Data
 
 import type { TechItemOpts } from '../data/Data';
+import { Typography } from '@mui/material';
 
 // Tech Item
 
@@ -14,9 +15,18 @@ const TechItem = (opts: TechItemOpts) => {
 		<ListItem>
 			<ListItemText
 				primary={
-					<>
-						{opts.emoji} <strong>{opts.bolded}</strong> {opts.nonBolded}
-					</>
+					<Typography variant="body1" sx={{ display: 'flex', alignItems: 'center' }}>
+						{opts.icon && (
+							<opts.icon
+								fontSize="inherit"
+								sx={{
+									color: 'primary.main',
+									mr: 1.5,
+								}}
+							/>
+						)}
+						<strong>{opts.bolded}</strong>&nbsp;{opts.nonBolded}
+					</Typography>
 				}
 			/>
 		</ListItem>

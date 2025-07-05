@@ -1,6 +1,19 @@
+// React
+
 import { Link } from 'react-router-dom';
+
+// MUI Components
+
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+
+// Data
+
 import { NAME, EMAIL } from '../data/Data';
-import { Box, Typography, Button } from '@mui/material';
+
+// Styles
+
 import {
 	buttonStyle,
 	buttonWrapper,
@@ -9,6 +22,8 @@ import {
 	homeText,
 	homeTitle,
 } from '../data/Styles.ts';
+
+// Home
 
 const Home = () => {
 	return (

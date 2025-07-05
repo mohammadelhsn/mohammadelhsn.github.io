@@ -19,6 +19,10 @@ import TaskDisplay from './pages/TaskPage';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { lightTheme, darkTheme } from './data/Theme';
 
+// Data
+
+import Settings from './data/Settings';
+
 // Styles
 
 import './App.css';
@@ -27,7 +31,6 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-// App
 
 const App = () => {
 	const [mode, setMode] = React.useState<'light' | 'dark'>(() => {
@@ -56,17 +59,32 @@ const App = () => {
 						path="/assignments/"
 						element={<AssignmentsPage type="assignment" />}
 					/>
-					<Route
-						path="/assignments/:num"
-						element={<AssignmentPage type="assignment" />}
-					/>
-					<Route
-						path="/assignments/:num/:task"
-						element={<TaskDisplay type="assignment" />}
-					/>
+					{(Settings.assignmentNumbersDisable == false && (
+						<Route
+							path="/assignments/:num"
+							element={<AssignmentPage type="assignment" />}
+						/>
+					))}
+					{(Settings.assignmentTasksDisable == false && (
+						<Route
+							path="/assignments/:num/:task"
+							element={<TaskDisplay type="assignment" />}
+						/>
+					))}
 					<Route path="/labs/" element={<AssignmentsPage type="lab" />} />
-					<Route path="/labs/:num" element={<AssignmentPage type="lab" />} />
-					<Route path="/labs/:num/:task" element={<TaskDisplay type="lab" />} />
+					{(Settings.labNumbersDisable == false && (
+						<Route
+							path="/labs/:num" element={<AssignmentPage type="lab" />}
+						/>
+					))}
+					{(Settings.labTasksDisable == false && (
+						<Route
+							path="/labs/:num/:task" element={<TaskDisplay type="lab" />}
+						/>
+					))}
+					{(Settings.exampleEnable == true && (
+						<Route path="/examples" element={<AssignmentsPage type='example' />} />
+					))}
 					<Route path="*" element={<Navigate to="/" replace />} />
 				</Routes>
 				<Footer />

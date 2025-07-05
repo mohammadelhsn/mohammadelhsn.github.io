@@ -1,69 +1,32 @@
-import React from 'react';
+import type { Theme } from '@mui/material';
+import { type ElementType } from 'react';
 
-/**
- *
- */
-export const NAME = 'Mohammad El-Hassan';
-
-/**
- *
- */
-export const USERNAME = 'mohammadelhsn';
-
-/**
- *
- */
-export const GITHUB_HANDLE = `@${USERNAME}`;
-
-/**
- *
- */
-export const GITHUB = `https://github.com/${USERNAME}`;
-
-/**
- *
- */
-export const EMAIL = `${USERNAME}@gmail.com`;
-
-/**
- *
- */
-export const LINKEDIN = 'https://www.linkedin.com/in/mohammadelhsn';
-
-/**
- *
- */
-export const COURSENAME = '🐍 CP104 - Introduction to Programming with Python';
-
-/**
- *
- */
-export const COURSECODE = 'CP104';
-
-/**
- *
- */
-export const TERM = 'Fall 2023';
-
-/**
- *
- */
-export const YOUTUBE = 'https://youtube.com/@mohammadelhsn';
-
-/**
- *
- */
-export const baseLab = 'elha7950_l';
-
-/**
- *
- */
-export const baseAssignment = 'elha7950_a';
+export type SettingOpts = {
+	exampleEnable?: boolean;
+	assignmentNumbersDisable?: boolean;
+	assignmentTasksDisable?: boolean;
+	labNumbersDisable?: boolean;
+	labTasksDisable?: boolean;
+	courseCode: string;
+	courseName: string;
+	term: string;
+	light?: Theme;
+	dark?: Theme;
+	name?: string;
+	username?: string;
+	github_handle?: string;
+	github?: string;
+	email?: string;
+	linkedIn?: string;
+	baseLab?: string;
+	baseAssignment?: string;
+};
 
 /**
  *
  */
 export const baseURL = 'https://mohammadelhsn.github.io/';
+
 /**
  *
  */
@@ -78,6 +41,7 @@ export interface ItemListOpts {
 	itemType: ItemType;
 	count?: number;
 	taskStr?: string;
+	isFile?: boolean;
 }
 export interface AssignmentItemOpts {
 	key: number;
@@ -89,34 +53,34 @@ export interface AssignmentItemOpts {
 export interface SectionOpts {
 	title: string;
 	children: React.ReactNode;
+	icon?: ElementType;
 }
 
 export interface TopicOpts {
 	eventKey: string;
 	title: string;
 	items: string[];
+	icon?: ElementType;
 }
 /**
  *
  */
 export const PAGEDATA: pageData[] = [
 	{
-		title: '📝 Assignments',
-		description:
-			'Here are the documented assignments with source code and auto-generated Doxygen documentation:',
-		numberOfEntries: 10,
+		title: 'Assignments',
+		description: 'Documentation for each assignment',
+		numberOfEntries: 1,
 	},
 	{
-		title: '🔬 Labs',
-		description:
-			'Here are the documented labs with source code and auto-generated Doxygen documentation:',
+		title: 'Labs',
+		description: 'Documentation for each lab',
 		numberOfEntries: 9,
 	},
 	{
-		title: '💡 Examples',
+		title: 'Examples',
 		description:
 			'Below are documented example programs that explore various C programming concepts and data structures:',
-		numberOfEntries: 31,
+		numberOfEntries: 0,
 	},
 ];
 
@@ -128,7 +92,7 @@ export interface ExampleData {
 export const EXAMPLEDATA: ExampleData[] = [
 	{
 		title: '01 - C Program Structure & Organization',
-		url: `01-C-Program-Structure-and-Organization/`,
+		url: `/01-C-Program-Structure-and-Organization/`,
 	},
 	{
 		title: '02 - Data Types, Variables & Controls',
@@ -254,21 +218,26 @@ export const EXAMPLEDATA: ExampleData[] = [
 
 export const TopicsData: TopicOpts[] = [
 	{
-		items: ['Arrays and Linked Lists', 'Stacks and Queues', 'Recursion'],
-		title: '📚 Core Data Structures',
+		items: [
+			'ARMv7 architecture and instruction set',
+			'Assembly language programming',
+			'CPU registers and pipeline',
+		],
+		title: 'ARM Fundamentals',
 		eventKey: '0',
 	},
 	{
 		items: [
-			'Trees and Binary Search Trees (BST)',
-			'Graphs and Graph Algorithms',
+			'Interrupts and exceptions',
+			'Memory organization and addressing modes',
+			'Embedded systems and interfacing',
 		],
-		title: '🌲 Trees & Graphs',
+		title: 'System Architecture Concepts',
 		eventKey: '1',
 	},
 	{
-		items: ['Hash Tables', 'Sorting and Searching Algorithms'],
-		title: '⚙️ Algorithms & Hashing',
+		items: ['Input/output programming', 'Debugging and simulation tools'],
+		title: 'Practical Development Tools',
 		eventKey: '2',
 	},
 ];
@@ -277,13 +246,14 @@ export interface TechItemOpts {
 	emoji: string;
 	bolded: string;
 	nonBolded: string;
+	icon?: ElementType;
 }
 
 export const TechData: TechItemOpts[] = [
 	{
 		emoji: '💻',
 		bolded: 'Programming Language:',
-		nonBolded: 'C',
+		nonBolded: 'Python',
 	},
 	{
 		emoji: '🧰',
@@ -301,6 +271,7 @@ export interface CardTypes {
 	title: string;
 	desc: string;
 	itemType: ItemType;
+	icon?: ElementType;
 }
 
 export interface TaskData {
@@ -346,37 +317,40 @@ export const LabData: AssessmentDataType[] = [
 		id: 'elha7950_l01',
 		tasks: [
 			{
-				id: 't04',
-				name: 'Task 4 - Print Entered Name',
+				name: 'Task 1',
+				id: 't01',
 				description:
-					'Create a program that prompts the user to enter their name and then prints a greeting message including the entered name.',
+					'Assign values to registers r0 and r1, then add them and store the result in r2.',
 				objectives: [
-					'Prompt the user for input',
-					'Store the user input in a variable',
-					'Print a personalized greeting message using the entered name',
+					'Store immediate values in registers',
+					'Perform addition using register contents',
 				],
-				sampleOutput: `Please enter your name: Mohammad
-Pleased to meet you 
-Mohammad`,
-				skills: ['Python', 'Input Handling', 'Output Formatting', 'Variables'],
+				sampleOutput: 'r0 = 9, r1 = 14, r2 = 23',
+				skills: ['Assembly', 'Register Assignment', 'Addition'],
 			},
 			{
-				id: 't06',
-				name: 'Task 6 - Calculate Total Pay',
+				name: 'Task 2',
+				id: 't02',
 				description:
-					'Create a program that calculates and displays the total pay based on a fixed salary and bonus.',
+					'Move the number 8 into r3, then double its value by adding it to itself.',
 				objectives: [
-					'Define fixed values for salary and bonus',
-					'Calculate total pay by summing salary and bonus',
-					'Display the result using a print statement',
+					'Use MOV instruction',
+					'Perform self-addition on a register',
 				],
-				sampleOutput: `Your pay is 3700.0`,
-				skills: [
-					'Python',
-					'Variables',
-					'Arithmetic Operations',
-					'Output Formatting',
+				sampleOutput: 'r3 = 16',
+				skills: ['Assembly', 'MOV Instruction', 'Arithmetic Operations'],
+			},
+			{
+				name: 'Task 3',
+				id: 't03',
+				description:
+					'Understand and correct invalid instruction syntax; perform valid addition using a register and an immediate value.',
+				objectives: [
+					'Identify syntax issues in instructions',
+					'Perform addition using valid operands',
 				],
+				sampleOutput: 'r4 = 21',
+				skills: ['Assembly', 'Instruction Syntax', 'Debugging'],
 			},
 		],
 	},
@@ -385,866 +359,735 @@ Mohammad`,
 		id: 'elha7950_l02',
 		tasks: [
 			{
+				name: 'Task 1',
 				id: 't01',
-				name: 'Task 1 - Celsius to Fahrenheit Converter',
 				description:
-					'Build a program that converts a temperature value from Celsius to Fahrenheit using the standard conversion formula.',
+					'Load values from memory addresses A and B into registers, add them, and store the result in a memory location labeled Result.',
 				objectives: [
-					'Prompt the user to enter a temperature in Celsius',
-					'Use the formula: Fahrenheit = (9/5) * Celsius + 32',
-					'Display the result in Fahrenheit using formatted output',
+					'Use `ldr` to load immediate addresses and dereference them',
+					'Perform addition on values loaded from memory',
+					'Use `str` to store the result back to memory',
 				],
-				sampleOutput: `Temperature (C): 25
-
-Temperature (F): 77.0`,
+				sampleOutput: 'A = 4, B = 8, Result = 12',
 				skills: [
-					'Python',
-					'User Input',
-					'Arithmetic Operations',
-					'Constants',
-					'Formatted Output',
+					'Assembly',
+					'Memory Access (LDR/STR)',
+					'Data Movement Between Memory and Registers',
 				],
 			},
 			{
+				name: 'Task 2',
 				id: 't02',
-				name: 'Task 2 - Fahrenheit to Celsius Converter',
 				description:
-					'Create a program that converts a temperature value from Fahrenheit to Celsius using the standard conversion formula.',
+					'Load values from memory labels First and Second, perform addition and subtraction, then store the results in memory at Total and Diff.',
 				objectives: [
-					'Prompt the user to enter a temperature in Fahrenheit',
-					'Use the formula: Celsius = (Fahrenheit - 32) * (5/9)',
-					'Display the result in Celsius using formatted output',
+					'Load and use multiple memory locations',
+					'Perform addition and subtraction on register values',
+					'Store computed results to designated memory locations',
 				],
-				sampleOutput: `Temperature (F): 77
-
-Temperature (C): 25.0`,
+				sampleOutput: 'First = 4, Second = 8, Total = 12, Diff = -4',
 				skills: [
-					'Python',
-					'User Input',
+					'Assembly',
 					'Arithmetic Operations',
-					'Constants',
-					'Formatted Output',
+					'Memory Management',
+					'Debugging (bracket and label issues)',
 				],
 			},
 			{
+				name: 'Task 3',
 				id: 't03',
-				name: 'Task 3 - Dog Grooming Income Calculator',
 				description:
-					'Create a program that calculates the total income for a dog grooming business based on the number of large and small dogs groomed in a day.',
+					'Copy the contents of a 3-element vector from memory label Vec1 to Vec2 using register-based memory addressing.',
 				objectives: [
-					'Prompt the user to enter the number of large and small dogs groomed',
-					'Use fixed rates: $75 for large dogs, $50 for small dogs',
-					'Calculate the total earnings for the day',
-					'Display the result using formatted output',
+					'Access and manipulate sequential memory locations',
+					'Use arithmetic to traverse arrays in memory',
+					'Store values to a separate vector',
 				],
-				sampleOutput: `Number of large dogs groomed: 3
-Number of small dogs groomed: 2
-
-Total earned for the day: $ 325`,
+				sampleOutput: 'Vec1 = [1, 2, 3], Vec2 = [1, 2, 3]',
 				skills: [
-					'Python',
-					'User Input',
-					'Constants',
-					'Arithmetic Calculations',
-					'Formatted Output',
+					'Assembly',
+					'Vector Memory Operations',
+					'Loop Unrolling (manual repetition)',
 				],
 			},
+		],
+		constants: [
 			{
-				id: 't04',
-				name: 'Task 4 - Multiply Two Fractions',
-				description:
-					'Write a program that multiplies two fractions using the formula: r = (n1/d1) * (n2/d2), where n1 and d1 are the first numerator and denominator, and n2 and d2 are the second.',
-				objectives: [
-					'Prompt the user to enter numerators and denominators for two fractions',
-					'Use the formula: r = (n1 / d1) * (n2 / d2)',
-					'Calculate the result as a floating-point product',
-					'Display the result using formatted output',
-				],
-				sampleOutput: `First numerator: 1
-First denominator: 2
-Second numerator: 3
-Second denominator: 4
-
-Product: 0.375`,
-				skills: [
-					'Python',
-					'User Input',
-					'Fraction Arithmetic',
-					'Formatted Output',
-					'Order of Operations',
-				],
+				name: 'A',
+				value: '4',
+				description: 'First operand stored in memory (Task 1)',
 			},
 			{
-				id: 't05',
-				name: 'Lab 2, Task 5 - Weekly Pay Calculator',
-				description:
-					'Write and test a program that asks the user to input their hourly rate of pay and the number of hours worked in the past week, then calculates and outputs their total pay for the week.',
-				objectives: [
-					'Prompt the user to enter their hourly rate as a float',
-					'Prompt the user to enter the number of hours worked as a float',
-					'Multiply the hourly rate by the hours worked to calculate total pay',
-					'Print the total weekly pay using an f-string',
-				],
-				sampleOutput: `Hourly rate of pay: 18.5
-Hours worked in the week: 40
-
-Total pay for the week: $ 740.0`,
-				skills: [
-					'Python',
-					'User Input',
-					'Float Data Type',
-					'Arithmetic Operations',
-					'Formatted Strings (f-strings)',
-				],
+				name: 'B',
+				value: '8',
+				description: 'Second operand stored in memory (Task 1)',
 			},
 			{
-				id: 't06',
-				name: 'Lab 2, Task 6 - Mortgage Payment Calculator',
-				description:
-					'This program calculates and prints the monthly mortgage payment based on the principal, number of years, and yearly interest rate using the standard loan amortization formula.',
-				objectives: [
-					'Prompt the user to enter the mortgage principal as an integer',
-					'Prompt the user to enter the number of years as an integer',
-					'Prompt the user to enter the yearly interest rate as a float (percentage)',
-					'Convert the yearly interest rate to a monthly rate',
-					'Calculate the number of total payments (months)',
-					'Apply the loan payment formula to compute the monthly payment',
-					'Print the monthly payment using an f-string',
-				],
-				sampleOutput: `Mortgage principal ($): 250000
-Number of years: 25
-Yearly interest rate (%): 4.5
-
-The monthly payments are: $ 1386.1443745454062`,
-				skills: [
-					'Python',
-					'User Input',
-					'Float and Integer Data Types',
-					'Mathematical Expressions',
-					'Loan Payment Formula',
-					'Formatted Strings (f-strings)',
-				],
+				name: 'First',
+				value: '4',
+				description: 'First input value in Task 2',
 			},
 			{
-				id: 't07',
-				name: 'Lab 2, Task 7 - Flyer Distribution Calculator',
-				description:
-					'A charity wants to evenly distribute flyers among volunteers. This program prompts the user to enter the number of flyers and volunteers, then calculates and prints how many flyers each volunteer should get and how many will be left over.',
-				objectives: [
-					'Prompt the user to enter the number of flyers as an integer',
-					'Prompt the user to enter the number of volunteers as an integer',
-					'Use integer division to calculate how many flyers each volunteer gets',
-					'Use the modulus operator to calculate how many flyers are left over',
-					'Print both values using formatted output',
-				],
-				sampleOutput: `Number of flyers: 53
-Number of volunteers: 5
-
-Flyers per volunteer: 10
-Flyers left over: 3`,
-				skills: [
-					'Python',
-					'User Input',
-					'Integer Division',
-					'Modulus Operator',
-					'Formatted Strings (f-strings)',
-				],
+				name: 'Second',
+				value: '8',
+				description: 'Second input value in Task 2',
 			},
 			{
-				id: 't08',
-				name: 'Lab 2, Task 8 - BMI and BMI Prime Calculator',
-				description:
-					"This program calculates and prints the user's Body Mass Index (BMI) and BMI Prime. The user provides their height and weight, and chooses the appropriate BMI upper limit based on their region. The program uses this to compute BMI Prime as a ratio of the BMI to the upper limit.",
-				objectives: [
-					'Prompt the user to enter their height in meters as a float',
-					'Prompt the user to enter their weight in kilograms as a float',
-					'Prompt the user to enter the BMI upper limit (23 or 25) as an integer',
-					'Calculate BMI using the formula: weight / height^2',
-					'Calculate BMI Prime as BMI / upper limit',
-					'Print both BMI and BMI Prime, rounded to two decimal places',
-				],
-				sampleOutput: `Enter your height (m): 1.75
-Enter your weight (kg): 68
-Enter your upper limit BMI (23 if you are from South East Asia and Southern China, 25 for everyone else): 25
-
-Body Mass Index (kg/m^2) = 22.2
-BMI Prime = 0.89`,
-				skills: [
-					'Python',
-					'User Input',
-					'Float and Integer Data Types',
-					'Arithmetic Operations',
-					'Rounding',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				id: 't09',
-				name: 'Lab 2, Task 9 - Open-Top Cylinder Cost Calculator',
-				description:
-					'This program calculates the cost of producing open-top cylindrical containers. The user provides the diameter, height, material cost per square cm, and number of containers. The surface area is the sum of the side and base area. Pi is stored as 3.14.',
-				objectives: [
-					'Prompt the user to enter the diameter of the base in cm',
-					'Prompt the user to enter the height of the cylinder in cm',
-					'Prompt the user to enter the cost of material per cm²',
-					'Prompt the user to enter the number of containers to produce',
-					'Calculate the radius from the diameter',
-					'Calculate the surface area using the formula: (2πrh + πr²)',
-					'Calculate the cost for one container and the total cost for all',
-					'Print both the cost for one and all containers',
-				],
-				sampleOutput: `Diameter of container base (cm): 10
-Height of container (cm): 20
-Cost of material ($/cm^2): 0.05
-Number of containers: 3
-
-The total cost of one containers is $ 109.9
-The total cost of all containers is $ 329.7`,
-				skills: [
-					'Python',
-					'User Input',
-					'Constants',
-					'Arithmetic Operations',
-					'Area Calculations',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				id: 't10',
-				name: 'Lab 2, Task 10 - Meal Cost Calculator with Tax and Tip',
-				description:
-					'This program asks the user for the cost of a meal and the percentages for tax and tip, then prints a formatted bill. The tip is applied only to the food cost, not the tax.',
-				objectives: [
-					'Prompt the user to enter the cost of the meal as a float',
-					'Prompt the user to enter the sales tax percentage as a float and convert it to a decimal',
-					'Prompt the user to enter the tip percentage as a float and convert it to a decimal',
-					'Calculate the tax and tip amounts based on the food charge',
-					'Calculate the total by summing the food charge, tax, and tip',
-					'Print a formatted bill showing the subtotal, tax, tip, and total',
-				],
-				sampleOutput: `Food Charge: $50
-Sales Tax in (%): 13
-Tip in (%): 15
-
-Cost of meal:
-Subtotal: $ 50.0
-     Tax: $ 6.5
-     Tip: $ 7.5
-------------------
-   Total: $ 64.0`,
-				skills: [
-					'Python',
-					'User Input',
-					'Percentage Calculations',
-					'Float Data Type',
-					'Arithmetic Operations',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				name: 'Lab 2, Task 11 - Projected Profit Calculator',
-				id: 't11',
-				description:
-					'A company has determined that its annual profit is typically 18 percent of total sales. This program asks the user to enter the projected amount of total sales and displays the calculated profit based on a fixed 18% rate.',
-				objectives: [
-					'Prompt the user to enter the projected total annual sales as a float',
-					'Store the profit percentage (18%) as a constant',
-					'Calculate the projected profit by multiplying the sales by the percentage',
-					'Print the result using an f-string',
-				],
-				sampleOutput: `Enter projected annual sales: $100000
-
-The projected profit on sales of $ 100000.0 is $ 18000.0`,
-				skills: [
-					'Python',
-					'User Input',
-					'Constants',
-					'Float Data Type',
-					'Arithmetic Operations',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				name: 'Lab 2, Task 12 - Time Conversion from Seconds',
-				id: 't12',
-				description:
-					'This program takes a number of seconds as input and calculates the equivalent duration in days, hours, minutes, and seconds using floor division and remainders.',
-				objectives: [
-					'Prompt the user to enter a total time in seconds as an integer',
-					'Use constants to define the number of seconds in a day, hour, and minute',
-					'Use floor division to determine days, hours, and minutes',
-					'Use modulus to update remaining seconds at each step',
-					'Print the result in days, hours, minutes, and seconds format',
-				],
-				sampleOutput: `Number of seconds: 100000
-
-Days: 1 Hours: 3 Minutes: 46 Seconds: 40`,
-				skills: [
-					'Python',
-					'User Input',
-					'Constants',
-					'Integer Division',
-					'Modulus Operator',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				name: 'Lab 2, Task 13 - Final Grade Calculator',
-				id: 't13',
-				description:
-					'This program calculates the final grade for a student based on a midterm worth 35% and an exam worth 65% of the course grade. The user inputs the two grades, and the final result is printed rounded to one decimal place.',
-				objectives: [
-					'Prompt the user to enter the midterm and exam marks as floats',
-					'Store the weightings for midterm and exam as constants (0.35 and 0.65)',
-					'Calculate the weighted average using the formula: midterm * 0.35 + exam * 0.65',
-					'Round the final result to one decimal place',
-					'Print the final grade using an f-string',
-				],
-				sampleOutput: `Midterm mark (%): 72
-Exam mark (%): 83
-
-Final Grade (%): 79.9`,
-				skills: [
-					'Python',
-					'User Input',
-					'Constants',
-					'Float Arithmetic',
-					'Weighted Average',
-					'Rounding',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				name: 'Lab 2, Task 14 - Mac & Cheese Ingredient Calculator',
-				id: 't14',
-				description:
-					'This program calculates the required ingredients to make a user-defined number of servings of Mac and Cheese. The base recipe makes 6 servings and uses constants for ingredient amounts. The output is scaled proportionally and displayed to two decimal places.',
-				objectives: [
-					'Prompt the user to enter the number of servings as an integer',
-					'Store the default ingredient amounts for 6 servings as constants',
-					'Calculate a scaling factor based on the desired servings',
-					'Multiply each ingredient by the scaling factor',
-					'Print the adjusted ingredient list with two decimal places',
-				],
-				sampleOutput: `Enter servings of Mac & Cheese: 3
-
-3 serving(s) of Mac & Cheese requires:
-milk (cups): 2.0
-butter (tablespoons): 4.0
-flour (cups): 0.25
-salt (teaspoons): 1.0`,
-				skills: [
-					'Python',
-					'User Input',
-					'Constants',
-					'Arithmetic Operations',
-					'Scaling Recipes',
-					'Formatted Output',
-				],
+				name: 'Vec1',
+				value: '[1, 2, 3]',
+				description: 'Source vector of three integers (Task 3)',
 			},
 		],
 	},
 	{
 		name: 'Lab 3',
 		id: 'elha7950_l03',
-		tasks: [],
+		tasks: [
+			{
+				name: 'Task 1',
+				id: 't01',
+				description:
+					'Implement a simple countdown using a loop that decrements a register and uses a branch instruction to repeat until zero.',
+				objectives: [
+					'Use `mov` to initialize a register',
+					'Use `sub`, `cmp`, and `bge` to control a loop',
+				],
+				sampleOutput: 'Registers count down: 4, 3, 2, 1, 0 (loop exits)',
+				skills: [
+					'Assembly',
+					'Loop Control',
+					'Branching',
+					'Register Manipulation',
+				],
+			},
+			{
+				name: 'Task 2',
+				id: 't02',
+				description:
+					'Implement a countdown using a memory-loaded constant instead of a hardcoded value. Decrement and loop using the value from memory.',
+				objectives: [
+					'Load a value from memory using `ldr`',
+					'Apply conditional branching using a loop',
+				],
+				sampleOutput: 'COUNTER starts at 5, decrements to 0, then exits',
+				skills: [
+					'Assembly',
+					'Memory Access',
+					'Looping with Memory',
+					'Branching',
+				],
+			},
+			{
+				name: 'Task 3',
+				id: 't03',
+				description:
+					'Create an infinite loop that toggles LEDs using a private timer to delay the changes, with rotation of the LED bits to animate a pattern.',
+				objectives: [
+					'Use hardware-mapped memory (LEDs and timer)',
+					'Configure and check timer control and status',
+					'Manipulate output using bitwise operations',
+				],
+				sampleOutput: 'LED pattern rotates every second based on timer timeout',
+				skills: [
+					'Assembly',
+					'I/O Programming',
+					'Timers and Interrupts',
+					'Bitwise Operations (rotate)',
+					'Hardware Interfacing',
+				],
+			},
+		],
+		constants: [
+			{
+				name: 'COUNTER',
+				value: '5',
+				description: 'Initial value for countdown in Task 2',
+			},
+			{
+				name: 'LED_BITS',
+				value: '0x0F0F0F0F',
+				description: 'Initial pattern used for LED output in Task 3',
+			},
+			{
+				name: 'DELAY_TIME',
+				value: '200000000',
+				description: 'Timer delay value for approximately 1 second at 200 MHz',
+			},
+			{
+				name: 'TIMER',
+				value: '0xfffec600',
+				description: 'Memory-mapped address for the private timer',
+			},
+			{
+				name: 'LEDS',
+				value: '0xff200000',
+				description: 'Memory-mapped address for the LEDs',
+			},
+		],
 	},
 	{
 		name: 'Lab 4',
 		id: 'elha7950_l04',
 		tasks: [
 			{
+				name: 'Task 1',
 				id: 't01',
-				name: 'Calculate Diameter of a Circle',
 				description:
-					'Prompt the user to enter a radius and print the diameter of the circle.',
+					'Traverse through a list of integers using post-increment addressing, summing all values into a register.',
 				objectives: [
-					'Get radius from user',
-					'Use the diameter function to compute diameter',
-					'Print the result',
+					'Use post-increment addressing to traverse memory',
+					'Sum all values in a list using register arithmetic',
+					'Compare addresses to determine end of list',
 				],
-				sampleOutput: 'Enter radius: 5\nDiameter: 10.0',
-				skills: ['Python', 'Functions', 'Math'],
+				sampleOutput: 'Sum of list: 16',
+				skills: ['Assembly', 'Memory Traversal', 'Post-Increment', 'Summation'],
 			},
 			{
+				name: 'Task 2',
 				id: 't02',
-				name: 'Calculate Circumference',
 				description:
-					'Prompt the user to enter a radius and compute the circumference of a circle.',
+					'Traverse a list and count the number of elements by computing the range of memory and dividing by element size.',
 				objectives: [
-					'Get radius from user',
-					'Use the circumference function',
-					'Print the result',
+					'Calculate list length using address difference',
+					'Traverse a list and count iterations',
 				],
-				sampleOutput: 'Enter radius: 3\nCircumference: 18.85',
-				skills: ['Python', 'Functions', 'Math', 'pi'],
+				sampleOutput: 'List length: 9',
+				skills: [
+					'Assembly',
+					'Memory Arithmetic',
+					'Bit Shifting',
+					'List Traversal',
+				],
 			},
 			{
+				name: 'Task 3',
 				id: 't03',
-				name: 'Area of a Circle',
 				description:
-					'Prompt the user for a radius and print the area using the area function.',
+					'Traverse a list to find the minimum and maximum values by comparing each element against running min/max values.',
 				objectives: [
-					'Get radius from user',
-					'Call the area function',
-					'Display the result',
+					'Traverse list using post-increment',
+					'Use conditional move instructions to track min and max',
 				],
-				sampleOutput: 'Enter radius: 2\nArea: 12.57',
-				skills: ['Python', 'Functions', 'Math'],
-			},
-			{
-				id: 't04',
-				name: 'Square Pyramid Geometry',
-				description:
-					'Compute slant height, area, and volume of a square pyramid using base and height.',
-				objectives: [
-					'Prompt user for base and height',
-					'Use square_pyramid function',
-					'Display all three results',
+				sampleOutput: 'Min: -9, Max: 12',
+				skills: [
+					'Assembly',
+					'Conditional Execution',
+					'List Traversal',
+					'Finding Extremes',
 				],
-				sampleOutput:
-					'Base: 4\nHeight: 6\nSlant Height: 7.2\nArea: 80.0\nVolume: 32.0',
-				skills: ['Python', 'Functions', 'Return Tuples'],
-			},
-			{
-				id: 't05',
-				name: 'Right Triangle Properties',
-				description:
-					'Given adjacent and opposite sides, compute the hypotenuse, perimeter, and area.',
-				objectives: [
-					'Prompt user for two sides',
-					'Use right_triangle function',
-					'Output all results',
-				],
-				sampleOutput:
-					'Adjacent: 3\nOpposite: 4\nHypotenuse: 5.0\nPerimeter: 12.0\nArea: 6.0',
-				skills: ['Python', 'Pythagoras', 'Functions'],
-			},
-			{
-				id: 't06',
-				name: 'Pythagorean Circle',
-				description:
-					'Calculate circle properties (radius, diameter, circumference, area) based on triangle sides.',
-				objectives: [
-					'Prompt user for s1 and s2',
-					'Use pythag function',
-					'Display results',
-				],
-				sampleOutput:
-					's1: 3\ns2: 4\nRadius: 5.0\nDiameter: 10.0\nCircumference: 31.4\nArea: 78.54',
-				skills: ['Python', 'Functions', 'Chaining'],
-			},
-			{
-				id: 't07',
-				name: 'Total Coin Value',
-				description:
-					'Ask user for number of nickels, dimes, quarters, loonies, and toonies. Print total dollar value.',
-				objectives: [
-					'Prompt for coin counts',
-					'Use total_change function',
-					'Output total value',
-				],
-				sampleOutput:
-					'Nickels: 3\nDimes: 2\nQuarters: 1\nLoonies: 4\nToonies: 0\nTotal: $6.05',
-				skills: ['Python', 'Functions', 'Constants'],
-			},
-			{
-				id: 't08',
-				name: 'Computer Purchase Cost',
-				description:
-					'Calculate the total purchase cost of computers including commission.',
-				objectives: [
-					'Prompt for unit price, quantity, and commission percent',
-					'Use computer_costs function',
-					'Output both pre-commission and total cost',
-				],
-				sampleOutput:
-					'Cost: 1000\nQty: 2\nCommission: 10\nBefore: $2000.0\nAfter: $2200.0',
-				skills: ['Python', 'Functions', 'Percentages'],
-			},
-			{
-				id: 't09',
-				name: 'Multiply Two Fractions',
-				description:
-					'Multiply two user-defined fractions and return numerator, denominator, and decimal result.',
-				objectives: [
-					'Prompt for both fractions',
-					'Use fraction_product function',
-					'Display numerator, denominator, and float result',
-				],
-				sampleOutput: '1/2 * 3/4 = 3/8 = 0.375',
-				skills: ['Python', 'Functions', 'Fractions'],
-			},
-			{
-				id: 't10',
-				name: 'Future Population',
-				description:
-					'Estimate population after a number of years given birth, death, and immigration rates.',
-				objectives: [
-					'Prompt for initial pop, birth/death/immigration intervals, and years',
-					'Use population function',
-					'Display new population',
-				],
-				sampleOutput: 'New population after 5 years: 34567890',
-				skills: ['Python', 'Math', 'Functions'],
 			},
 		],
 		constants: [
 			{
-				name: 'NICKEL_VALUE',
-				value: '0.05',
-				description: 'Value of a nickel in dollars',
-			},
-			{
-				name: 'DIME_VALUE',
-				value: '0.10',
-				description: 'Value of a dime in dollars',
-			},
-			{
-				name: 'QUARTER_VALUE',
-				value: '0.25',
-				description: 'Value of a quarter in dollars',
-			},
-			{
-				name: 'LOONIE_VALUE',
-				value: '1.00',
-				description: 'Value of a loonie in dollars',
-			},
-			{
-				name: 'TOONIE_VALUE',
-				value: '2.00',
-				description: 'Value of a toonie in dollars',
-			},
-			{ name: 'SECONDS_PER_MINUTE', value: '60' },
-			{ name: 'SECONDS_PER_HOUR', value: '3600' },
-			{ name: 'SECONDS_PER_DAY', value: '86400' },
-			{ name: 'SECONDS_PER_WEEK', value: '604800' },
-			{ name: 'SECONDS_PER_MONTH', value: '2419200' },
-			{ name: 'SECONDS_PER_YEAR', value: '31536000' },
-			{
-				name: 'FREEZE_DIFFERENCE',
-				value: '32',
-				description:
-					'Difference between Celsius and Fahrenheit freezing points',
-			},
-			{ name: 'SECONDS_IN_A_DAY', value: '86400' },
-			{ name: 'SECONDS_IN_AN_HOUR', value: '3600' },
-			{ name: 'SECONDS_IN_A_MIN', value: '60' },
-		],
-		functions: [
-			{
-				functionName: 'diameter',
-				signature: 'diameter(radius: float) -> float',
-				description: 'Returns the diameter of a circle given the radius.',
-			},
-			{
-				functionName: 'circumference',
-				signature: 'circumference(radius: float) -> float',
-				description: 'Returns the circumference of a circle given the radius.',
-			},
-			{
-				functionName: 'area',
-				signature: 'area(radius: float) -> float',
-				description: 'Returns the area of a circle given the radius.',
-			},
-			{
-				functionName: 'square_pyramid',
-				signature:
-					'square_pyramid(base: float, height: float) -> tuple[float, float, float]',
-				description:
-					'Calculates slant height, area, and volume of a square pyramid.',
-			},
-			{
-				functionName: 'right_triangle',
-				signature:
-					'right_triangle(adjacent: float, opposite: float) -> tuple[float, float, float]',
-				description:
-					'Calculates hypotenuse, perimeter, and area of a right triangle.',
-			},
-			{
-				functionName: 'pythag',
-				signature:
-					'pythag(s1: float, s2: float) -> tuple[float, float, float, float]',
-				description:
-					'Returns radius, diameter, circumference, and area of a circle defined by a right triangle.',
-			},
-			{
-				functionName: 'total_change',
-				signature:
-					'total_change(nickels: int, dimes: int, quarters: int, loonies: int, toonies: int) -> float',
-				description: 'Calculates total value of Canadian coins.',
-			},
-			{
-				functionName: 'computer_costs',
-				signature:
-					'computer_costs(computer_cost: float, computers_bought: int, commission_percent: float) -> tuple[float, float]',
-				description:
-					'Calculates pre-commission and total cost for computer purchases.',
-			},
-			{
-				functionName: 'fraction_product',
-				signature:
-					'fraction_product(num1: int, den1: int, num2: int, den2: int) -> tuple[int, int, float]',
-				description: 'Multiplies two fractions and returns the result.',
-			},
-			{
-				functionName: 'population',
-				signature:
-					'population(size: int, births: int, deaths: int, immigrants: int, years: int) -> int',
-				description:
-					'Estimates future population based on demographic intervals.',
-			},
-			{
-				functionName: 'slope',
-				signature: 'slope(x1: float, y1: float, x2: float, y2: float) -> float',
-				description: 'Calculates the slope between two points.',
-			},
-			{
-				functionName: 'c_to_f',
-				signature: 'c_to_f(celsius: int) -> float',
-				description: 'Converts Celsius temperature to Fahrenheit.',
-			},
-			{
-				functionName: 'f_to_c',
-				signature: 'f_to_c(fahrenheit: int) -> float',
-				description: 'Converts Fahrenheit temperature to Celsius.',
-			},
-			{
-				functionName: 'time_values',
-				signature: 'time_values(seconds: int) -> tuple[int, int, int]',
-				description:
-					'Returns the number of days, hours, and minutes in a given number of seconds.',
-			},
-			{
-				functionName: 'time_split',
-				signature:
-					'time_split(initial_seconds: int) -> tuple[int, int, int, int]',
-				description:
-					'Breaks total seconds into days, hours, minutes, and seconds.',
+				name: 'Data',
+				value: '[4, 5, -9, 0, 3, 0, 8, -7, 12]',
+				description: 'Integer list used for all tasks',
 			},
 		],
 	},
-
 	{
 		name: 'Lab 5',
 		id: 'elha7950_l05',
-		tasks: [],
-		functions: [],
+		tasks: [
+			{
+				name: 'Task 1',
+				id: 't01',
+				description:
+					'Call a subroutine to calculate the total of a list of integers, using register-based list traversal.',
+				objectives: [
+					'Use subroutines in assembly with `bl` and `bx`',
+					'Traverse and sum list elements with post-increment',
+					'Return values through registers (r0)',
+				],
+				sampleOutput: 'Total = 16',
+				skills: [
+					'Assembly',
+					'Subroutines',
+					'Memory Traversal',
+					'Register Usage and Stack Operations',
+				],
+			},
+			{
+				name: 'Task 2',
+				id: 't02',
+				description:
+					'Call a subroutine that counts how many positive, negative, and zero values are present in a list.',
+				objectives: [
+					'Use comparison and conditional addition instructions (`addeq`, `addgt`, `addlt`)',
+					'Call and return from subroutines',
+					'Maintain multiple counters during memory traversal',
+				],
+				sampleOutput: 'Positives = 5, Negatives = 2, Zeros = 2',
+				skills: [
+					'Assembly',
+					'Subroutines',
+					'Conditional Execution',
+					'Memory Traversal and Counting',
+				],
+			},
+		],
+		constants: [
+			{
+				name: 'Data',
+				value: '[4, 5, -9, 0, 3, 0, 8, -7, 12]',
+				description: 'Integer list used for both tasks',
+			},
+		],
+		functions: [
+			{
+				functionName: 'list_total',
+				signature: 'int list_total(int* start, int* end)',
+				description:
+					'Sums all values in the list between the start and end addresses using post-increment addressing. Returns the total in r0.',
+			},
+			{
+				functionName: 'list_stats',
+				signature:
+					'void list_stats(int* start, int* end, int* zeroCount, int* positiveCount, int* negativeCount)',
+				description:
+					'Counts the number of zero, positive, and negative integers in a list. Results are stored in r1 (zeros), r2 (positives), and r3 (negatives).',
+			},
+		],
 	},
 	{
 		name: 'Lab 6',
 		id: 'elha7950_l06',
-		tasks: [],
-		functions: [],
+		tasks: [
+			{
+				name: 'Task 1',
+				id: 't01',
+				description:
+					'Compare two null-terminated strings up to a maximum length using iterative character comparison and stack frame management.',
+				objectives: [
+					'Work with stack frames and function prologues/epilogues',
+					'Use byte loads and compare instructions to implement string comparison',
+					'Return comparison result in r0, following strncmp conventions',
+				],
+				sampleOutput:
+					'Returns 0 if strings are equal up to length; non-zero indicating lexicographic difference otherwise',
+				skills: [
+					'Assembly',
+					'Stack Frame Handling',
+					'String Comparison',
+					'Conditional Branching',
+				],
+			},
+			{
+				name: 'Task 2',
+				id: 't02',
+				description:
+					'Find minimum and maximum values in a list using a subroutine with parameters passed via the stack.',
+				objectives: [
+					'Manipulate stack to pass parameters and save registers',
+					'Traverse a list in memory to find min and max',
+					'Store results at provided memory addresses',
+				],
+				sampleOutput: 'Min = -9, Max = 12',
+				skills: [
+					'Assembly',
+					'Stack Frames',
+					'Memory Traversal',
+					'Conditional Moves',
+				],
+			},
+			{
+				name: 'Task 3',
+				id: 't03',
+				description:
+					'Find the common prefix of two null-terminated strings and store the result in a buffer, respecting buffer size limits.',
+				objectives: [
+					'Use stack frame management and parameter passing',
+					'Iterate strings byte-by-byte comparing characters',
+					'Store matched prefix with null-terminator in output buffer',
+				],
+				sampleOutput:
+					'Common prefix of "pandemic" and "pandemonium" is "pandem"',
+				skills: [
+					'Assembly',
+					'String Processing',
+					'Stack and Memory Management',
+					'Conditional Branching',
+				],
+			},
+		],
+		constants: [
+			{
+				name: 'SIZE',
+				value: '80',
+				description:
+					'Maximum string size and buffer length for string operations',
+			},
+		],
+		functions: [
+			{
+				functionName: 'strncmp',
+				signature:
+					'int strncmp(const char* str1, const char* str2, int max_len)',
+				description:
+					'Compares two strings up to max_len characters. Returns 0 if equal, negative if str1 < str2, positive if str1 > str2.',
+			},
+			{
+				functionName: 'MinMax',
+				signature: 'void MinMax(int* start, int* end, int* min, int* max)',
+				description:
+					'Finds minimum and maximum integer values in a list, storing results via pointers.',
+			},
+			{
+				functionName: 'FindCommon',
+				signature:
+					'void FindCommon(const char* first, const char* second, char* common, int size)',
+				description:
+					'Finds the common prefix of two strings and stores it in a buffer up to a maximum size.',
+			},
+		],
 	},
 	{
 		name: 'Lab 7',
 		id: 'elha7950_l07',
-		tasks: [],
-		functions: [],
+		tasks: [
+			{
+				name: 'Task 1',
+				id: 't01',
+				description: `Subroutines for working with characters and UART I/O.
+         Includes reading and printing characters, checking character types (letter, uppercase, lowercase),
+         and printing formatted output to UART.`,
+				objectives: [
+					'Implement UART input/output for characters and strings',
+					'Check if a character is a letter, uppercase, or lowercase',
+					'Use stack frames and subroutine calls properly',
+				],
+				skills: [
+					'UART communication',
+					'Character classification',
+					'Stack management',
+					'Subroutine calls in assembly',
+				],
+				sampleOutput: `Char: a
+Letter: T
+Lower: T
+Upper: F
+`,
+			},
+			{
+				name: 'Task 2',
+				id: 't02',
+				description: `Subroutines for checking if a null-terminated string is a palindrome,
+         ignoring non-letter characters and case differences.`,
+				objectives: [
+					'Process strings by scanning characters from both ends',
+					'Ignore case and non-letter characters during palindrome check',
+					'Utilize character classification and conversion subroutines',
+				],
+				skills: [
+					'String manipulation',
+					'Stack management',
+					'Conditional branching',
+					'Character case conversion',
+				],
+				sampleOutput: `otto
+T
+RaceCar
+T
+A man, a plan, a canal, Panama!
+T
+David
+F
+`,
+			},
+		],
+		functions: [
+			{
+				functionName: 'ReadChar',
+				signature: 'char ReadChar(void)',
+				description:
+					'Reads a single character from UART if available, returns 0 if empty.',
+			},
+			{
+				functionName: 'PrintChar',
+				signature: 'void PrintChar(char c)',
+				description: 'Prints a single character to UART.',
+			},
+			{
+				functionName: 'PrintString',
+				signature: 'void PrintString(const char* str)',
+				description: 'Prints a null-terminated string to UART.',
+			},
+			{
+				functionName: 'PrintTrueFalse',
+				signature: 'void PrintTrueFalse(bool value)',
+				description: 'Prints "T" for true or "F" for false to UART.',
+			},
+			{
+				functionName: 'isLowerCase',
+				signature: 'bool isLowerCase(char c)',
+				description: 'Returns true if character is lowercase letter.',
+			},
+			{
+				functionName: 'isUpperCase',
+				signature: 'bool isUpperCase(char c)',
+				description: 'Returns true if character is uppercase letter.',
+			},
+			{
+				functionName: 'isLetter',
+				signature: 'bool isLetter(char c)',
+				description:
+					'Returns true if character is any letter (uppercase or lowercase).',
+			},
+			{
+				functionName: 'toLower',
+				signature: 'char toLower(char c)',
+				description:
+					'Converts an uppercase letter to lowercase; otherwise returns character unchanged.',
+			},
+			{
+				functionName: 'Palindrome',
+				signature: 'bool Palindrome(char* start, char* end)',
+				description: `Returns true if the string (between start and end) is a palindrome,
+         ignoring case and non-letter characters.`,
+			},
+		],
+		constants: [
+			{
+				name: 'UART_BASE',
+				value: '0xff201000',
+				description: 'Base address for UART hardware registers.',
+			},
+			{
+				name: 'ENTER',
+				value: '0x0a',
+				description: 'ASCII newline character for UART output.',
+			},
+			{
+				name: 'VALID',
+				value: '0x8000',
+				description: 'UART data valid flag mask.',
+			},
+			{
+				name: 'DIFF',
+				value: "'a' - 'A'",
+				description:
+					'ASCII difference between lowercase and uppercase letters.',
+			},
+		],
 	},
 	{
 		name: 'Lab 8',
 		id: 'elha7950_l08',
-		tasks: [],
-		functions: [],
+		tasks: [
+			{
+				name: 'Task 1',
+				id: 't01',
+				description: `Uses a subroutine to write null-terminated strings to UART, adding an ENTER newline after each string.`,
+				objectives: [
+					'Understand UART string output',
+					'Implement subroutine for writing strings',
+					'Use stack to preserve registers during subroutine calls',
+				],
+				skills: [
+					'UART communication',
+					'Subroutine calls and stack management',
+					'String manipulation in assembly',
+				],
+				sampleOutput: `First string
+Second string
+Third string
+Last string
+`,
+			},
+			{
+				name: 'Task 2',
+				id: 't02',
+				description: `Reads ENTER-terminated strings from UART into memory buffers with fixed size, handling buffer limits.`,
+				objectives: [
+					'Implement UART string input',
+					'Handle buffer size limits and null termination',
+					'Manage registers and loops in assembly',
+				],
+				skills: [
+					'UART input handling',
+					'Memory buffer management',
+					'Conditional branching and loops',
+				],
+				sampleOutput: `(User input echoed after pressing ENTER for each string)
+`,
+			},
+			{
+				name: 'Task 3',
+				id: 't03',
+				description: `Echoes characters from UART input back to UART output until ENTER is pressed.`,
+				objectives: [
+					'Implement UART echo functionality',
+					'Poll UART for valid data',
+					'Use subroutines to simplify code',
+				],
+				skills: [
+					'UART polling',
+					'Subroutine usage',
+					'Basic input-output processing',
+				],
+				sampleOutput: `(User types characters; each character appears immediately on UART output until ENTER is pressed)
+`,
+			},
+		],
+		functions: [
+			{
+				functionName: 'WriteString',
+				signature: 'void WriteString(const char* str)',
+				description: `Writes a null-terminated string to UART, then appends an ENTER newline character.`,
+			},
+			{
+				functionName: 'ReadString',
+				signature: 'void ReadString(char* buffer, int size)',
+				description: `Reads characters from UART into buffer until ENTER is pressed or buffer is full.`,
+			},
+			{
+				functionName: 'EchoString',
+				signature: 'void EchoString(void)',
+				description: `Reads characters from UART and writes them back to UART until ENTER is received.`,
+			},
+		],
+		constants: [
+			{
+				name: 'UART_BASE',
+				value: '0xff201000',
+				description: 'Base address for UART hardware registers.',
+			},
+			{
+				name: 'ENTER',
+				value: '0x0A',
+				description: 'ASCII newline (ENTER) character.',
+			},
+			{
+				name: 'VALID',
+				value: '0x8000',
+				description: 'UART data valid mask.',
+			},
+			{
+				name: 'SIZE',
+				value: '20',
+				description: 'Buffer size for string storage (bytes).',
+			},
+		],
 	},
 	{
 		name: 'Lab 9',
 		id: 'elha7950_l09',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Lab 10',
-		id: 'elha7950_l10',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Lab 11',
-		id: 'elha7950_l11',
-		tasks: [],
-		functions: [],
+		tasks: [
+			{
+				name: 'Task 1',
+				id: 't01',
+				description: `Set up ARM interrupt vectors, configure the Generic Interrupt Controller (GIC), and enable IRQ interrupts. The main program idles, waiting for interrupts.`,
+				objectives: [
+					'Understand ARM vector table setup',
+					'Configure processor modes and stack pointers',
+					'Initialize the ARM Generic Interrupt Controller (GIC)',
+					'Enable IRQ interrupts',
+				],
+				skills: [
+					'ARM processor modes and CPSR configuration',
+					'Interrupt vector table programming',
+					'GIC configuration for ARM Cortex-A9',
+				],
+				sampleOutput: `(No direct UART output; system is initialized and idles waiting for interrupts)
+`,
+			},
+			{
+				name: 'Task 2',
+				id: 't02',
+				description: `Configure and set a hardware timer. Implement the timer interrupt service routine (ISR) that outputs the string "Timeout" to the UART when the timer interrupt fires.`,
+				objectives: [
+					'Configure hardware timer registers',
+					'Set timer period and control registers',
+					'Write an ISR to handle timer interrupts',
+					'Send string output via UART within ISR',
+				],
+				skills: [
+					'ARM timer programming',
+					'Interrupt service routine writing',
+					'UART output handling from ISR',
+				],
+				sampleOutput: `Timeout
+`,
+			},
+		],
+		functions: [
+			{
+				functionName: 'CONFIG_GIC',
+				signature: 'void CONFIG_GIC(void)',
+				description: `Configures the Generic Interrupt Controller to enable interrupt ID 72 (timer interrupt), sets CPU target and priority mask, and enables interrupt forwarding.`,
+			},
+			{
+				functionName: 'CONFIG_INTERRUPT',
+				signature: 'void CONFIG_INTERRUPT(int ID, int CPU_target)',
+				description: `Configures individual interrupt in GIC for a given interrupt ID and CPU target, setting enable bit and processor target.`,
+			},
+			{
+				functionName: 'TIMER_SETTING',
+				signature: 'void TIMER_SETTING(void)',
+				description: `Sets up the hardware timer by writing the timer period and control registers.`,
+			},
+			{
+				functionName: 'INTER_TIMER_ISR',
+				signature: 'void INTER_TIMER_ISR(void)',
+				description: `Interrupt Service Routine triggered on timer interrupt; outputs "Timeout" string via UART and clears the timer interrupt.`,
+			},
+		],
+		constants: [
+			{
+				name: 'UART_ADDR',
+				value: '0xff201000',
+				description: 'Base address for UART registers.',
+			},
+			{
+				name: 'TIMER_BASE',
+				value: '0xff202000',
+				description: 'Base address for hardware timer registers.',
+			},
+			{
+				name: 'ENTER',
+				value: '0x0A',
+				description: 'ASCII newline character for UART output.',
+			},
+		],
 	},
 ];
+
 export const AssignmentData: AssessmentDataType[] = [
 	{
 		name: 'Assignment 1',
 		id: 'elha7950_a01',
 		tasks: [
 			{
+				name: 'Task 1',
 				id: 't01',
-				name: 'Task 1 - Quotes and Print Statements',
-				description:
-					'This task demonstrates your understanding of the use of single, double, and triple quotes in Python by using four print functions to output specific lines of text.',
+				description: `
+        Convert a list of hexadecimal values stored in memory into their ASCII character
+        representations by using a lookup table. Store the resulting ASCII characters
+        into a new memory location (starting at 0x00001500).
+      `,
 				objectives: [
-					'Use single quotes to print a sentence that includes double quotes',
-					'Use triple double-quotes to print a multi-line paragraph',
-					'Use double quotes to print a regular sentence',
-					'Use triple single-quotes to print a quote that includes both single and double quotation marks',
+					'Load addresses of data arrays and lookup tables into registers',
+					'Iterate through a list of 32-bit hexadecimal numbers',
+					'Use each value as an index into a lookup table of ASCII character codes',
+					'Store ASCII bytes sequentially in memory',
+					'Use post-increment addressing for efficient memory traversal',
 				],
-				sampleOutput: `What is a "program"?
-A program is a sequence of instructions that specifies how to perform a computation. The details look different in different languages, but a few basic instructions appear in just about every language:
-input: Get data from the keyboard, a file, or some other device.
-output: Display data on the screen or send data to a file or other device.
-math: Perform basic mathematical operations like addition and multiplication.
-conditional execution: Check for certain conditions and execute the appropriate code.
-repetition: Perform some action repeatedly, usually with some variation.
-Believe it or not, that's pretty much all there is to it.
-"You have enemies? Good. That means you've stood up for something, sometime in your life." Winston Churchill`,
-				skills: ['Python', 'Print Statements', 'Quotes', 'Multiline Strings'],
-			},
-			{
-				id: 't02',
-				name: 'Task 2 - Age and Favourite Band',
-				description:
-					'This program asks the user for their age and their favourite band, then prints a formatted sentence with their responses.',
-				objectives: [
-					'Prompt the user to enter their age as an integer',
-					'Prompt the user to enter their favourite band as a string',
-					'Store the input values in variables',
-					'Use an f-string to print a sentence combining both inputs',
-				],
-				sampleOutput: `What is your age? 20
-What is your favourite band? Coldplay
-
-I am 20 years old and Coldplay is my favourite band.`,
 				skills: [
-					'Python',
-					'User Input',
-					'Variables',
-					'Data Types',
-					'Formatted Strings (f-strings)',
+					'ARM assembly memory addressing',
+					'Pointer arithmetic and post-increment addressing mode',
+					'Indexed lookup table usage',
+					'Byte and word load/store instructions',
 				],
-			},
-			{
-				id: 't03',
-				name: 'Task 3 - Miles to Kilometres Converter',
-				description:
-					'This program asks the user for a length in miles and prints the equivalent length in kilometres using 1.61 as the conversion factor.',
-				objectives: [
-					'Prompt the user to enter a length in miles as a float',
-					'Store the input in a variable',
-					'Define a constant for the conversion factor (1.61)',
-					'Multiply miles by the conversion factor to calculate kilometres',
-					'Print the result using an f-string',
-				],
-				sampleOutput: `Length in miles: 5
-
-Length in km: 8.05`,
-				skills: [
-					'Python',
-					'User Input',
-					'Float Data Type',
-					'Constants',
-					'Mathematical Operations',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				id: 't04',
-				name: 'Task 4 - Dosa Cost Calculator',
-				description:
-					'This program asks the user for the cost of one dosa and the number of dosas they want, then calculates and prints the total cost.',
-				objectives: [
-					'Prompt the user to enter the cost of one dosa as a float',
-					'Prompt the user to enter the number of dosas as an integer',
-					'Calculate the total cost by multiplying the two values',
-					'Print the total cost using an f-string',
-				],
-				sampleOutput: `Cost of 1 dosa: $2.5
-Number of dosa(s): 4
-
-Total cost of 4 dosas: $ 10.0`,
-				skills: [
-					'Python',
-					'User Input',
-					'Float and Integer Data Types',
-					'Arithmetic Operations',
-					'Formatted Strings (f-strings)',
-				],
-			},
-			{
-				id: 't05',
-				name: 'Task 5 - Compound Interest Calculator',
-				description:
-					'This program calculates and prints compound interest using the formula A = P(1 + r/n)^(nt), where P is the principal amount, r is the annual interest rate (decimal), t is the number of years, n is the number of times interest is compounded per year, and A is the accumulated amount.',
-				objectives: [
-					'Prompt the user to enter the principal amount as a float',
-					'Prompt the user to enter the interest rate as a percentage and convert it to a decimal',
-					'Prompt the user to enter the number of years',
-					'Prompt the user to enter the number of times the interest is compounded per year',
-					'Apply the compound interest formula to calculate the accumulated amount',
-					'Print the final balance using an f-string',
-				],
-				sampleOutput: `Principal: $1000
-Interest (%): 5
-Number of years: 2
-Number of times interest compounded per year: 4
-
-Balance: $ 1104.486328125`,
-				skills: [
-					'Python',
-					'User Input',
-					'Float and Integer Data Types',
-					'Mathematical Expressions',
-					'Formatted Strings (f-strings)',
-					'Compound Interest Formula',
-				],
+				sampleOutput: `
+        Memory at 0x00001500 contains: 41 42 43 31 32 34 39 33 44 46 45 37 35 36 38 30
+        // Corresponding ASCII characters: "ABC12493DFE75680"
+      `,
 			},
 		],
 	},
-	{
-		name: 'Assignment 2',
-		id: 'elha7950_a02',
-		tasks: [],
-	},
-	{
-		name: 'Assignment 3',
-		id: 'elha7950_a03',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Assignment 4',
-		id: 'elha7950_a04',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Assignment 5',
-		id: 'elha7950_a05',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Assignment 6',
-		id: 'elha7950_a06',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Assignment 7',
-		id: 'elha7950_a07',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Assignment 8',
-		id: 'elha7950_a08',
-		tasks: [],
-		functions: [],
-	},
-	{
-		name: 'Assignment 9',
-		id: 'elha7950_a09',
-		tasks: [],
-		functions: [],
-	},
 ];
 
-export type LabsAssignmentOpt = 'assignment' | 'lab';
+export type LabsAssignmentOpt = 'assignment' | 'lab' | 'example';
 export interface LabsAssignmentsOpts {
 	type: LabsAssignmentOpt;
 }

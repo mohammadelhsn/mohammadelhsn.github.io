@@ -2,6 +2,7 @@
 
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
+import Paper from '@mui/material/Paper';
 
 // Custom Components
 import TechItem from './TechItem';
@@ -10,23 +11,21 @@ import TechItem from './TechItem';
 
 import { TechData } from '../data/Data';
 
-// To be moved 
+// Icons
 
-const style = {
-	py: 0,
-	width: '100%',
-	borderRadius: 2,
-	border: '1px solid',
-	borderColor: 'divider',
-	backgroundColor: 'background.paper',
-};
+import TerminalIcon from '@mui/icons-material/Terminal';
+import CodeIcon from '@mui/icons-material/Code';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 // Tech List
 
 const TechList = () => {
+	TechData[0].icon = CodeIcon;
+	TechData[1].icon = TerminalIcon;
+	TechData[2].icon = GitHubIcon;
 	return (
-		<List sx={style}>
-			{TechData.map(({ emoji, bolded, nonBolded }, idx) => {
+		<List component={Paper} elevation={3}>
+			{TechData.map(({ emoji, bolded, nonBolded, icon }, idx) => {
 				return (
 					<>
 						<TechItem
@@ -34,6 +33,7 @@ const TechList = () => {
 							emoji={emoji}
 							bolded={bolded}
 							nonBolded={nonBolded}
+							icon={icon}
 						></TechItem>
 						<Divider />
 					</>

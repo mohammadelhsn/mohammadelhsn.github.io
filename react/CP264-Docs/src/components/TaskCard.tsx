@@ -1,7 +1,7 @@
 import ItemList from './ItemList';
 
-const TaskCard = () => {
-	return <ItemList itemType="assignment" />;
+const TaskCard = ({ count }: { count: number }) => {
+	return <ItemList itemType="task" count={count} />;
 };
 
 export default TaskCard;
