@@ -1,6 +1,7 @@
-import type { Theme } from '@mui/material';
+import { type Theme } from '@mui/material';
 import { lightTheme, darkTheme } from './Theme';
-import type { SettingOpts } from './Data';
+import { type SettingOpts } from './Data';
+import API from '@mohammadelhsn/portfolio-api-wrapper';
 
 class SettingsClass {
 	exampleEnable: boolean;
@@ -21,6 +22,7 @@ class SettingsClass {
 	linkedIn?: string;
 	baseLab?: string;
 	baseAssignment?: string;
+	api = new API('CP104');
 	constructor({
 		exampleEnable = false,
 		assignmentNumbersDisable = false,
@@ -97,11 +99,6 @@ class SettingsClass {
 }
 
 const Settings = new SettingsClass({
-	exampleEnable: true,
-	labNumbersDisable: false,
-	labTasksDisable: false,
-	assignmentNumbersDisable: false,
-	assignmentTasksDisable: false,
 	courseCode: 'CP104',
 	courseName: 'Introduction to Programming with Python',
 	term: 'Fall 2023',

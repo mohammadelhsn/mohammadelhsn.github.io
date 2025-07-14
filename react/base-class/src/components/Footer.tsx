@@ -14,13 +14,9 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 import GitHub from '@mui/icons-material/GitHub';
 import Email from '@mui/icons-material/Email';
 
-interface HeaderProps {
-	mode: 'light' | 'dark';
-}
-
 // Footer component
 
-const Footer = (opts: HeaderProps) => {
+const Footer = () => {
 	return (
 		<Box component="footer" textAlign="center" py={4} sx={{
 			boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)',
@@ -28,7 +24,6 @@ const Footer = (opts: HeaderProps) => {
 			color: (theme) => theme.palette.text.secondary
 		}}>
 			<Box display="flex" justifyContent="center" gap={3}>
-
 				<IconButton
 					component="a"
 					href={`mailto:${Settings.email}`}
@@ -38,7 +33,6 @@ const Footer = (opts: HeaderProps) => {
 				>
 					<Email />
 				</IconButton>
-
 				<IconButton
 					href={Settings.github}
 					target="_blank"

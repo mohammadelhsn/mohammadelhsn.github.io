@@ -1,7 +1,7 @@
 import type { Theme } from '@mui/material';
 import { lightTheme, darkTheme } from './Theme';
 import type { SettingOpts } from './Data';
-
+import API from '@mohammadelhsn/portfolio-api-wrapper';
 class SettingsClass {
 	exampleEnable: boolean;
 	assignmentNumbersDisable: boolean;
@@ -21,6 +21,7 @@ class SettingsClass {
 	linkedIn?: string;
 	baseLab?: string;
 	baseAssignment?: string;
+	api = new API('CP264');
 	constructor({
 		exampleEnable = false,
 		assignmentNumbersDisable = false,

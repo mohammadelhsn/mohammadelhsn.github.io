@@ -16,7 +16,6 @@ import NumbersIcon from '@mui/icons-material/Numbers';
 import BuildIcon from '@mui/icons-material/Build';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
-
 // Data
 
 import { type FunctionPageProps } from '../data/Data';

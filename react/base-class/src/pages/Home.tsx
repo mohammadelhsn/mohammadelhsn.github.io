@@ -24,9 +24,6 @@ import ComputerIcon from '@mui/icons-material/Computer';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import BiotechIcon from '@mui/icons-material/Biotech';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import CodeIcon from '@mui/icons-material/Code';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
@@ -37,15 +34,11 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 
 // Data 
 
-import { TopicsData } from '../data/Data';
 import Settings from '../data/Settings';
 import { textStyle } from '../data/Styles';
 
 const CP264DocsMain = () => {
 	const theme = useTheme();
-	TopicsData[0].icon = PsychologyIcon;
-	TopicsData[1].icon = CodeIcon;
-	TopicsData[2].icon = AutoGraphIcon;
 	return (
 		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
 			<Box>
@@ -107,16 +100,7 @@ const CP264DocsMain = () => {
 			</SectionWrapper>
 			<SectionWrapper title="Topics" icon={TopicIcon}>
 				<Paper elevation={3}>
-					{TopicsData.map(({ title, eventKey, items, icon }) => {
-						return (
-							<TopicsAccordion
-								eventKey={eventKey}
-								items={items}
-								title={title}
-								icon={icon}
-							></TopicsAccordion>
-						);
-					})}
+					<TopicsAccordion />
 				</Paper>
 			</SectionWrapper>
 			<SectionWrapper title="Technologies" icon={ComputerIcon}>

@@ -30,21 +30,15 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import DataArrayIcon from '@mui/icons-material/DataArray';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import TagIcon from '@mui/icons-material/Tag';
+
 
 // Data 
 
-import { TopicsData } from '../data/Data';
 import Settings from '../data/Settings';
 import { textStyle } from '../data/Styles';
 
 const CP264DocsMain = () => {
 	const theme = useTheme();
-	TopicsData[0].icon = DataArrayIcon;
-	TopicsData[1].icon = AccountTreeIcon;
-	TopicsData[2].icon = TagIcon;
 	return (
 		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
 			<Box>
@@ -77,7 +71,7 @@ const CP264DocsMain = () => {
 				{/* prettier-ignore */}
 				<Paper elevation={3} sx={{ padding: '20px' }}>
 					<p>
-						This repository contains my coursework, assignments, and projects for <strong>{Settings.courseName}</strong> at <strong>Wilfrid Laurier University</strong>. The course covers core data structures and algorithms, including linked lists, stacks, trees, graphs, and more..
+						This repository contains my coursework, assignments, and projects for <strong>{Settings.courseName}</strong> at <strong>Wilfrid Laurier University</strong>. The course explores core object-oriented programming concepts in Java, such as classes, inheritance, polymorphism, encapsulation, and abstraction, as well as the use of data structures and algorithms in an object-oriented context.
 					</p>
 				</Paper>
 			</SectionWrapper>
@@ -106,16 +100,7 @@ const CP264DocsMain = () => {
 			</SectionWrapper>
 			<SectionWrapper title="Topics" icon={TopicIcon}>
 				<Paper elevation={3}>
-					{TopicsData.map(({ title, eventKey, items, icon }) => {
-						return (
-							<TopicsAccordion
-								eventKey={eventKey}
-								items={items}
-								title={title}
-								icon={icon}
-							></TopicsAccordion>
-						);
-					})}
+					<TopicsAccordion />
 				</Paper>
 			</SectionWrapper>
 			<SectionWrapper title="Technologies" icon={ComputerIcon}>

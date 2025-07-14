@@ -24,7 +24,6 @@ const Footer = () => {
 			color: (theme) => theme.palette.text.secondary
 		}}>
 			<Box display="flex" justifyContent="center" gap={3}>
-
 				<IconButton
 					component="a"
 					href={`mailto:${Settings.email}`}
@@ -34,7 +33,6 @@ const Footer = () => {
 				>
 					<Email />
 				</IconButton>
-
 				<IconButton
 					href={Settings.github}
 					target="_blank"

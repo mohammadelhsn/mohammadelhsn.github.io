@@ -1,7 +1,6 @@
 // React
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 // Material UI 
 
@@ -12,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import { styled, useTheme } from '@mui/material/styles';
+import Link from '@mui/material/Link';
 
 // Icons 
 
@@ -25,13 +25,15 @@ interface HeaderProps {
 	toggleColorMode: () => void;
 }
 
-const StyledNavLink = styled(NavLink)(({ theme }) => ({
+const StyledExternalLink = styled(Link)(({ theme }) => ({
 	color: 'inherit',
 	textDecoration: 'none',
 	marginRight: theme.spacing(2),
 	fontWeight: 'normal',
-	'&.active': {
-		fontWeight: 'bold',
+	display: 'inline-flex',
+	alignItems: 'center',
+	'&:hover': {
+		textDecoration: 'none',
 	},
 }));
 
@@ -50,11 +52,11 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 					width: 48,
 					height: 48,
 					borderRadius: '50%',
-					backgroundColor: 'primary.main', // or any color like '#00bcd4'
+					backgroundColor: 'primary.main',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
-					overflow: 'hidden', // keeps the image inside the circle
+					overflow: 'hidden',
 					mr: 1
 				}}>
 					<Box
@@ -68,22 +70,16 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 						}}
 					/>
 				</Box>
-				<Button
-					color="inherit"
-					component={StyledNavLink}
-					to="/"
-					end
-				>
-					Home
-				</Button>
-				<Button
-					color="inherit"
-					component={StyledNavLink}
-					to="/projects"
-
-				>
-					Projects
-				</Button>
+				<StyledExternalLink href="https://mohammadelhsn.github.io/">
+					<Button color="inherit">
+						Home
+					</Button>
+				</StyledExternalLink>
+				<StyledExternalLink href="https://mohammadelhsn.github.io/#/projects">
+					<Button color="inherit">
+						Projects
+					</Button>
+				</StyledExternalLink>
 				<Typography sx={{
 					flexGrow: 1,
 				}} />

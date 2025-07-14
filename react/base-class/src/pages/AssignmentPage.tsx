@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 // React
 
 import { useParams, useNavigate } from 'react-router-dom';
@@ -14,12 +16,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // Custom Components
 
 import ItemList from '../components/ItemList';
+import SectionWrapper from '../components/Section';
+import Loading from '../components/Loading';
 
 // Data
 
 import {
-	LabData,
-	AssignmentData,
 	type LabsAssignmentsOpts,
 } from '../data/Data';
 
@@ -27,21 +29,53 @@ import {
 
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import ListIcon from '@mui/icons-material/List';
 
 // Styles
 
 import { textStyle } from '../data/Styles';
-import SectionWrapper from '../components/Section';
-import ListIcon from '@mui/icons-material/List';
+
+import type { AssessmentDataType } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
+import Settings from '../data/Settings';
 
 // Lab/Assignment page for individual 
 
 const LabAssignmentPage = (opts: LabsAssignmentsOpts) => {
 	const { num } = useParams<{ num: string; }>();
-	const dataSource = opts.type === 'assignment' ? AssignmentData : LabData;
-	const section = dataSource.find((s) => s.id === num);
 	const navigate = useNavigate(); // Hook for navigation
-	if (!section) {
+	const [dataSource, setDataSource] = useState<AssessmentDataType>();
+	const [loading, setLoading] = useState<boolean>(true);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				if (opts.type === 'assignment') {
+					const res = await Settings.api.getAssignment(num?.slice(-2));
+					if (res?.data) {
+						setDataSource(res.data as AssessmentDataType);
+					}
+				} else {
+					const res = await Settings.api.getLab(num?.slice(-2));
+					if (res?.data) {
+						setDataSource(res.data as AssessmentDataType);
+					}
+				}
+			} catch (err) {
+				console.error('Failed to fetch data:', err);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		if (num) {
+			fetchData();
+		}
+	}, [num, opts.type]);
+	if (loading) {
+		return (
+			<Loading />
+		);
+	}
+	if (!dataSource) {
 		return (
 			<Container maxWidth="md" sx={{ mt: 8, textAlign: 'center', flexGrow: '1' }}>
 				<SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, color: 'error.main', mb: 2 }} />
@@ -70,10 +104,10 @@ const LabAssignmentPage = (opts: LabsAssignmentsOpts) => {
 					<MenuBookIcon fontSize='inherit' sx={{
 						color: 'primary.main',
 						mr: 1.5,
-					}} /> {section.name}
+					}} /> {dataSource.name}
 				</Typography>
 				<Typography variant="h5" sx={{ fontStyle: 'italic' }}>
-					Here are the documented {section.name}.
+					Here are the documented {dataSource.name}.
 				</Typography>
 				<Divider sx={{ my: 4 }} />
 			</Box>
@@ -82,7 +116,7 @@ const LabAssignmentPage = (opts: LabsAssignmentsOpts) => {
 					<ItemList
 						itemType="task"
 						taskStr={num || ''}
-						count={section.tasks.length}
+						count={dataSource.tasks.length}
 					/>
 				</SectionWrapper>
 			</Box>

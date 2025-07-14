@@ -2,11 +2,11 @@
 
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 // Data
 
 import type { TechItemOpts } from '../data/Data';
-import { Typography } from '@mui/material';
 
 // Tech Item
 

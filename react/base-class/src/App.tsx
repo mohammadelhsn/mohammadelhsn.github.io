@@ -87,7 +87,7 @@ const App = () => {
 					))}
 					<Route path="*" element={<Navigate to="/" replace />} />
 				</Routes>
-				<Footer mode={`${mode}`} />
+				<Footer />
 			</ThemeProvider>
 		</HashRouter>
 	);

@@ -9,7 +9,7 @@ import { useTheme } from '@mui/material/styles';
 
 // Data
 
-import type { SectionOpts } from '../data/Data';
+import { type SectionOpts } from '../data/Data';
 
 // Section Wrapper
 

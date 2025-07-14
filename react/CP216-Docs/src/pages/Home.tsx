@@ -28,23 +28,17 @@ import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import DataObjectIcon from '@mui/icons-material/DataObject';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import MemoryIcon from '@mui/icons-material/Memory';
-import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
+
 
 // Data 
 
-import { TopicsData } from '../data/Data';
 import Settings from '../data/Settings';
 import { textStyle } from '../data/Styles';
 
 const CP264DocsMain = () => {
 	const theme = useTheme();
-	TopicsData[0].icon = SettingsInputComponentIcon;
-	TopicsData[1].icon = DeveloperBoardIcon;
-	TopicsData[2].icon = BugReportIcon;
 	return (
 		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
 			<Box>
@@ -52,7 +46,7 @@ const CP264DocsMain = () => {
 					variant="h2"
 					sx={textStyle}
 				>
-					<MemoryIcon
+					<DataObjectIcon
 						fontSize="inherit"
 						sx={{
 							color: 'primary.main',
@@ -77,7 +71,7 @@ const CP264DocsMain = () => {
 				{/* prettier-ignore */}
 				<Paper elevation={3} sx={{ padding: '20px' }}>
 					<p>
-						This repository contains my coursework, assignments, and projects for <strong>{Settings.courseName}</strong> at <strong>Wilfrid Laurier University</strong>. My coursework and projects on ARMv7 microprocessors and embedded systems, focusing on assembly programming, CPU architecture, memory, and I/O interfacing.
+						This repository contains my coursework, assignments, and projects for <strong>{Settings.courseName}</strong> at <strong>Wilfrid Laurier University</strong>. The course explores core object-oriented programming concepts in Java, such as classes, inheritance, polymorphism, encapsulation, and abstraction, as well as the use of data structures and algorithms in an object-oriented context.
 					</p>
 				</Paper>
 			</SectionWrapper>
@@ -106,16 +100,7 @@ const CP264DocsMain = () => {
 			</SectionWrapper>
 			<SectionWrapper title="Topics" icon={TopicIcon}>
 				<Paper elevation={3}>
-					{TopicsData.map(({ title, eventKey, items, icon }) => {
-						return (
-							<TopicsAccordion
-								eventKey={eventKey}
-								items={items}
-								title={title}
-								icon={icon}
-							></TopicsAccordion>
-						);
-					})}
+					<TopicsAccordion />
 				</Paper>
 			</SectionWrapper>
 			<SectionWrapper title="Technologies" icon={ComputerIcon}>

@@ -1,16 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
-//import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-//import IconButton from '@mui/material/IconButton';
 
 import ItemList from '../components/ItemList';
 import type { LabsAssignmentsOpts } from '../data/Data';
 
-//import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListIcon from '@mui/icons-material/List';
 import BiotechIcon from '@mui/icons-material/Biotech';
@@ -18,6 +13,7 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import { textStyle } from '../data/Styles';
 import SectionWrapper from '../components/Section';
 import { enableFile } from '../data/Functions';
+import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 

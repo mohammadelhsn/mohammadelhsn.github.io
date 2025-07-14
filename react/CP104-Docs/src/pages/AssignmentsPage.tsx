@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import ItemList from '../components/ItemList';
 import type { LabsAssignmentsOpts } from '../data/Data';
 
-//import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListIcon from '@mui/icons-material/List';
 import BiotechIcon from '@mui/icons-material/Biotech';

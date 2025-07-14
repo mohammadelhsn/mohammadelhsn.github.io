@@ -14,7 +14,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import NumbersIcon from '@mui/icons-material/Numbers';
 import BuildIcon from '@mui/icons-material/Build';
-
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 // Data
 
@@ -45,6 +45,17 @@ const FunctionsPage = (opts: FunctionPageProps) => {
 				<Divider sx={{ my: 4 }} />
 			</Box>
 			<SectionWrapper title="Constants" icon={LockIcon}>
+				{constants.length == 0 && (
+					<Paper elevation={3} sx={{ textAlign: 'center', flexGrow: '1', padding: '1rem' }}>
+						<SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, color: 'error.main', mb: 2 }} />
+						<Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
+							Oops!
+						</Typography>
+						<Typography variant="h6" gutterBottom color="text.secondary">
+							Looks like this there are no documented constants
+						</Typography>
+					</Paper>
+				)}
 				{constants.length > 0 && (
 					<Stack spacing={2}>
 						{constants.map((c, index) => (
@@ -79,6 +90,17 @@ const FunctionsPage = (opts: FunctionPageProps) => {
 				)}
 			</SectionWrapper>
 			<SectionWrapper title="Functions" icon={FunctionsIcon}>
+				{functions.length == 0 && (
+					<Paper elevation={3} sx={{ textAlign: 'center', flexGrow: '1', padding: '1rem' }}>
+						<SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, color: 'error.main', mb: 2 }} />
+						<Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
+							Oops!
+						</Typography>
+						<Typography variant="h6" gutterBottom color="text.secondary">
+							Looks like this there are no documented constants
+						</Typography>
+					</Paper>
+				)}
 				{functions.length > 0 && (
 					<Stack spacing={3}>
 						{functions.map((fn, index) => (

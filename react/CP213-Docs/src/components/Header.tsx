@@ -1,7 +1,6 @@
 // React
 
 import React from 'react';
-//import { NavLink } from 'react-router-dom';
 
 // Material UI 
 
@@ -25,17 +24,6 @@ interface HeaderProps {
 	mode: 'light' | 'dark';
 	toggleColorMode: () => void;
 }
-
-// const StyledNavLink = styled(NavLink)(({ theme }) => ({
-// 	color: 'inherit',
-// 	textDecoration: 'none',
-// 	marginRight: theme.spacing(2),
-// 	fontWeight: 'normal',
-// 	'&.active': {
-// 		fontWeight: 'bold',
-// 	},
-// }));
-
 
 const StyledExternalLink = styled(Link)(({ theme }) => ({
 	color: 'inherit',
@@ -64,11 +52,11 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 					width: 48,
 					height: 48,
 					borderRadius: '50%',
-					backgroundColor: 'primary.main', // or any color like '#00bcd4'
+					backgroundColor: 'primary.main',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
-					overflow: 'hidden', // keeps the image inside the circle
+					overflow: 'hidden',
 					mr: 1
 				}}>
 					<Box

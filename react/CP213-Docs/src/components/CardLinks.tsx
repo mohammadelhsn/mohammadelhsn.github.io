@@ -9,12 +9,15 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import { Paper } from '@mui/material';
+import Paper from '@mui/material/Paper';
 
 // Data
 
 import { type CardTypes } from '../data/Data';
 import { getItemType } from '../data/Functions';
+
+// Settings
+
 import Settings from '../data/Settings';
 
 // Styles 
