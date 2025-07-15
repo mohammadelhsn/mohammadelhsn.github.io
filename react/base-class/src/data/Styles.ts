@@ -44,18 +44,19 @@ export const chipStyle: SxProps = {
 };
 
 export const projectsBox: SxProps = { flexGrow: 1, padding: '3rem 2rem' };
+
 export const projectsHeader: SxProps = {
 	textAlign: 'center',
 	marginBottom: '2rem',
 };
 
-export const projectsGrid = {
+export const projectsGrid: SxProps = {
 	gap: '2rem',
 	height: '100%',
 	gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
 };
 
-export const textStyle = {
+export const textStyle: SxProps = {
 	display: 'flex',
 	alignItems: 'center', // use "center" instead of "top" for visual balance
 	mb: 1, // space between heading and subheading
@@ -63,7 +64,7 @@ export const textStyle = {
 	wordBreak: 'break-word', // break long words if needed
 };
 
-export const iconStyles = {
+export const iconStyles: SxProps = {
 	color: 'primary.main',
 	mr: 1.5,
 };

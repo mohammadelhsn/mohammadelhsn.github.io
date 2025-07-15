@@ -1,17 +1,17 @@
-// MUI Components
+/** MUI COMPONENTS */
 
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import Divider from '@mui/material/Divider';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 
-// Data
+/** DATA */
 
 import { type SectionOpts } from '../data/Data';
 
-// Section Wrapper
+/** SECTION WRAPPER */
 
 const SectionWrapper = (opts: SectionOpts) => {
 	const theme = useTheme();

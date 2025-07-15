@@ -37,6 +37,7 @@ export interface pageData {
 }
 
 export type ItemType = 'lab' | 'example' | 'assignment' | 'task';
+
 export interface ItemListOpts {
 	itemType: ItemType;
 	count?: number;

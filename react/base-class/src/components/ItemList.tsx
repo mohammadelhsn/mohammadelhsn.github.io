@@ -1,31 +1,42 @@
-import { useEffect, useState } from 'react';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
-import ListItem from './ListItem';
+/** REACT */
 
-import {
-	type TaskData,
-	type ItemListOpts,
-	type AssessmentDataType,
-	type ExampleData,
-} from '../data/Data';
+import { useEffect, useState } from 'react';
+
+/** MUI COMPONENTS */
+
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+
+/** CUSTOM COMPONENTS */
 
 import Settings from '../data/Settings';
+import ListItem from './ListItem';
 import Loading from './Loading';
+
+/** ICONS */
+
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+
+/** DATA */
+
+import type {
+	TaskData,
+	ItemListOpts,
+	AssessmentDataType,
+	ExampleData,
+} from '../data/Data';
+
 
 const ItemList = (opts: ItemListOpts) => {
 	const baseUrl =
 		import.meta.env.MODE === 'production'
 			? `/${Settings.courseCode}/${opts.isFile ? '' : '#/'}`
 			: `/${opts.isFile ? '' : '#/'}`;
-
 	const [tasks, setTasks] = useState<TaskData[]>([]);
 	const [length, setLength] = useState<number>(0);
 	const [exampleData, setExampleData] = useState<ExampleData[]>([]);
 	const [loading, setLoading] = useState(true);
-
 	useEffect(() => {
 		(async () => {
 			setLoading(true);
@@ -92,7 +103,6 @@ const ItemList = (opts: ItemListOpts) => {
 			</Container>
 		);
 	}
-
 	return (
 		<Grid container spacing={3} sx={{ mt: 2 }}>
 			{Array.from({ length }, (_, i) => {

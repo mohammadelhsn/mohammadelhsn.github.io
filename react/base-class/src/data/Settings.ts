@@ -64,38 +64,6 @@ class SettingsClass {
 		this.baseLab = baseLab;
 		this.baseAssignment = baseAssignment;
 	}
-	updateExample(status: boolean) {
-		this.exampleEnable = status;
-		return this;
-	}
-	updateAssignNumbers(status: boolean) {
-		this.assignmentNumbersDisable = status;
-		return this;
-	}
-	updateAssignTasks(status: boolean) {
-		this.assignmentTasksDisable = status;
-		return this;
-	}
-	updateLabNumber(status: boolean) {
-		this.labNumbersDisable = status;
-		return this;
-	}
-	updateLabTasks(status: boolean) {
-		this.labTasksDisable = status;
-		return this;
-	}
-	updateCourseCode(code: string) {
-		this.courseCode = code;
-		return this;
-	}
-	updateCourseName(code: string) {
-		this.courseName = `${this.courseCode} - ${code}`;
-		return this;
-	}
-	updateTerm(term: string) {
-		this.term = term;
-		return this;
-	}
 }
 
 const Settings = new SettingsClass({

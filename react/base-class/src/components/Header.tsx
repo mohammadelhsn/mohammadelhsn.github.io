@@ -1,24 +1,24 @@
-// React
+/** REACT */
 
-import React from 'react';
+import { type FC } from 'react';
 
-// Material UI 
+/** MUI COMPONENTS */
 
+import { styled, useTheme } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
-import { styled, useTheme } from '@mui/material/styles';
 import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
 
-// Icons 
+/** ICONS */
 
-import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 
-// Interfaces
+/** INTERFACES */
 
 interface HeaderProps {
 	mode: 'light' | 'dark';
@@ -37,7 +37,7 @@ const StyledExternalLink = styled(Link)(({ theme }) => ({
 	},
 }));
 
-const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
+const Header: FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 	const theme = useTheme();
 	return (
 		<AppBar

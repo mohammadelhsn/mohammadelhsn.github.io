@@ -4,36 +4,36 @@ import { useEffect, useState } from 'react';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-// MUI Components
+/** MUI COMPONENTS */
 
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
 
-// Custom Components
-
-import ItemList from '../components/ItemList';
-import SectionWrapper from '../components/Section';
-import Loading from '../components/Loading';
-
-// Data
-
-import {
-	type LabsAssignmentsOpts,
-} from '../data/Data';
-
-// Icons
+/** ICONS */
 
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ListIcon from '@mui/icons-material/List';
+
+/** CUSTOM COMPONENTS */
+
+import SectionWrapper from '../components/Section';
+import ItemList from '../components/ItemList';
+import Loading from '../components/Loading';
+
+/** DATA */
+
+import { type LabsAssignmentsOpts } from '../data/Data';
 
 // Styles
 
 import { textStyle } from '../data/Styles';
+
+/** DATA */
 
 import type { AssessmentDataType } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
 import Settings from '../data/Settings';

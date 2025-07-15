@@ -1,11 +1,11 @@
-// MUI Material
+/** MUI COMPONENTS */
 
-import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
-// Loading Page
+/** LOADING PAGE */
 
 export default function Loading() {
     return (

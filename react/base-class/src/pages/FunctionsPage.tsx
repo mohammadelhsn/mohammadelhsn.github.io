@@ -2,26 +2,33 @@ import { useNavigate } from 'react-router-dom';
 
 // MUI Components
 
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
-import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+
+
+/** CUSTOM COMPONENTS */
+
+import SectionWrapper from '../components/Section';
+
+/** ICONS */
+
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Container from '@mui/material/Container';
-import LockIcon from '@mui/icons-material/Lock';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import NumbersIcon from '@mui/icons-material/Numbers';
 import BuildIcon from '@mui/icons-material/Build';
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import LockIcon from '@mui/icons-material/Lock';
 
-// Data
+/** DATA */
 
-import { type FunctionPageProps } from '../data/Data';
-import SectionWrapper from '../components/Section';
 import { textStyle, iconStyles, dividerStyle } from '../data/Styles';
-import { Divider } from '@mui/material';
+import { type FunctionPageProps } from '../data/Data';
 
 const FunctionsPage = (opts: FunctionPageProps) => {
 	const { functions = [], constants = [] } = opts;

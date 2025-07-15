@@ -2,25 +2,25 @@
 
 import { Link } from 'react-router-dom';
 
-// MUI Components
+/** MUI COMPONENTS */
 
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
-// Data
+/** DATA */
 
 import { type CardTypes } from '../data/Data';
 import { getItemType } from '../data/Functions';
 
-// Settings
+/** SETTINGS */
 
 import Settings from '../data/Settings';
 
-// Styles 
+/** STYLES */
 
 import {
 	buttonStyles,
@@ -30,7 +30,7 @@ import {
 	textStyle
 } from '../data/Styles';
 
-// Card Links component
+/** Card Links component */
 
 const CardLinks = (opts: CardTypes) => {
 	const itemType = getItemType(opts.itemType);

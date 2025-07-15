@@ -1,43 +1,45 @@
-// MUI Components
+/** MUI COMPONENTS */
 
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import { useTheme } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
-import { useTheme } from '@mui/material/styles';
-import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-// Custom Components
+import Box from '@mui/material/Box';
+
+/** CUSTOM COMPONENTS */
 
 import SectionWrapper from '../components/Section';
 import TopicsAccordion from '../components/Topic';
-import TechList from '../components/TechList';
 import CardLinks from '../components/CardLinks';
+import TechList from '../components/TechList';
 
-// Icons 
+/** ICONS */
 
-import ArticleIcon from '@mui/icons-material/Article';
-import TopicIcon from '@mui/icons-material/Topic';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import DataObjectIcon from '@mui/icons-material/DataObject';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import ComputerIcon from '@mui/icons-material/Computer';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import BiotechIcon from '@mui/icons-material/Biotech';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
+import ArticleIcon from '@mui/icons-material/Article';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import DataObjectIcon from '@mui/icons-material/DataObject';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import TopicIcon from '@mui/icons-material/Topic';
 
+/** DATA */
 
-// Data 
-
-import Settings from '../data/Settings';
 import { textStyle } from '../data/Styles';
+import Settings from '../data/Settings';
 
-const CP264DocsMain = () => {
+// Home Page
+
+const CP104DocsMain = () => {
 	const theme = useTheme();
 	return (
 		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
@@ -55,9 +57,8 @@ const CP264DocsMain = () => {
 					/>
 					{Settings.courseName}
 				</Typography>
-
 				<Typography
-					variant="h5" // smaller than h3 to improve visual hierarchy under h2
+					variant="h5"
 					color="text.secondary"
 					sx={{
 						fontStyle: 'italic',
@@ -139,10 +140,7 @@ const CP264DocsMain = () => {
 							borderRadius: 2,
 						}}
 					>
-						<Typography
-							variant="h6"
-							sx={textStyle}
-						>
+						<Typography variant="h6" sx={textStyle}>
 							<NoteAltIcon fontSize="inherit"
 								sx={{
 									color: 'primary.main',
@@ -158,8 +156,6 @@ const CP264DocsMain = () => {
 						</Typography>
 					</Paper>
 				</Grid>
-
-				{/* Right column */}
 				<Grid size={{ md: 6, xs: 12 }}>
 					<Paper
 						elevation={1}
@@ -169,10 +165,7 @@ const CP264DocsMain = () => {
 							borderRadius: 2,
 						}}
 					>
-						<Typography
-							variant="h6"
-							sx={textStyle}
-						>
+						<Typography variant="h6" sx={textStyle}>
 							<ContactSupportIcon fontSize="inherit"
 								sx={{
 									color: 'primary.main',
@@ -234,4 +227,4 @@ const CP264DocsMain = () => {
 	);
 };
 
-export default CP264DocsMain;
+export default CP104DocsMain;

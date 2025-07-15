@@ -1,28 +1,31 @@
-// React
+/** REACT */
 
 import { useEffect, useState } from 'react';
 
-// MUI Components
+/** MUI COMPONENTS */
 
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
 import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
-// Types
+/** CUSTOM COMPONENTS */
+
+import Loading from './Loading';
+
+/** TYPES */
 
 import type { TopicOpts } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
 import type { SvgIconComponent } from '@mui/icons-material';
 
-// Icons
+/** ICONS */
 
-import Loading from './Loading';
 import PsychologyIcon from '@mui/icons-material/Psychology';
-import CodeIcon from '@mui/icons-material/Code';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import CodeIcon from '@mui/icons-material/Code';
 
 // Settings for API access
 

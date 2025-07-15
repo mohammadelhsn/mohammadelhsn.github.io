@@ -1,21 +1,33 @@
+/** REACT */
+
+import { useNavigate } from 'react-router-dom';
+
+/** MUI COMPONENTS */
+
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
+/** CUSTOM COMPONENTS */
+
+import SectionWrapper from '../components/Section';
 import ItemList from '../components/ItemList';
-import type { LabsAssignmentsOpts } from '../data/Data';
+
+/** ICONS */
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import ListIcon from '@mui/icons-material/List';
-import BiotechIcon from '@mui/icons-material/Biotech';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import { textStyle } from '../data/Styles';
-import SectionWrapper from '../components/Section';
-import { enableFile } from '../data/Functions';
-import { useNavigate } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import BiotechIcon from '@mui/icons-material/Biotech';
+import IconButton from '@mui/material/IconButton';
+import ListIcon from '@mui/icons-material/List';
+
+/** DATA */
+
+import type { LabsAssignmentsOpts } from '../data/Data';
+import { enableFile } from '../data/Functions';
+import { textStyle } from '../data/Styles';
 
 // Create a page for the lab/assignment showing all the labs/assignments
 

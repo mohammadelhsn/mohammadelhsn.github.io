@@ -1,34 +1,52 @@
+/** REACT */
+
 import { useParams, useNavigate } from 'react-router-dom';
-import {
-	Box, Typography, Paper, Chip, List, ListItem,
-	ListItemText, Divider, Container, IconButton
-} from '@mui/material';
+import { useEffect, useState } from 'react';
+
+/** MUI COMPONENTS */
+
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Container from '@mui/material/Container';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
+import Chip from '@mui/material/Chip';
+import List from '@mui/material/List';
+import Box from '@mui/material/Box';
 
-import FunctionsPage from './FunctionsPage';
+/** CUSTOM COMPONENTS */
+
 import SectionWrapper from '../components/Section';
+import FunctionsPage from './FunctionsPage';
+import Loading from '../components/Loading';
 
+/** ICONS */
+
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import DescriptionIcon from '@mui/icons-material/Description';
-import OutputIcon from '@mui/icons-material/Output';
 import ChecklistIcon from '@mui/icons-material/Checklist';
+import OutputIcon from '@mui/icons-material/Output';
 import BuildIcon from '@mui/icons-material/Build';
 
-import { useEffect, useState } from 'react';
-import { type LabsAssignmentsOpts } from '../data/Data';
-import { dividerStyle, sampleOutput, textStyle } from '../data/Styles';
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+/** TYPES */
+
 import type { AssessmentDataType, TaskData } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
+import { type LabsAssignmentsOpts } from '../data/Data';
+
+/** DATA */
+
+import { dividerStyle, sampleOutput, textStyle } from '../data/Styles';
 import Settings from '../data/Settings';
-import Loading from '../components/Loading';
 
 const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 	const { num, task } = useParams<{ num: string; task: string; }>();
 	const navigate = useNavigate();
-
 	const [taskData, setTaskData] = useState<TaskData | null>(null);
 	const [parentSection, setParentSection] = useState<AssessmentDataType | null>(null);
 	const [loading, setLoading] = useState(true);
-
 	useEffect(() => {
 		const fetchTask = async () => {
 			if (!num || !task) return;
@@ -42,12 +60,9 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 				if (res?.data) {
 					setTaskData(res.data as TaskData);
 				}
-
-				// Also fetch the full parent section (lab or assignment) to use later
 				const sectionRes = opts.type === 'assignment'
 					? await Settings.api.getAssignment(shortNum.slice(-2))
 					: await Settings.api.getLab(shortNum.slice(-2));
-
 				if (sectionRes?.data) {
 					setParentSection(sectionRes.data as AssessmentDataType);
 				}
@@ -57,17 +72,13 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 				setLoading(false);
 			}
 		};
-
 		fetchTask();
 	}, [num, task]);
-
-	// Handle loading or error
 	if (loading) {
 		return (
 			<Loading />
 		);
 	}
-
 	if (parentSection?.functions && task === 'functions') {
 		return (
 			<FunctionsPage
@@ -77,7 +88,6 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 			/>
 		);
 	}
-
 	if (!taskData || !parentSection) {
 		return (
 			<Container maxWidth="md" sx={{ mt: 8, textAlign: 'center', flexGrow: 1 }}>
@@ -86,7 +96,6 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 			</Container>
 		);
 	}
-
 	return (
 		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
 			<Box sx={{ mb: 2 }}>
@@ -103,13 +112,11 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 				</Typography>
 			</Box>
 			<Divider sx={dividerStyle} />
-
 			<SectionWrapper title="Description" icon={DescriptionIcon}>
 				<Paper elevation={3} sx={{ p: 2, mb: 3 }}>
 					<Typography>{taskData.description}</Typography>
 				</Paper>
 			</SectionWrapper>
-
 			<SectionWrapper title="Objectives" icon={ChecklistIcon}>
 				<List>
 					{taskData.objectives.map((obj, index) => (
@@ -119,13 +126,11 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 					))}
 				</List>
 			</SectionWrapper>
-
 			<SectionWrapper title="Sample Output" icon={OutputIcon}>
 				<Paper elevation={3} sx={sampleOutput}>
 					{taskData.sampleOutput}
 				</Paper>
 			</SectionWrapper>
-
 			<SectionWrapper title="Skills Demonstrated" icon={BuildIcon}>
 				<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
 					{taskData.skills.map((skill, index) => (
