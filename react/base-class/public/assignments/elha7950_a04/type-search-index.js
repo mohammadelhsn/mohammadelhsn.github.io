@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"cp213","l":"A04Main"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"cp213","l":"AVL"},{"p":"cp213","l":"BST"},{"p":"cp213","l":"CountedData"},{"p":"cp213","l":"PopularityTree"},{"p":"cp213","l":"TreeNode"}];updateSearchResults();
