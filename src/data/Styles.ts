@@ -7,7 +7,7 @@ export const buttonStyle: SxProps = {
 	borderColor: 'primary.main',
 	color: '#fff',
 	'&:hover': {
-		bgcolor: 'primary.main', // change background color on hover
+		bgcolor: 'primary.main',
 		transform: 'translateY(-3px)',
 	},
 };

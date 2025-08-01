@@ -41,8 +41,8 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 		<AppBar
 			position="static"
 			sx={{
-				bgcolor: (theme) => theme.palette.background.default,
-				color: (theme) => theme.palette.text.primary,
+				bgcolor: ({ palette }) => palette.background.default,
+				color: ({ palette }) => palette.text.primary,
 			}}
 		>
 			<Toolbar>

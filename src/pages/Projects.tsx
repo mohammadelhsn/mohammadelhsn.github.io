@@ -1,3 +1,7 @@
+// React
+
+import { useEffect, useState } from 'react';
+
 // MUI Components
 
 import Typography from '@mui/material/Typography';
@@ -10,10 +14,6 @@ import Container from '@mui/material/Container';
 
 import Project from '../components/Project';
 
-// Data
-
-import { PROJECTS } from '../data/Data';
-
 // Styles
 import {
 	projectsGrid,
@@ -22,8 +22,21 @@ import {
 } from '../data/Styles';
 
 import Folder from '@mui/icons-material/Folder';
+import { fetchProjects, FirestoreProject } from '../data/Firestore';
 
 const Projects = () => {
+	const [projects, setProjects] = useState<FirestoreProject[]>([]);
+
+	useEffect(() => {
+		const fetch = async () => {
+			const projectData = await fetchProjects();
+			if (projectData) {
+				setProjects(projectData);
+			}
+		};
+		fetch();
+	}, []);
+	if (!projects) return;
 	return (
 		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
 			<Typography variant="h2" sx={textStyle}>
@@ -32,9 +45,9 @@ const Projects = () => {
 			<Divider sx={{ my: 4 }} />
 			<Paper elevation={1} sx={{ padding: '2em' }}>
 				<Grid container spacing={4} sx={projectsGrid}>
-					{PROJECTS.map(({ name, desc, url }) => (
-						<Grid container size={{ xs: 12, sm: 6, md: 4 }}>
-							<Project name={name} desc={desc} url={url}></Project>
+					{projects.map((proj) => (
+						<Grid container size={{ xs: 12, sm: 6, md: 4 }} key={`${proj.id}`}>
+							<Project proj={proj}></Project>
 						</Grid>
 					))}
 				</Grid>

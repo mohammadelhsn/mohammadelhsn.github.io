@@ -8,11 +8,11 @@ import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 
 // Data
 
-import type { Projects } from '../data/Data';
 import { iconStyles, textStyle } from '../data/Styles';
 import { Divider } from '@mui/material';
+import type { ProjectCardOpts } from '../data/Data';
 
-const Project = (opts: Projects) => {
+const Project = ({ proj }: ProjectCardOpts) => {
 	return (
 		<Paper
 			elevation={3}
@@ -26,18 +26,20 @@ const Project = (opts: Projects) => {
 		>
 			<Box sx={{ flexGrow: 1 }}>
 				<Typography variant="h5" sx={textStyle}>
-					<FolderOpenIcon fontSize='inherit' sx={iconStyles} />{opts.name}
+					<FolderOpenIcon fontSize='inherit' sx={iconStyles} />{proj.title}
 				</Typography>
 				<Divider sx={{ my: 2 }} />
 				<Typography variant="body2" sx={{ paddingTop: '0.9rem' }}>
-					{opts.desc}
+					{proj.description}
 				</Typography>
 			</Box>
+			<Box>
 
+			</Box>
 			<Box sx={{ mt: 'auto' }}>
 				<Button
 					component="a"
-					href={opts.url}
+					href={proj.liveDemo ? proj.liveDemo : proj.github ? proj.github : ''}
 					target="_blank"
 					rel="noopener noreferrer"
 					sx={{

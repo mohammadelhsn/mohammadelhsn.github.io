@@ -32,12 +32,10 @@ const Home = () => {
 				<Typography variant="h1" sx={homeTitle}>
 					Hi, I'm {NAME}
 				</Typography>
-
 				<Typography variant="h6" sx={homeText}>
 					Computer Science & Psychology student building modern, user-focused
 					web apps — passionate about tech & human understanding.
 				</Typography>
-
 				<Box sx={buttonWrapper}>
 					<Button
 						component={Link}

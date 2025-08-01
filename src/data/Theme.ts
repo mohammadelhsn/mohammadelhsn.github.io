@@ -1,13 +1,16 @@
 import { createTheme } from '@mui/material';
 
+const primary = '#6093EA';
+const secondary = '#9C27B0';
+
 export const lightTheme = createTheme({
 	palette: {
 		mode: 'light',
 		primary: {
-			main: '#6093EA',
+			main: primary,
 		},
 		secondary: {
-			main: '#9C27B0',
+			main: secondary,
 		},
 	},
 });
@@ -16,10 +19,10 @@ export const darkTheme = createTheme({
 	palette: {
 		mode: 'dark',
 		primary: {
-			main: '#6093EA',
+			main: primary,
 		},
 		secondary: {
-			main: '#9C27B0',
+			main: secondary,
 		},
 	},
 });

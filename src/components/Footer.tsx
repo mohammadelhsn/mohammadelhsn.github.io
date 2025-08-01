@@ -30,7 +30,6 @@ const Footer = () => {
 				>
 					<Email />
 				</IconButton>
-
 				<IconButton
 					href='https://github.com/mohammadelhsn'
 					target="_blank"
