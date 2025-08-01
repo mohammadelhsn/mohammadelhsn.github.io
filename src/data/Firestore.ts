@@ -2,9 +2,10 @@ import { initializeApp } from 'firebase/app';
 import {
 	collection,
 	getDocs,
-	getFirestore,
+	initializeFirestore,
+	persistentLocalCache,
 	type Timestamp,
-} from 'firebase/firestore/lite';
+} from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDv0F2sY9KGLiocDR5uj_krQ8Xz_Cdge6A',
@@ -18,8 +19,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-/** @description The firebase instance for this project (LITE) */
-export const db = getFirestore(app);
+/** @description The firebase instance for this project */
+export const db = initializeFirestore(app, {
+	localCache: persistentLocalCache(),
+});
 
 type FirestoreProj = {
 	/** @description The ID of the project */
