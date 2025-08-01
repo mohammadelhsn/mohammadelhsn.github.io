@@ -10,7 +10,6 @@ This is my personal portfolio website built with React and hosted on GitHub Page
 ![React](https://go-skill-icons.vercel.app/api/icons?i=react)
 ![TypeScript](https://go-skill-icons.vercel.app/api/icons?i=ts)
 ![Material UI](https://go-skill-icons.vercel.app/api/icons?i=mui)
-![HTML](https://go-skill-icons.vercel.app/api/icons?i=html&title)
 ![Firebase](https://go-skill-icons.vercel.app/api/icons?i=firebase)
 
 ## Features
