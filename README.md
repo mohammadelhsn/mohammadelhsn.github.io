@@ -4,6 +4,7 @@
 
 This is my personal portfolio website built with React and hosted on GitHub Pages.
 
+
 ## Live Demo
 
 [https://mohammadelhsn.github.io](https://mohammadelhsn.github.io)
@@ -22,3 +23,7 @@ This is my personal portfolio website built with React and hosted on GitHub Page
 - Responsive design
 - Projects showcase
 - Contact form
+
+## Status
+
+> 🔧 **Status: Actively Maintained** — this project is considered feature-complete but continues to receive updates & improvements.
