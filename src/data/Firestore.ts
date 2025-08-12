@@ -4,6 +4,7 @@ import {
 	getDocs,
 	initializeFirestore,
 	persistentLocalCache,
+	persistentMultipleTabManager,
 	type Timestamp,
 } from 'firebase/firestore';
 
@@ -21,7 +22,9 @@ const app = initializeApp(firebaseConfig);
 
 /** @description The firebase instance for this project */
 export const db = initializeFirestore(app, {
-	localCache: persistentLocalCache(),
+	localCache: persistentLocalCache({
+		tabManager: persistentMultipleTabManager(),
+	}),
 });
 
 type FirestoreProj = {
@@ -101,9 +104,14 @@ export async function fetchProjects() {
 		const col = collection(db, 'projects');
 		const snapshot = await getDocs(col);
 
-		return snapshot.docs.map(
-			(doc) => new FirestoreProject({ ...(doc.data() as FirestoreProj) })
-		);
+		return snapshot.docs
+			.map((doc) => new FirestoreProject({ ...(doc.data() as FirestoreProj) }))
+			.sort((a, b) => {
+				console.log(a.createdAt.toMillis());
+				const aTime = a.createdAt?.toMillis?.() ?? 0;
+				const bTime = b.createdAt?.toMillis?.() ?? 0;
+				return bTime - aTime; // newest first
+			});
 	} catch (error) {
 		console.error(error);
 		return null;
