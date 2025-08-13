@@ -1,62 +1,106 @@
 // MUI Imports
 
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 
 // Data
 
 import { iconStyles, textStyle } from '../data/Styles';
-import { Divider } from '@mui/material';
+import { Divider, useTheme } from '@mui/material';
 import type { ProjectCardOpts } from '../data/Data';
 
 const Project = ({ proj }: ProjectCardOpts) => {
+	const { palette } = useTheme();
 	return (
-		<Paper
-			elevation={3}
-			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'space-between',
-				width: '100%',
-				p: 2,
-			}}
-		>
-			<Box sx={{ flexGrow: 1 }}>
-				<Typography variant="h5" sx={textStyle}>
-					<FolderOpenIcon fontSize='inherit' sx={iconStyles} />{proj.title}
-				</Typography>
-				<Divider sx={{ my: 2 }} />
-				<Typography variant="body2" sx={{ paddingTop: '0.9rem' }}>
-					{proj.description}
-				</Typography>
-			</Box>
-			<Box>
+		<Card elevation={3} sx={{ width: '100%' }}>
+			{/* Header with title */}
+			<CardHeader
+				title={
+					<Typography variant="h5" sx={textStyle}>
+						<FolderOpenIcon fontSize="inherit" sx={iconStyles} /> {proj.title}
+					</Typography>
+				}
+			/>
 
-			</Box>
-			<Box sx={{ mt: 'auto' }}>
-				<Button
-					component="a"
-					href={proj.liveDemo ? proj.liveDemo : proj.github ? proj.github : ''}
-					target="_blank"
-					rel="noopener noreferrer"
-					sx={{
-						color: 'primary.main',
-						textTransform: 'none',
-						fontWeight: 'bold',
-						paddingLeft: '0.4rem',
-						display: 'inline-block',
-						marginTop: '1rem',
-						textDecoration: 'none',
-					}}
-				>
-					View Project →
-				</Button>
-			</Box>
-		</Paper>
+			{/* Content */}
+			<CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+				{/* Description */}
+				<Divider>
+					<Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
+						Description
+					</Typography>
+				</Divider>
+				<Typography variant="body2">{proj.description}</Typography>
 
+				{/* Tech Stack */}
+				<Divider>
+					<Typography variant="subtitle1" sx={{ fontWeight: 'bold', mt: 1 }}>
+						Tech Stack
+					</Typography>
+				</Divider>
+				<Grid container spacing={2} mt={1} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+					{proj.techStack.map((stack, index) => (
+						<Grid key={`${stack}-${index}`}> {/* 3 per row */}
+							<img
+								src={`https://go-skill-icons.vercel.app/api/icons?i=${stack.toLowerCase()}&theme=${palette.mode}&titles=true`}
+								alt={stack}
+								style={{ width: '100%', height: 'auto' }}
+							/>
+						</Grid>
+					))}
+				</Grid>
+				<Divider />
+			</CardContent>
+
+			{/* Actions / Button */}
+			<CardActions>
+				{proj.github && (
+					<Button
+						href={proj.github}
+						sx={{
+							color: 'primary.main',
+							textTransform: 'none',
+							fontWeight: 'bold',
+							paddingLeft: '0.4rem',
+						}}
+					>
+						View Github →
+					</Button>
+				)}
+				{proj.liveDemo && (
+					<Button
+						href={proj.liveDemo}
+						sx={{
+							color: 'primary.main',
+							textTransform: 'none',
+							fontWeight: 'bold',
+							paddingLeft: '0.4rem',
+						}}
+					>
+						View Project →
+					</Button>
+				)}
+				{!proj.github && !proj.liveDemo && (
+					<Button
+						href='#'
+						sx={{
+							color: 'primary.main',
+							textTransform: 'none',
+							fontWeight: 'bold',
+							paddingLeft: '0.4rem',
+						}}
+					>
+						Link WIP
+					</Button>
+				)}
+			</CardActions>
+		</Card>
 	);
 };
 

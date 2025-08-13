@@ -1,6 +1,6 @@
 // React
 
-import React from 'react';
+import { type FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // Material UI 
@@ -17,13 +17,8 @@ import { styled, useTheme } from '@mui/material/styles';
 
 import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeIcon from '@mui/icons-material/LightModeOutlined';
-
-// Interfaces
-
-interface HeaderProps {
-	mode: 'light' | 'dark';
-	toggleColorMode: () => void;
-}
+import type { HeaderProps } from '../data/Data';
+import { divCenter } from '../data/Styles';
 
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
 	color: 'inherit',
@@ -35,7 +30,7 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
 	},
 }));
 
-const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
+const Header: FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 	const theme = useTheme();
 	return (
 		<AppBar
@@ -50,10 +45,8 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 					width: 48,
 					height: 48,
 					borderRadius: '50%',
-					backgroundColor: 'primary.main', // or any color like '#00bcd4'
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
+					backgroundColor: ({ palette }) => palette.primary.main,
+					...divCenter,
 					overflow: 'hidden', // keeps the image inside the circle
 					mr: 1
 				}}>
@@ -96,14 +89,14 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 						p: 0.75,
 						transition: 'all 0.3s ease',
 						'&:hover': {
-							backgroundColor: theme.palette.action.hover,
+							backgroundColor: ({ palette }) => palette.action.hover,
 						}
 					}}
 				>
 					{mode === 'light' ? (
-						<DarkModeIcon sx={{ color: theme.palette.primary.main }} />
+						<DarkModeIcon sx={{ color: ({ palette }) => palette.primary.main }} />
 					) : (
-						<LightModeIcon sx={{ color: theme.palette.primary.main }} />
+						<LightModeIcon sx={{ color: ({ palette }) => palette.primary.main }} />
 					)}
 				</IconButton>
 

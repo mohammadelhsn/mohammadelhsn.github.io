@@ -20,7 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-/** @description The firebase instance for this project */
+/** The firebase instance for this project */
 export const db = initializeFirestore(app, {
 	localCache: persistentLocalCache({
 		tabManager: persistentMultipleTabManager(),
@@ -28,60 +28,60 @@ export const db = initializeFirestore(app, {
 });
 
 type FirestoreProj = {
-	/** @description The ID of the project */
+	/** The ID of the project */
 	id: string;
-	/** @description The title of the project */
+	/** The title of the project */
 	title: string;
-	/** @description The description of the project */
+	/** The description of the project */
 	description: string;
-	/** @description The stack that the project uses */
+	/** The stack that the project uses */
 	techStack: string[];
-	/** @description The category in which the project belongs to */
+	/** The category in which the project belongs to */
 	category: string;
-	/** @description The GitHub Repo for the project */
+	/** The GitHub Repo for the project */
 	github?: string;
-	/** @description The live project link */
+	/** The live project link */
 	liveDemo?: string;
-	/** @description The cover image for the card */
+	/** The cover image for the card */
 	coverImage: string;
-	/** @description Array of images to add to the project page */
+	/** Array of images to add to the project page */
 	images?: string[];
-	/** @description Timestamp of when the project was created */
+	/** Timestamp of when the project was created */
 	createdAt: Timestamp;
-	/** @description Timestamp of when the project was last updated */
+	/** Timestamp of when the project was last updated */
 	updatedAt?: Timestamp;
-	/** @description Array of strings for the tags for the project */
+	/** Array of strings for the tags for the project */
 	tags?: string[];
-	/** @description The longer description of the project */
+	/** The longer description of the project */
 	longDescription?: string;
 };
 
 export class FirestoreProject {
-	/** @description The ID of the project */
+	/** The ID of the project */
 	id: string;
-	/** @description The title of the project */
+	/** The title of the project */
 	title: string;
-	/** @description The description of the project */
+	/** The description of the project */
 	description: string;
-	/** @description The stack that the project uses */
+	/** The stack that the project uses */
 	techStack: string[];
-	/** @description The category in which the project belongs to */
+	/** The category in which the project belongs to */
 	category: string;
-	/** @description The GitHub Repo for the project */
+	/** The GitHub Repo for the project */
 	github?: string;
-	/** @description The live project link */
+	/** The live project link */
 	liveDemo?: string;
-	/** @description The cover image for the card */
+	/** The cover image for the card */
 	coverImage: string;
-	/** @description Array of images to add to the project page */
+	/** Array of images to add to the project page */
 	images?: string[];
-	/** @description Timestamp of when the project was created */
+	/** Timestamp of when the project was created */
 	createdAt: Timestamp;
-	/** @description Timestamp of when the project was last updated */
+	/** Timestamp of when the project was last updated */
 	updatedAt?: Timestamp;
-	/** @description Array of strings for the tags for the project */
+	/** Array of strings for the tags for the project */
 	tags?: string[];
-	/** @description The longer description of the project */
+	/** The longer description of the project */
 	longDescription?: string;
 	constructor(obj: FirestoreProj) {
 		this.id = obj.id;

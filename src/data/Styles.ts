@@ -124,7 +124,7 @@ export const projectsHeader: SxProps = {
 	marginBottom: '2rem',
 };
 
-export const projectsGrid = {
+export const projectsGrid: SxProps = {
 	gap: '2rem',
 	height: '100%',
 	gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -137,7 +137,13 @@ export const textStyle: SxProps = {
 	overflowWrap: 'break-word',
 };
 
-export const iconStyles = {
+export const iconStyles: SxProps = {
 	color: 'primary.main',
 	mr: 1.5,
+};
+
+export const divCenter: SxProps = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
 };
