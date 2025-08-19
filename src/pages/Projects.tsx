@@ -38,7 +38,7 @@ const Projects = () => {
 	}, []);
 	if (!projects) return;
 	return (
-		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
+		<Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
 			<Typography variant="h2" sx={textStyle}>
 				<Folder fontSize='inherit' sx={iconStyles} />My Projects
 			</Typography>

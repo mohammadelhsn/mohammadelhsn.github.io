@@ -107,10 +107,9 @@ export async function fetchProjects() {
 		return snapshot.docs
 			.map((doc) => new FirestoreProject({ ...(doc.data() as FirestoreProj) }))
 			.sort((a, b) => {
-				console.log(a.createdAt.toMillis());
 				const aTime = a.createdAt?.toMillis?.() ?? 0;
 				const bTime = b.createdAt?.toMillis?.() ?? 0;
-				return bTime - aTime; // newest first
+				return aTime - bTime; // oldest first
 			});
 	} catch (error) {
 		console.error(error);
