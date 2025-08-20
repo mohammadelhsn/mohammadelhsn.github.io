@@ -1,16 +1,19 @@
-// MUI Imports
+/** MUI COMPONENTS */
 
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import FolderOpenIcon from '@mui/icons-material/FolderOpen';
-import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 
-// Data
+/** MUI ICONS */
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 
+/** CUSTOM COMPONENTS */
+import ProjectButton from './ProjectButton';
+
+/** DATA & TYPES */
 import { iconStyles, textStyle } from '../data/Styles';
 import type { ProjectCardOpts } from '../data/Data';
 
@@ -38,56 +41,16 @@ const Project = ({ proj }: ProjectCardOpts) => {
 			{/* Actions / Button */}
 			<CardActions>
 				{proj.projectPage && (
-					<Button
-						href={proj.projectPage}
-						sx={{
-							color: 'primary.main',
-							textTransform: 'none',
-							fontWeight: 'bold',
-							paddingLeft: '0.4rem',
-						}}
-					>
-						View Project Page →
-					</Button>
+					<ProjectButton href={proj.projectPage} text={`View Project Page →`} />
 				)}
 				{!proj.projectPage && proj.github && (
-					<Button
-						href={proj.github}
-						sx={{
-							color: 'primary.main',
-							textTransform: 'none',
-							fontWeight: 'bold',
-							paddingLeft: '0.4rem',
-						}}
-					>
-						View GitHub →
-					</Button>
+					<ProjectButton href={proj.github} text={`View GitHub →`} />
 				)}
 				{!proj.projectPage && proj.liveDemo && (
-					<Button
-						href={proj.liveDemo}
-						sx={{
-							color: 'primary.main',
-							textTransform: 'none',
-							fontWeight: 'bold',
-							paddingLeft: '0.4rem',
-						}}
-					>
-						View Project →
-					</Button>
+					<ProjectButton href={proj.liveDemo} text={'View Project →'} />
 				)}
 				{!proj.projectPage && !proj.github && !proj.liveDemo && (
-					<Button
-						href='#'
-						sx={{
-							color: 'primary.main',
-							textTransform: 'none',
-							fontWeight: 'bold',
-							paddingLeft: '0.4rem',
-						}}
-					>
-						Link WIP
-					</Button>
+					<ProjectButton href={`#`} text={'Link WIP'} />
 				)}
 			</CardActions>
 		</Card>

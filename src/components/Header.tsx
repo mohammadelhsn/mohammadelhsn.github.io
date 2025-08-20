@@ -1,17 +1,13 @@
-// React
-
+/** REACT */
 import { type FC } from 'react';
-import { NavLink } from 'react-router-dom';
 
-// Material UI 
-
-import Button from '@mui/material/Button';
+/** MUI COMPONENTS */
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
-import { styled, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 
 // Icons 
 
@@ -19,16 +15,8 @@ import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeIcon from '@mui/icons-material/LightModeOutlined';
 import type { HeaderProps } from '../data/Data';
 import { divCenter } from '../data/Styles';
+import HeaderButton from './HeaderButton';
 
-const StyledNavLink = styled(NavLink)(({ theme }) => ({
-	color: 'inherit',
-	textDecoration: 'none',
-	marginRight: theme.spacing(2),
-	fontWeight: 'normal',
-	'&.active': {
-		fontWeight: 'bold',
-	},
-}));
 
 const Header: FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 	const theme = useTheme();
@@ -61,22 +49,8 @@ const Header: FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 						}}
 					/>
 				</Box>
-				<Button
-					color="inherit"
-					component={StyledNavLink}
-					to="/"
-					end
-				>
-					Home
-				</Button>
-				<Button
-					color="inherit"
-					component={StyledNavLink}
-					to="/projects"
-
-				>
-					Projects
-				</Button>
+				<HeaderButton to={"/"} text={'Home'} end={true} />
+				<HeaderButton to={"/projects"} text={'Projects'} />
 				<Typography sx={{
 					flexGrow: 1,
 				}} />

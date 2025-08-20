@@ -1,7 +1,6 @@
 /** ======= CUSTOM COMPONENTS ======= */
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 
 /** ======= ICONS ======= */
 import LinkedIn from '@mui/icons-material/LinkedIn';
@@ -9,7 +8,15 @@ import GitHub from '@mui/icons-material/GitHub';
 import Email from '@mui/icons-material/Email';
 
 /** ======= DATA ======= */
-import { EMAIL, GITHUB, LINKEDIN } from '../data/Data';
+import { NAME, EMAIL, GITHUB, LINKEDIN } from '../data/Data';
+import FooterButton from './FooterButton';
+import type { FooterProps } from '../data/Types';
+
+const buttons: FooterProps[] = [
+	{ title: 'Email', type: 'email', ariaLabel: 'Send Email', icon: Email, href: `mailto:${EMAIL}` },
+	{ title: 'GitHub', type: 'link', href: `${GITHUB}`, icon: GitHub },
+	{ title: 'LinkedIn', type: 'link', href: `${LINKEDIN}`, icon: LinkedIn }
+];
 
 /** The Footer Component for this project */
 const Footer = () => {
@@ -20,39 +27,14 @@ const Footer = () => {
 			color: ({ palette }) => palette.text.secondary
 		}}>
 			<Box display="flex" justifyContent="center" gap={3}>
-				<IconButton
-					component="a"
-					href={`mailto:${EMAIL}`}
-					aria-label="Send Email"
-					title="Email"
-					color="primary"
-				>
-					<Email />
-				</IconButton>
-				<IconButton
-					href={GITHUB}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="GitHub"
-					title="GitHub"
-					color="primary"
-					component='a'>
-					<GitHub />
-				</IconButton>
-				<IconButton
-					component="a"
-					href={LINKEDIN}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="LinkedIn"
-					title="LinkedIn"
-					color="primary"
-				>
-					<LinkedIn />
-				</IconButton>
+				{buttons.map((el, index) => {
+					return (
+						<FooterButton {...el} key={`${el.title}-${index}`} />
+					);
+				})}
 			</Box>
 			<Typography variant="body2" mt={3} color="textSecondary">
-				© 2025 Mohammad El-Hassan. All rights reserved.
+				© 2025 {NAME}. All rights reserved.
 			</Typography>
 		</Box>
 	);
