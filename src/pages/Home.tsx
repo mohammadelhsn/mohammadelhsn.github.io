@@ -1,19 +1,13 @@
-// React
-
+/** ======= REACT ROUTER ======= */
 import { Link } from 'react-router-dom';
 
-// MUI Components
-
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+/** ======= MUI COMPONENTS ======= */
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-// Data
-
+/** ======= DATA & STYLES */
 import { NAME, EMAIL } from '../data/Data';
-
-// Styles
-
 import {
 	buttonStyle,
 	buttonWrapper,
@@ -23,8 +17,7 @@ import {
 	homeTitle,
 } from '../data/Styles.ts';
 
-// Home
-
+/** Home Page */
 const Home = () => {
 	return (
 		<Box sx={homeBoxPrimary}>

@@ -1,9 +1,7 @@
 // React
-
 import { useEffect, useState } from 'react';
 
 // MUI Components
-
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -11,7 +9,6 @@ import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 
 // Custom Components
-
 import Project from '../components/Project';
 
 // Styles
