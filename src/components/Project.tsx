@@ -49,7 +49,10 @@ const Project = ({ proj }: ProjectCardOpts) => {
 				{!proj.projectPage && proj.liveDemo && (
 					<ProjectButton href={proj.liveDemo} text={'View Project →'} />
 				)}
-				{!proj.projectPage && !proj.github && !proj.liveDemo && (
+				{!proj.projectPage && proj.docs && (
+					<ProjectButton href={proj.docs} text={'View Docs →'} />
+				)}
+				{!proj.projectPage && !proj.github && !proj.liveDemo && !proj.docs && (
 					<ProjectButton href={`#`} text={'Link WIP'} />
 				)}
 			</CardActions>
