@@ -1,11 +1,6 @@
 import type { SxProps, Theme } from '@mui/material';
 import Button from '@mui/material/Button';
-
-export interface ProjectButtonProps {
-    href: string;
-    text: string;
-    sx?: SxProps<Theme>;
-}
+import type { ProjectButtonProps } from '../data/Types';
 
 const ProjectButton = (props: ProjectButtonProps) => {
     const defaultStyles: SxProps<Theme> = {

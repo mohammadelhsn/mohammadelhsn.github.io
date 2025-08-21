@@ -1,5 +1,3 @@
-import type { FirestoreProject } from './Firestore';
-
 /** My name */
 export const NAME = 'Mohammad El-Hassan';
 
@@ -23,12 +21,3 @@ export const EMAIL = `${USERNAME}@gmail.com`;
 
 /** My Base URL for my website */
 export const baseURL = `https://${USERNAME}.github.io`;
-
-export type ProjectCardOpts = {
-	proj: FirestoreProject;
-};
-
-export interface HeaderProps {
-	mode: 'light' | 'dark';
-	toggleColorMode: () => void;
-}

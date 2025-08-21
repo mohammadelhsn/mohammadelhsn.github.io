@@ -15,7 +15,7 @@ import ProjectButton from './ProjectButton';
 
 /** DATA & TYPES */
 import { iconStyles, textStyle } from '../data/Styles';
-import type { ProjectCardOpts } from '../data/Data';
+import type { ProjectCardOpts } from '../data/Types';
 
 const Project = ({ proj }: ProjectCardOpts) => {
 	return (

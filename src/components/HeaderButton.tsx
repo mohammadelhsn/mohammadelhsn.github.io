@@ -1,20 +1,10 @@
-/** REACT ROUTER DOM */
+/** ======= REACT ROUTER DOM ======= */
 import { NavLink } from 'react-router-dom';
 
-/** MUI COMPONENTS */
+/** ======= MUI COMPONENTS ======= */
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material';
-
-export interface HeaderButtonProps {
-    /** Link to where */
-    to: string;
-    /** Text to display for the button */
-    text: string;
-    /** Button.end */
-    end?: boolean;
-    /** The colour of the button */
-    color?: "inherit" | "primary" | "error" | "secondary" | "success" | "info" | "warning";
-}
+import type { HeaderButtonProps } from '../data/Types';
 
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
     color: 'inherit',

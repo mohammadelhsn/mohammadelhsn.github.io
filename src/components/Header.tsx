@@ -1,7 +1,7 @@
-/** REACT */
+/** ======= REACT ======= */
 import { type FC } from 'react';
 
-/** MUI COMPONENTS */
+/** ======= MUI COMPONENTS ======= */
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -9,13 +9,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-// Icons 
-
+/** ======= MUI ICONS ======= */
 import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeIcon from '@mui/icons-material/LightModeOutlined';
-import type { HeaderProps } from '../data/Data';
-import { divCenter } from '../data/Styles';
+
+/** ======= CUSTOM COMPONENTS ======= */
 import HeaderButton from './HeaderButton';
+
+/** ======= TYPES & STYLES ======= */
+import type { HeaderProps } from '../data/Types';
+import { divCenter } from '../data/Styles';
 
 
 const Header: FC<HeaderProps> = ({ mode, toggleColorMode }) => {

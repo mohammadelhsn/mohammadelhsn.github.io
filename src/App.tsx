@@ -1,20 +1,20 @@
-// React
+/** ======= REACT & REACT ROUTER ======= */
 import { useMemo, useState } from 'react';
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
 
-// MUI Components
+/** ======= MUI COMPONENTS ======= */
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 
-// Custom Components
+/** ======= CUSTOM COMPONENTS ======= */
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// Pages
+/** ======= PAGES ======= */
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 
-// Styles
+/** ======= STYLES ======= */
 import './App.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -31,7 +31,7 @@ const App = () => {
 	const toggleColorMode = () => {
 		setMode((prevMode) => {
 			const nextMode = prevMode === 'light' ? 'dark' : 'light';
-			localStorage.setItem('colorMode', nextMode); // Save preference
+			localStorage.setItem('colorMode', nextMode);
 			return nextMode;
 		});
 	};
@@ -47,6 +47,12 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/projects" element={<Projects />} />
+					<Route path="/projects/CP104-Docs" element={<Navigate to={"/CP104-Docs"} />} />
+					<Route path="/projects/CP164-Docs" element={<Navigate to={"/CP164-Docs"} />} />
+					<Route path="/projects/CP213-Docs" element={<Navigate to={"/CP213-Docs"} />} />
+					<Route path="/projects/CP216-Docs" element={<Navigate to={"/CP216-Docs"} />} />
+					<Route path="/projects/CP264-Docs" element={<Navigate to={"/CP264-Docs"} />} />
+					<Route path="*" element={<Navigate to="/" replace />} />
 				</Routes>
 				<Footer />
 			</HashRouter>

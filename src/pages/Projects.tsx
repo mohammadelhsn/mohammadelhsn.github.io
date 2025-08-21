@@ -1,26 +1,28 @@
-// React
+/** ======= REACT ======= */
 import { useEffect, useState } from 'react';
 
-// MUI Components
-import Typography from '@mui/material/Typography';
+/** ======= MUI COMPONENTS ======= */
+import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
-// Custom Components
+/** ======= CUSTOM COMPONENTS ======= */
 import Project from '../components/Project';
 
-// Styles
+/** ======= MUI ICONS ======= */
+import Folder from '@mui/icons-material/Folder';
+
+/** ======= STYLES & DATA ======= */
 import {
 	projectsGrid,
 	textStyle,
 	iconStyles
 } from '../data/Styles';
-
-import Folder from '@mui/icons-material/Folder';
 import { fetchProjects, FirestoreProject } from '../data/Firestore';
 
+/** Projects Page */
 const Projects = () => {
 	const [projects, setProjects] = useState<FirestoreProject[]>([]);
 
