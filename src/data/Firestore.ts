@@ -1,5 +1,6 @@
 /** ======= FIREBASE IMPORTS ======= */
 import { initializeApp } from 'firebase/app';
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 import {
 	collection,
 	getDocs,
@@ -11,13 +12,13 @@ import {
 
 /** Firebase Config for this project */
 const firebaseConfig = {
-	apiKey: 'AIzaSyDv0F2sY9KGLiocDR5uj_krQ8Xz_Cdge6A',
-	authDomain: 'mohammadelhsn-portfolio.firebaseapp.com',
-	projectId: 'mohammadelhsn-portfolio',
-	storageBucket: 'mohammadelhsn-portfolio.firebasestorage.app',
-	messagingSenderId: '136079182833',
-	appId: '1:136079182833:web:75e19513dd4d8f6eb95250',
-	measurementId: 'G-R3P0GR561V',
+	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+	authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+	projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+	storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+	appId: import.meta.env.VITE_FIREBASE_APP_ID,
+	measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 /** Initialize the Firebase App for the project */
@@ -28,6 +29,11 @@ export const db = initializeFirestore(app, {
 	localCache: persistentLocalCache({
 		tabManager: persistentMultipleTabManager(),
 	}),
+});
+
+export const appCheck = initializeAppCheck(app, {
+	provider: new ReCaptchaV3Provider(import.meta.env.VITE_FIREBASE_APP_CHECK),
+	isTokenAutoRefreshEnabled: true,
 });
 
 /** Represents the structured data for a project stored in Firestore. */
