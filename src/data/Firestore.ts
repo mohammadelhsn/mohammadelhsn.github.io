@@ -1,3 +1,4 @@
+/** ======= FIREBASE IMPORTS ======= */
 import { initializeApp } from 'firebase/app';
 import {
 	collection,
@@ -8,6 +9,7 @@ import {
 	type Timestamp,
 } from 'firebase/firestore';
 
+/** Firebase Config for this project */
 const firebaseConfig = {
 	apiKey: 'AIzaSyDv0F2sY9KGLiocDR5uj_krQ8Xz_Cdge6A',
 	authDomain: 'mohammadelhsn-portfolio.firebaseapp.com',
@@ -18,18 +20,17 @@ const firebaseConfig = {
 	measurementId: 'G-R3P0GR561V',
 };
 
+/** Initialize the Firebase App for the project */
 const app = initializeApp(firebaseConfig);
 
-/** The firebase instance for this project */
+/** The Firestore instance for this project */
 export const db = initializeFirestore(app, {
 	localCache: persistentLocalCache({
 		tabManager: persistentMultipleTabManager(),
 	}),
 });
 
-/**
- * Represents the structured data for a project stored in Firestore.
- */
+/** Represents the structured data for a project stored in Firestore. */
 export type FirestoreProj = {
 	/** The unique identifier for the project. */
 	id: string;

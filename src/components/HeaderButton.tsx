@@ -1,20 +1,9 @@
-/** ======= REACT ROUTER DOM ======= */
-import { NavLink } from 'react-router-dom';
-
 /** ======= MUI COMPONENTS ======= */
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material';
-import type { HeaderButtonProps } from '../data/Types';
 
-const StyledNavLink = styled(NavLink)(({ theme }) => ({
-    color: 'inherit',
-    textDecoration: 'none',
-    marginRight: theme.spacing(2),
-    fontWeight: 'normal',
-    '&.active': {
-        fontWeight: 'bold',
-    },
-}));
+/** ======= TYPES & STYLES ======= */
+import type { HeaderButtonProps } from '../data/Types';
+import { StyledNavLink } from '../data/Styles';
 
 const HeaderButton = (props: HeaderButtonProps) => {
     const color = props.color ? props.color : 'inherit';

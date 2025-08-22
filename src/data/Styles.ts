@@ -1,4 +1,5 @@
-import type { SxProps } from '@mui/material';
+import { styled, type SxProps } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export const buttonStyle: SxProps = {
 	px: 5,
@@ -147,3 +148,14 @@ export const divCenter: SxProps = {
 	alignItems: 'center',
 	justifyContent: 'center',
 };
+
+
+export const StyledNavLink = styled(NavLink)(({ theme }) => ({
+    color: 'inherit',
+    textDecoration: 'none',
+    marginRight: theme.spacing(2),
+    fontWeight: 'normal',
+    '&.active': {
+        fontWeight: 'bold',
+    },
+}));

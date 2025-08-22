@@ -1,3 +1,8 @@
+import Email from '@mui/icons-material/Email';
+import type { FooterProps } from './Types';
+import GitHub from '@mui/icons-material/GitHub';
+import LinkedIn from '@mui/icons-material/LinkedIn';
+
 /** My name */
 export const NAME = 'Mohammad El-Hassan';
 
@@ -21,3 +26,16 @@ export const EMAIL = `${USERNAME}@gmail.com`;
 
 /** My Base URL for my website */
 export const baseURL = `https://${USERNAME}.github.io`;
+
+/** The buttons in the footer */
+export const footerButtons: FooterProps[] = [
+	{
+		title: 'Email',
+		type: 'email',
+		ariaLabel: 'Send Email',
+		icon: Email,
+		href: `mailto:${EMAIL}`,
+	},
+	{ title: 'GitHub', type: 'link', href: `${GITHUB}`, icon: GitHub },
+	{ title: 'LinkedIn', type: 'link', href: `${LINKEDIN}`, icon: LinkedIn },
+];

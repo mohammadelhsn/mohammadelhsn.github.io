@@ -1,7 +1,11 @@
-import type { SxProps, Theme } from '@mui/material';
+/** ======= MUI COMPONENTS ======= */
 import Button from '@mui/material/Button';
+
+/** ======= TYPES ======= */
+import type { SxProps, Theme } from '@mui/material';
 import type { ProjectButtonProps } from '../data/Types';
 
+/** Button for the Project Card */
 const ProjectButton = (props: ProjectButtonProps) => {
     const defaultStyles: SxProps<Theme> = {
         color: 'primary.main',

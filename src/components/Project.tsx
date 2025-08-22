@@ -1,5 +1,4 @@
-/** MUI COMPONENTS */
-
+/** ======= MUI COMPONENTS ======= */
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,16 +6,17 @@ import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
-/** MUI ICONS */
+/** ======= MUI ICONS ======= */
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 
-/** CUSTOM COMPONENTS */
+/** ======= CUSTOM COMPONENTS ======= */
 import ProjectButton from './ProjectButton';
 
-/** DATA & TYPES */
+/** ======= DATA & TYPES ======= */
 import { iconStyles, textStyle } from '../data/Styles';
 import type { ProjectCardOpts } from '../data/Types';
 
+/** Project Card for the project page */
 const Project = ({ proj }: ProjectCardOpts) => {
 	return (
 		<Card elevation={3} sx={{ width: '100%' }}>
