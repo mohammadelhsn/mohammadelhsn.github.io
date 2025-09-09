@@ -13,6 +13,12 @@ export const buttonStyle: SxProps = {
 	},
 };
 
+export const divCenter: SxProps = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
+};
+
 export const homeBoxPrimary: SxProps = {
 	height: '100vh',
 	width: '100%',
@@ -20,9 +26,7 @@ export const homeBoxPrimary: SxProps = {
 	backgroundSize: 'cover',
 	backgroundPosition: 'center',
 	position: 'relative',
-	display: 'flex',
-	justifyContent: 'center',
-	alignItems: 'center',
+	...divCenter,
 	color: '#fff',
 	textAlign: 'center',
 	px: 3,
@@ -143,19 +147,12 @@ export const iconStyles: SxProps = {
 	mr: 1.5,
 };
 
-export const divCenter: SxProps = {
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-};
-
-
 export const StyledNavLink = styled(NavLink)(({ theme }) => ({
-    color: 'inherit',
-    textDecoration: 'none',
-    marginRight: theme.spacing(2),
-    fontWeight: 'normal',
-    '&.active': {
-        fontWeight: 'bold',
-    },
+	color: 'inherit',
+	textDecoration: 'none',
+	marginRight: theme.spacing(2),
+	fontWeight: 'normal',
+	'&.active': {
+		fontWeight: 'bold',
+	},
 }));
